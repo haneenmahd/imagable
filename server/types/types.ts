@@ -10,6 +10,11 @@ interface Color {
     params: number[] | string[];
 }
 
+export interface ResizeOptions {
+    height: number;
+    width: number;
+}
+
 export interface OptimizeOptions {
     height: number;
     width: number;
