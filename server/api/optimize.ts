@@ -9,7 +9,7 @@ export default async function optimize(file: string, options: OptimizeOptions = 
     outputPath: `${process.cwd()}/optimized-output.png`
 }) {
     const image = await jimp.read(file)
-    image.resize(options.height, options.width)
+    image.resize(options.width, options.height)
     image.quality(options.quality)
     image.writeAsync(options.outputPath)
 }
