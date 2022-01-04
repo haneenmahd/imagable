@@ -1,7 +1,7 @@
 import jimp from 'jimp';
 
 export default async function pixelate(file: string, level: number) {
-    const image = await jimp.read(file);
+	const image = await jimp.read(file);
 
-    image.pixelate(level);
+	image.pixelate(level);
 }
