@@ -33,11 +33,8 @@ const upload = multer({ storage: storage });
 // use /uploads to server the images within the response
 app.use('/uploads', express.static('uploads'));
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-app.post('/api/upload', upload.single('image-file'), (req, res, next) => {
+app.post('/api/upload', upload.single('image-file'), (req, res) => {
 	const url = `${req.protocol}://${req.get('host')}`;
-
-	console.log(url);
 	// req.file is the `profile-file` file
 	// req.body will hold the text fields, if there were any
 	console.log(JSON.stringify(req.file));
