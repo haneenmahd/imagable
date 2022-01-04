@@ -9,4 +9,12 @@ $secondary-accent-color: #D3DEDC;
 $ui-text-selection-color: #aec3d65d;
 
 // UI SPACING VARIABLES
-$main-app-padding: 20px 30px;
+@mixin main-app-padding {
+    @media screen and (min-width: 800px) {
+        padding: 50px 80px;
+    }
+
+    @media screen and (max-width: 600px) {
+        padding: 20px 30px;
+    }
+};

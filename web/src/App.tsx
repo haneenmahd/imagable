@@ -1,12 +1,17 @@
-import React from 'react';
-import logo from './assets/svg/logo.svg';
-import './App.scss';
+import React from "react";
+// NOTE: fix this after basic ui implementation import logo from "./assets/png/logo.png";
+import "./App.scss";
 
 function App() {
   return (
     <div className="App">
-      <img src={logo} className="App-logo" alt="logo" />
-      <h1>Imagable</h1>
+      <div className="main-header">
+        {/**NOTE: fix this after basic ui implementation <img src={logo} alt="Imagable Logo" /> */}
+        <h1>Imagable</h1>
+        <h3>
+          Create, Edit and do <br />more with your images
+        </h3>
+      </div>
     </div>
   );
 }
