@@ -9,7 +9,8 @@
     "test": "node dist/index.js",
     "dev": "npm run build && npm run test",
     "lint": "eslint .",
-    "dev:node": "nodemon"
+    "dev:node": "nodemon",
+    "clean": "rm -rf dist"
   },
   "keywords": [],
   "author": "",

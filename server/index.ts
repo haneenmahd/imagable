@@ -1,16 +1,24 @@
-import express from "express";
+import express, { response } from "express";
+import fs from "fs";
 import multer from "multer";
-var port = 3000;
-
 import { fileURLToPath } from "url";
-import { dirname } from "path";
+import path, { dirname } from "path";
 
-export const __filename = fileURLToPath(import.meta.url);
-export const __dirname = dirname(__filename);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const port = process.env.PORT || 3000;
 
-var app = express();
+const app = express();
 
-var storage = multer.diskStorage({
+// after the server make sure we have /uploads folder to store upload data
+// return to main process without throwing errors
+if (fs.existsSync("uploads") !== true) {
+  fs.mkdir("uploads", (err) => {
+    if (err) return true;
+  });
+}
+
+const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "./uploads");
   },
@@ -18,43 +26,25 @@ var storage = multer.diskStorage({
     cb(null, file.originalname);
   },
 });
-var upload = multer({ storage: storage });
 
-/*
-app.use('/a',express.static('/b'));
-Above line would serve all files/folders inside of the 'b' directory
-And make them accessible through http://localhost:3000/a.
-*/
-app.use(express.static(__dirname + "/public"));
-app.use("/uploads", express.static("uploads"));
+const upload = multer({ storage: storage });
+
+// use /uploads to server the images within the response
+app.use("/uploads", express.static("uploads"))
 
 app.post(
-  "/profile-upload-single",
-  upload.single("profile-file"),
-  function (req, res, next) {
+  "/api/upload",
+  upload.single("image-file"),
+   (req, res, next) => {
+    const url = `${req.protocol}://${req.get("host")}`;
+
+    console.log(url)
     // req.file is the `profile-file` file
     // req.body will hold the text fields, if there were any
     console.log(JSON.stringify(req.file));
     var response = '<a href="/">Home</a><br>';
     response += "Files uploaded successfully.<br>";
-    response += `<img src="${req.file.path}" /><br>`;
-    return res.send(response);
-  }
-);
-
-app.post(
-  "/profile-upload-multiple",
-  upload.array("profile-files", 12),
-  function (req, res, next) {
-    // req.files is array of `profile-files` files
-    // req.body will contain the text fields, if there were any
-    console.log(JSON.stringify(req.file));
-    var response = '<a href="/">Home</a><br>';
-    response += "Files uploaded successfully.<br>";
-    for (var i = 0; i < req.files.length; i++) {
-      response += `<img src="${req.files[i].path}" /><br>`;
-    }
-
+    response += `<img src="${url}/${req.file.path}" /><br>`;
     return res.send(response);
   }
 );
