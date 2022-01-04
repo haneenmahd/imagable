@@ -1,6 +1,6 @@
 import Jimp from 'jimp';
 import jimp from 'jimp';
-import { OptimizeOptions } from '../types/types';
+import { OptimizeOptions } from '../../types/types';
 
 export default async function optimize(
 	file: string,

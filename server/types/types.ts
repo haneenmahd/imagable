@@ -1,5 +1,3 @@
-import { AUTO } from 'jimp';
-
 export interface BlitCoordinates {
 	x: number;
 	y: number;
@@ -20,6 +18,11 @@ export interface OptimizeOptions {
 	width: number;
 	quality: number;
 	outputPath: string;
+}
+
+export interface ScaleOptions {
+	height: number;
+	width: number;
 }
 
 export type ColorOptions = Color[];

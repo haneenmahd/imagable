@@ -1,5 +1,5 @@
 import jimp from 'jimp';
-import { ColorOptions } from '../types/types';
+import { ColorOptions } from '../../types/types';
 
 export default async function color(file: string, options: ColorOptions) {
 	const image = await jimp.read(file);

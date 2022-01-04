@@ -1,12 +1,11 @@
 import express from 'express';
 import fs from 'fs';
 import multer from 'multer';
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
+import path from 'path';
 
-const __filename = fileURLToPath(import.meta.url);
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const __dirname = dirname(__filename);
+import blur from './src/api/blur.js';
+
+const __dirname = process.cwd();
 const port = process.env.PORT || 3000;
 
 const app = express();
@@ -33,11 +32,8 @@ const upload = multer({ storage: storage });
 // use /uploads to server the images within the response
 app.use('/uploads', express.static('uploads'));
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-app.post('/api/upload', upload.single('image-file'), (req, res, next) => {
+app.post('/api/upload', upload.single('image-file'), (req, res) => {
 	const url = `${req.protocol}://${req.get('host')}`;
-
-	console.log(url);
 	// req.file is the `profile-file` file
 	// req.body will hold the text fields, if there were any
 	console.log(JSON.stringify(req.file));
@@ -45,6 +41,14 @@ app.post('/api/upload', upload.single('image-file'), (req, res, next) => {
 	response += 'Files uploaded successfully.<br>';
 	response += `<img src='${url}/${req.file.path}' /><br>`;
 	return res.send(response);
+});
+
+app.post('/api/blur', upload.single('image-file'), async (req, res) => {
+	const filePath = path.resolve(__dirname, 'uploads', req.file.filename);
+	// req.file is the `profile-file` file
+	// req.body will hold the text fields, if there were any
+	await blur(filePath, 2);
+	res.sendFile(filePath);
 });
 
 app.listen(port, () =>

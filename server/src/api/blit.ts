@@ -1,5 +1,5 @@
 import jimp from 'jimp';
-import { BlitCoordinates } from '../types/types';
+import { BlitCoordinates } from '../../types/types';
 
 export default async function blit(
 	file: string,
