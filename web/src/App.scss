@@ -1,3 +1,8 @@
+@import './styles/variables.scss';
+
 .App {
-  text-align: center;
+  margin: 0;
+  min-height: 100vh;
+  background-color: $secondary-accent-color;
+  padding: $main-app-padding;
 }
