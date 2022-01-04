@@ -1,7 +1,7 @@
-import jimp from 'jimp'
+import jimp from 'jimp';
 
 export default async function contrast(file: string, level: number) {
-    const image = await jimp.read(file)
+	const image = await jimp.read(file);
 
-    image.contrast(level)
+	image.contrast(level);
 }
