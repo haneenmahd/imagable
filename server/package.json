@@ -8,7 +8,8 @@
     "build": "tsc",
     "test": "node dist/index.js",
     "dev": "npm run build && npm run test",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "dev:node": "nodemon"
   },
   "keywords": [],
   "author": "",
