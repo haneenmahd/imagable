@@ -2,10 +2,14 @@ import React from "react";
 import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 
+// components
+import LocalLink from "./LocalLink";
+
 // NavContentIcons
 import NavContentToolsIcon from "../assets/svg/tools.svg";
 import NavContentCreateIcon from "../assets/svg/create.svg";
 import NavContentGitHubIcon from "../assets/svg/github.svg";
+import globals from "../globals";
 
 const NavMobileStyle = css`
     width: 75%
@@ -78,12 +82,14 @@ export default class NavBar extends React.Component {
                     </NavContent>
                 </Link>
 
-                <NavContent>
+                <LocalLink target="_blank" href={globals.githubUrl} noStyles={false}>
+                    <NavContent>
                     <img src={NavContentGitHubIcon} alt="NavBar Tools Object NavLink" />
                     <NavContentText>
                         GitHub
                     </NavContentText>
                 </NavContent>
+                </LocalLink>
             </NavBarComponent>
         );
     }
