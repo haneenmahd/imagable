@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { css } from "styled-components";
+import { Link } from "react-router-dom";
 
 // NavContentIcons
 import NavContentToolsIcon from "../assets/svg/tools.svg";
@@ -59,20 +60,23 @@ export default class NavBar extends React.Component {
     render() {
         return(
             <NavBarComponent>
+                <Link to="/tools">
+                    <NavContent>
+                        <img src={NavContentToolsIcon} alt="NavBar Tools Object NavLink" />
+                        <NavContentText>
+                            Tools
+                        </NavContentText>
+                    </NavContent>
+                </Link>
 
-                <NavContent>
-                    <img src={NavContentToolsIcon} alt="NavBar Tools Object NavLink" />
-                    <NavContentText>
-                        Tools
-                    </NavContentText>
-                </NavContent>
-
-                <NavContent>
-                    <img src={NavContentCreateIcon} alt="NavBar Tools Object NavLink" />
-                    <NavContentText>
-                        Create
-                    </NavContentText>
-                </NavContent>
+                <Link to="/create">
+                    <NavContent>
+                        <img src={NavContentCreateIcon} alt="NavBar Tools Object NavLink" />
+                        <NavContentText>
+                            Create
+                        </NavContentText>
+                    </NavContent>
+                </Link>
 
                 <NavContent>
                     <img src={NavContentGitHubIcon} alt="NavBar Tools Object NavLink" />
