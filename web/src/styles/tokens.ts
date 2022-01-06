@@ -10,19 +10,24 @@ DO NOT IMPLEMENT COMPONENTS HERE! JUST STYLES
 import { css } from "styled-components";
 
 const mainHeaderStyle = css`
+  font-size: 70px;
+
   @media screen and(max-width: 600px) {
     font-size: 300%;
   }
-
-  font-size: 70px;
 `;
 
 const secondaryHeaderStyle = css`
+  font-size: 39px;
+  
   @media screen and(max-width: 600px) {
-    font-size: 300%;
+    font-size: 180%;
   }
 
-  font-size: 70px;
+  // for really small devices
+  @media screen and (max-width: 350px) {
+    font-size: 150%;
+  }
 `;
 
 const Tokens = {
