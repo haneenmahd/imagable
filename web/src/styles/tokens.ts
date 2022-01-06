@@ -7,7 +7,7 @@ Implement common styles here!
 DO NOT IMPLEMENT COMPONENTS HERE! JUST STYLES
 */
 
-import { css, /* types for use with TokenStyleObject interface */ThemedCssFunction, DefaultTheme, FlattenSimpleInterpolation, StyledComponent } from "styled-components";
+import { css } from "styled-components";
 
 const mainHeaderStyle = css`
   @media screen and(max-width: 600px) {
@@ -25,13 +25,9 @@ const secondaryHeaderStyle = css`
   font-size: 70px;
 `;
 
-interface TokenStyleObject {
-  [styleName: string]: FlattenSimpleInterpolation  | ThemedCssFunction<DefaultTheme> | StyledComponent<any, any, {}, never>;
-}
-
-const Tokens: TokenStyleObject = {
-    'mainHeaderStyle': mainHeaderStyle,
-    'secondaryHeaderStyle': secondaryHeaderStyle
+const Tokens = {
+    mainHeaderStyle: mainHeaderStyle,
+    secondaryHeaderStyle: secondaryHeaderStyle
 };
 
 export default Tokens;
