@@ -1,5 +1,8 @@
 import styled from "styled-components";
 
+// Styled Component Tokens
+import Tokens from "../styles/tokens";
+
 const LayoutContainer = styled.main`
     width: 100vw;
     min-height: 100vh;
@@ -13,11 +16,11 @@ const LayoutImage = styled.img`
 `;
 
 const LayoutHeader = styled.h1`
-    @include main-header-font-size();
+    ${Tokens.mainHeaderStyle}
 `;
 
 const LayoutShortHeader = styled.h3`
-    @include secondary-header-font-size();
+    ${Tokens.secondaryHeaderStyle}
 `;
 
 const Layout = () => {
