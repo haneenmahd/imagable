@@ -10,7 +10,7 @@ const MainStyles = css`
 `;
 
 interface ButtonStylesProps {
-    theme: "main" | "secondary";
+    theme?: "main" | "secondary";
 }
 
 const ButtonStyle = styled.button<ButtonStylesProps>`
