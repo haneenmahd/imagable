@@ -28,22 +28,4 @@
   min-height: 100vh;
   background-color: $main-bg;
   @include main-app-padding;
-
-  div.main-header {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    
-    img {
-      height: 120px;
-    }
-
-    h1 {
-      @include main-header-font-size();
-    }
-
-    h3 {
-      @include secondary-header-font-size();
-    }
-  }
 }
