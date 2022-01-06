@@ -27,7 +27,7 @@ const ButtonIcon = styled.span`
     height: 20px; width: 20px;
     margin 0 5px;
 
-    & svg {
+    & svg, img {
         height: 20px; width: 20px;
     }
 `;
