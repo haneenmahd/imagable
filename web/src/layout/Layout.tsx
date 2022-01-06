@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Actions from "../components/ActionsContainer";
 
 // Styled Component Tokens
 import Tokens from "../styles/tokens";
@@ -35,6 +36,7 @@ const Layout = () => {
             <LayoutImage />
             <LayoutHeader>Imagable</LayoutHeader>
             <LayoutShortHeader>Create, Edit and do <br />more with your images</LayoutShortHeader>
+            <Actions />
         </LayoutContainer>
     );
 };
