@@ -4,12 +4,16 @@ Alternative to SCSS's variables.
 
 Implement common styles here!
 
+use different style file for styled for large use cases. 
+EG:- for a specific page or a group of pages.
+For common styles like dark-mode text color or button responsive size you can this tokens file
+
 DO NOT IMPLEMENT COMPONENTS HERE! JUST STYLES
 */
 
 import { css } from "styled-components";
 
-const mainHeaderStyle = css`
+const MainHeaderStyle = css`
   font-size: 70px;
 
   @media screen and(max-width: 600px) {
@@ -17,7 +21,7 @@ const mainHeaderStyle = css`
   }
 `;
 
-const secondaryHeaderStyle = css`
+const SecondaryHeaderStyle = css`
   font-size: 39px;
   
   @media screen and(max-width: 600px) {
@@ -31,8 +35,8 @@ const secondaryHeaderStyle = css`
 `;
 
 const Tokens = {
-    mainHeaderStyle: mainHeaderStyle,
-    secondaryHeaderStyle: secondaryHeaderStyle
+    MainHeaderStyle: MainHeaderStyle,
+    SecondaryHeaderStyle: SecondaryHeaderStyle
 };
 
 export default Tokens;
