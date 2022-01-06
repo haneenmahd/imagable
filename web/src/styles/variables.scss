@@ -12,8 +12,10 @@ $ui-text-selection-color: #aec3d65d;
 // UI SPACING VARIABLES
 @mixin main-app-padding {
     padding: 50px 80px;
+    padding-top: 0;
 
     @media screen and (max-width: 600px) {
         padding: 20px 30px;
+        padding-top: 0;
     }
 };
