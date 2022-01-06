@@ -17,11 +17,11 @@ const LayoutImage = styled.img`
 `;
 
 const LayoutHeader = styled.h1`
-    ${Tokens.mainHeaderStyle}
+    ${Tokens.MainHeaderStyle}
 `;
 
 const LayoutShortHeader = styled.h3`
-    ${Tokens.secondaryHeaderStyle}
+    ${Tokens.SecondaryHeaderStyle}
 `;
 
 const Layout = () => {
