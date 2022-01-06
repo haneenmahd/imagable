@@ -1,26 +1,5 @@
 @import './styles/variables.scss';
 
-@mixin main-header-font-size {
-  @media screen and(max-width: 600px) {
-    font-size: 300%;
-  }
-
-  font-size: 70px;
-};
-
-@mixin secondary-header-font-size {
-  @media screen and(max-width: 600px) {
-    font-size: 180%;
-  }
-
-  // for really small devices
-  @media screen and (max-width: 350px) {
-    font-size: 150%;
-  }
-
-  font-size: 39px;
-}
-
 .App {
   display: flex;
   align-items: center;
