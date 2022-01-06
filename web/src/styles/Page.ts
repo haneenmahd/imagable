@@ -1,6 +1,6 @@
-import { css } from "styled-components";
+import styled from "styled-components";
 
-const Page = css`
+const Page = styled.div`
   padding: 50px 80px;
 
   @media screen and (max-width: 600px) {
