@@ -3,10 +3,10 @@ import "./App.scss";
 import Layout from "./layout/Layout";
 
 /**
- * 
- * @returns 
+ * Main Render Component
+ * @returns {JSX.Element} returns the main rendering component
  */
-function App() {
+function App(): JSX.Element {
   return (
     <div className="App">
       <Layout />
