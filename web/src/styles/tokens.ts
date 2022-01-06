@@ -15,28 +15,36 @@ import { css } from "styled-components";
 
 const MainHeaderStyle = css`
   font-size: 70px;
+`;
 
-  @media screen and(max-width: 600px) {
+const MainHeaderStyleMobile = css`
+  @media screen and (max-width: 600px) {
     font-size: 300%;
   }
 `;
 
 const SecondaryHeaderStyle = css`
   font-size: 39px;
-  
-  @media screen and(max-width: 600px) {
+`;
+
+const SecondaryHeaderStyleMobile = css`
+  @media screen and (max-width: 600px) {
     font-size: 180%;
   }
+`;
 
-  // for really small devices
+const SecondaryHeaderStyleMobileSmall = css`
   @media screen and (max-width: 350px) {
     font-size: 150%;
   }
 `;
 
 const Tokens = {
-    MainHeaderStyle: MainHeaderStyle,
-    SecondaryHeaderStyle: SecondaryHeaderStyle
+    MainHeaderStyle,
+    MainHeaderStyleMobile,
+    SecondaryHeaderStyle,
+    SecondaryHeaderStyleMobile,
+    SecondaryHeaderStyleMobileSmall
 };
 
 export default Tokens;

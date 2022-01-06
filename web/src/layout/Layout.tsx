@@ -18,10 +18,15 @@ const LayoutImage = styled.img`
 
 const LayoutHeader = styled.h1`
     ${Tokens.MainHeaderStyle}
+
+    ${Tokens.MainHeaderStyleMobile}
 `;
 
 const LayoutShortHeader = styled.h3`
     ${Tokens.SecondaryHeaderStyle}
+    
+    ${Tokens.SecondaryHeaderStyleMobile}
+    ${Tokens.SecondaryHeaderStyleMobileSmall}
 `;
 
 const Layout = () => {
