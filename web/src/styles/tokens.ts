@@ -1,3 +1,12 @@
+/*
+Common Tokens for styled components.
+Alternative to SCSS's variables.
+
+Implement common styles here!
+
+DO NOT IMPLEMENT COMPONENTS HERE! JUST STYLES
+*/
+
 import { css, /* types for use with TokenStyleObject interface */ThemedCssFunction, DefaultTheme, FlattenSimpleInterpolation, StyledComponent } from "styled-components";
 
 const mainHeaderStyle = css`
