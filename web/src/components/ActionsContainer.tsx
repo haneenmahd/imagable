@@ -12,6 +12,12 @@ const ActionsContainer = styled.div`
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+    margin-top: 20px;
+
+    button {
+        margin: 0 10px;
+        margin-left: 0px;
+    }
 `;
 
 const PlusImage = () => <img src={PlusIcon} alt="Create icon" />;
