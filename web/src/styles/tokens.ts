@@ -39,12 +39,23 @@ const SecondaryHeaderStyleMobileSmall = css`
   }
 `;
 
+const themeColors = {
+  mainColor: "#7C99AC",
+  secondaryColor: "#92A9BD",
+  lightSecondaryColor: "#768DA1",
+  accentColor: "#FFEFEF",
+  lightAccent: "#AEC3D6",
+  secondaryAccentColor: "#D3DEDC",
+  uiTextSelectionColor: "#aec3d65d",
+};
+
 const Tokens = {
     MainHeaderStyle,
     MainHeaderStyleMobile,
     SecondaryHeaderStyle,
     SecondaryHeaderStyleMobile,
-    SecondaryHeaderStyleMobileSmall
+    SecondaryHeaderStyleMobileSmall,
+    themeColors
 };
 
 export default Tokens;
