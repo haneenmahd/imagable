@@ -1,7 +1,9 @@
 import styled, { css } from "styled-components";
+import Tokens from "./tokens";
 
 const DefaultStyles = css`
     background: #FFEFEF;
+    color: ${Tokens.themeColors.lightSecondaryColor};
 
     &:hover {
       background: #e6d2d2;
