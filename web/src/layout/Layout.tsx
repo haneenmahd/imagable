@@ -4,6 +4,9 @@ import Actions from "../components/ActionsContainer";
 // Styled Component Tokens
 import Tokens from "../styles/tokens";
 
+// Logo
+import Logo from "../assets/svg/logo.svg";
+
 const LayoutContainer = styled.main`
     width: 100vw;
     min-height: 100vh;
@@ -14,7 +17,8 @@ const LayoutContainer = styled.main`
 `;
 
 const LayoutImage = styled.img`
-    height: 120px;
+    height: 200px;
+    margin: 0;
 `;
 
 const LayoutHeader = styled.h1`
@@ -33,7 +37,7 @@ const LayoutShortHeader = styled.h3`
 const Layout = () => {
     return (
         <LayoutContainer>
-            <LayoutImage />
+            <LayoutImage src={Logo} />
             <LayoutHeader>Imagable</LayoutHeader>
             <LayoutShortHeader>Create, Edit and do <br />more with your images</LayoutShortHeader>
             <Actions />
