@@ -3,6 +3,13 @@ export interface BlitCoordinates {
 	y: number;
 }
 
+export enum FeatureBriefCardColors {
+	PINK,
+	GREEN,
+	VIOLET,
+	SKIN
+}
+
 interface Color {
 	apply: string;
 	params: number[] | string[];
