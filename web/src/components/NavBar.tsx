@@ -12,7 +12,7 @@ import NavContentGitHubIcon from "../assets/svg/github.svg";
 import globals from "../globals";
 
 const NavMobileStyle = css`
-    width: 75%
+    width: 75%;
 `;
 
 const NavBarComponent = styled.nav`
