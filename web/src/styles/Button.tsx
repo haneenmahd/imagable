@@ -24,16 +24,20 @@ interface ButtonStylesProps {
 }
 
 const ButtonStyle = styled.button<ButtonStylesProps>`
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 15px;
-    ${p => p.theme === "main" ? MainStyles : DefaultStyles}
-    border-radius: 20px;
-    margin: 5px;
-    cursor: pointer;
-    transition: background ease-in .1s;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  ${(p) => (p.theme === "main" ? MainStyles : DefaultStyles)}
+  border-radius: 20px;
+  margin: 5px;
+  cursor: pointer;
+  transition: background ease-in 0.1s;
+
+  @media screen and (max-width: 350px) {
+    padding: 8px;
+  }
 `;
 
 const ButtonIcon = styled.span`
@@ -46,8 +50,16 @@ const ButtonIcon = styled.span`
 `;
 
 const ButtonText = styled.p`
-    font-size: 160%;
-    font-weight: 500;
+  font-size: 160%;
+  font-weight: 500;
+
+  @media screen and (max-width: 400px) {
+    font-size: 127%;
+  }
+
+  @media screen and (max-width: 350px) {
+    font-size: 100%;
+  }
 `;
 
 interface ButtonProps extends ButtonStylesProps {
