@@ -54,8 +54,15 @@ const Image = styled.div`
   background-size: cover;
   box-shadow: -4px -20px 20px 0 #22222210;
   animation: ${ImageAnimation} 0.8s cubic-bezier(0.44, 0.18, 0.22, 0.82);
+  z-index: 1;
+  transition: all 0.3s cubic-bezier(0.44, 0.18, 0.22, 0.82);
   &::before {
     ${ActiveEffectBox}
+  }
+
+  &:hover {
+    transform: scale(1.1) translateX(-40px);
+    z-index: 1;
   }
 `;
 
