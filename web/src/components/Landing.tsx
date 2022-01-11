@@ -16,7 +16,7 @@ const LandingContainer = styled.main`
   align-items: center;
   justify-content: center;
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 650px) {
     flex-direction: column;
   }
 `;
@@ -31,6 +31,11 @@ const LandingContent = styled.div`
 
   &:nth-child(2) {
     align-items: center;
+  }
+
+  @media screen and (max-width: 600px) {
+    width: 100vw;
+    padding: 20px 40px;
   }
 `;
 
