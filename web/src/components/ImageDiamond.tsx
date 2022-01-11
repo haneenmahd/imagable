@@ -4,8 +4,11 @@ import SunsetImage from "../assets/png/sunset.png";
 
 const Container = styled.div`
   position: relative;
-  width: 504px;
+  width: 90vw;
   height: 448px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const ActiveEffectBox = css<{ text: string; }>`
