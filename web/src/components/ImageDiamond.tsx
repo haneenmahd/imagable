@@ -62,7 +62,14 @@ const Image = styled.div`
 
   &:hover {
     transform: scale(1.1) translateX(-40px);
-    z-index: 1;
+  }
+
+  &:nth-child(2):hover {
+    transform: scale(1.1) translateX(-10px);
+  }
+
+  &:nth-child(3):hover {
+    transform: scale(1.1) translateX(-10px);
   }
 `;
 
