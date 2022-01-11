@@ -1,6 +1,7 @@
 import "./App.scss";
+import FeatureBrief from "./components/FeatureBrief";
 
-import Layout from "./layout/Layout";
+import Landing from "./components/Landing";
 
 /**
  * Main Render Component
@@ -9,7 +10,8 @@ import Layout from "./layout/Layout";
 function App(): JSX.Element {
   return (
     <div className="App">
-      <Layout />
+      <Landing />
+      <FeatureBrief />
     </div>
   );
 }
