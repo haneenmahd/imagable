@@ -9,12 +9,29 @@ import Logo from "../assets/svg/logo.svg";
 import ImageDiamond from "../components/ImageDiamond";
 
 const LayoutContainer = styled.main`
-  width: 100vw;
+  max-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+  }
+`;
+
+const LayoutContent = styled.div`
+  width: 46vw;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+
+  &:nth-child(2) {
+    align-items: center;
+  }
 `;
 
 const LayoutImage = styled.img`
@@ -38,14 +55,18 @@ const LayoutShortHeader = styled.h3`
 const Layout = () => {
   return (
     <LayoutContainer>
-      <LayoutImage src={Logo} />
-      <LayoutHeader>Imagable</LayoutHeader>
-      <LayoutShortHeader>
-        Create, Edit and do <br />
-        more with your images
-      </LayoutShortHeader>
-      <Actions />
-      <ImageDiamond />
+      <LayoutContent>
+        <LayoutImage src={Logo} />
+        <LayoutHeader>Imagable</LayoutHeader>
+        <LayoutShortHeader>
+          Create, Edit and do <br />
+          more with your images
+        </LayoutShortHeader>
+        <Actions />
+      </LayoutContent>
+      <LayoutContent>
+        <ImageDiamond />
+      </LayoutContent>
     </LayoutContainer>
   );
 };

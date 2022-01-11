@@ -4,7 +4,7 @@ import SunsetImage from "../assets/png/sunset.png";
 
 const Container = styled.div`
   position: relative;
-  width: 50%;
+  min-width: 30vw;
   height: 448px;
   display: flex;
   align-items: center;
