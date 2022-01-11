@@ -46,7 +46,7 @@ const ButtonIcon = styled.span`
 `;
 
 const ButtonText = styled.p`
-    font-size: 21px;
+    font-size: 160%;
     font-weight: 500;
 `;
 
