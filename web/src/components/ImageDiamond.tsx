@@ -61,15 +61,15 @@ const Image = styled.div`
   }
 
   &:hover {
-    transform: scale(1.1) translateX(-40px);
+    transform: scale(1.1) translateX(-60px);
   }
 
   &:nth-child(2):hover {
-    transform: scale(1.1) translateX(-10px);
+    transform: scale(1.1) translateX(-35px);
   }
 
   &:nth-child(3):hover {
-    transform: scale(1.1) translateX(-10px);
+    transform: scale(1.1) translateX(40px);
   }
 `;
 
