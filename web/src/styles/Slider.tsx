@@ -12,7 +12,7 @@ const SliderStyle = styled(ReactSlider)`
     position: relative;
     height: 5px;
     width: 100%;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(255, 255, 255, 0.4);
     border-radius: 30px;
   }
 
@@ -31,7 +31,8 @@ const SliderStyle = styled(ReactSlider)`
     margin-right: 10px;
     color: #000;
     border-radius: 100px;
-    background: #eee;
+    border: 1px solid #eee;
+    background: #eeeeee80;
     vertical-align: middle;
     cursor: pointer;
   }
@@ -53,7 +54,6 @@ const Slider = (props: SliderProps) => {
       value={props.currentIndex}
       thumbClassName="slider-thumb"
       trackClassName="slider-track"
-      renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}
     />
   );
 };
