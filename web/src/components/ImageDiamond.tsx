@@ -62,14 +62,30 @@ const Image = styled.div`
 
   &:hover {
     transform: scale(1.1) translateX(-60px);
+
+    @media screen and (max-width: 600px) {
+      transform: scale(1.08) translateX(-15px);
+    }
   }
 
   &:nth-child(2):hover {
     transform: scale(1.1) translateX(-35px);
+
+    @media screen and (max-width: 600px) {
+      transform: scale(1.08) translateX(-15px);
+    }
   }
 
   &:nth-child(3):hover {
     transform: scale(1.1) translateX(40px);
+
+    @media screen and (max-width: 600px) {
+      transform: scale(1.08) translateX(10px);
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    left: 5%;
   }
 `;
 
@@ -81,6 +97,10 @@ const SepiaImage = styled(Image)`
   &::before {
     color: #6b6868;
   }
+
+  @media screen and (max-width: 600px) {
+    left: 14%;
+  }
 `;
 
 const ColoredImage = styled(Image)`
@@ -90,6 +110,10 @@ const ColoredImage = styled(Image)`
 
   &::before {
     color: #7258cb;
+  }
+
+  @media screen and (max-width: 600px) {
+    left: 24%;
   }
 `;
 
