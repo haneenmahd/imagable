@@ -9,6 +9,7 @@ import NavBar from './components/NavBar';
 // pages
 import Tools from './pages/Tools';
 import Create from './pages/Create';
+import Footer from './components/Footer';
 
 /**
  * This is the app component which is going to be the renderer for all child elements inside the app.
@@ -18,6 +19,7 @@ function RenderingApp() {
     <div style={{ maxWidth: "100vw" }}>
       <NavBar />
       <Outlet />
+      <Footer />
     </div>
   );
 }
