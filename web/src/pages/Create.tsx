@@ -24,6 +24,7 @@ const ToolsClosed = css`
   justify-content: center;
   left: 85%;
   top: 10%;
+  border-radius: 30px;
   overflow: hidden;
 
   div {
@@ -38,14 +39,14 @@ const ToolsClosed = css`
 `;
 
 const ToolsSection = styled.div<{ show: boolean }>`
-  position: absolute;
-  top: 50%;
-  left: 70%;
-  transform: translate(-50%, -50%);
-  height: 90vh;
-  width: 40vw;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 30px;
+  position: fixed;
+  bottom: 0%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  height: 40vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 0px;
   z-index: 200;
   padding: 50px;
   box-shadow: 10px 20px 40px 0 rgba(0, 0, 0, 0.2);
@@ -73,14 +74,14 @@ const Tool = styled.div`
 const ToolsHeader = styled.header`
   font-size: 150%;
   font-weight: bold;
-  color: #0a0a0a;
+  color: #fafafa;
   margin: 8px 0;
 `;
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const ToolsPara = styled.p`
   font-size: 110%;
-  color: #0f0f0f;
+  color: #f0f0f0;
 `;
 
 interface ImageCavnvasProps {
