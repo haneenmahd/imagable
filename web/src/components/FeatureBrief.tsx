@@ -5,11 +5,9 @@ const FeatureBriefContainer = styled.div`
     width: 100vw;
     display: flex;
     align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
     padding: 5%;
-
-    @media screen and (max-width: 900px) {
-        flex-direction: column;
-    }
 `;
 
 type FeatureBriefCardTheme = string | "pink" | "green" | "skin" | "violet" | "default";
@@ -52,16 +50,16 @@ interface FeatureBriefCardProps {
 
 const FeatureBriefCard = styled.div<FeatureBriefCardProps>`
   height: 70vh;
-  width: 45vw;
+  width: 40vw;
   border-radius: 20px;
   padding: 62px;
   margin: 20px 40px;
-  ${p => serializeBrierCardTheme(p.theme)}
+  ${(p) => serializeBrierCardTheme(p.theme)}
 
   @media screen and (max-width: 1000px) {
-      height: 60vh;
-      width: 70vw;
-      margin: 40px 20px;
+    height: 60vh;
+    width: 80vw;
+    margin: 40px 20px;
   }
 `;
 
