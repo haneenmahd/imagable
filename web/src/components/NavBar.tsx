@@ -39,6 +39,7 @@ const NavBarComponent = styled.nav<NavBarComponentProps>`
   padding: 0px;
   width: 50%;
   height: 43px;
+  transition: all .3s ease-in-out;
   z-index: 200;
   ${p => p.scrolled && NavScrolledEffect}
 
@@ -91,9 +92,9 @@ const NavContentText = styled.p`
 const NavBar = () => {
   const [scrollState, setScrollState] = useState<boolean>(false);
 
-  // use blur effect while scroll position is above 300
+  // use blur effect while scroll position is above 100
   window.onscroll = () => {
-      if (window.scrollY > 300) {
+      if (window.scrollY > 100) {
           setScrollState(true);
       } else {
         setScrollState(false);
