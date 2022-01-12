@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import BackBlur from "../styles/BackBlur";
 import Page from "../styles/Page";
@@ -105,6 +105,71 @@ const ImageCanvas = styled.img<ImageCavnvasProps>`
   }
 `;
 
+interface ToolsContainerProps {
+  toolsOpen: boolean;
+  setToolsOpen: (value: React.SetStateAction<boolean>) => void;
+  contrastValue: number;
+  setContrastValue: (value: React.SetStateAction<number | any>) => void;
+  brightnessValue: number;
+  setBrightnessValue: (value: React.SetStateAction<number | any>) => void;
+  angleValue: number;
+  setAngleValue: (value: React.SetStateAction<number | any>) => void;
+  blurValue: number;
+  setBlurValue: (value: React.SetStateAction<number | any>) => void;
+  saturationValue: number;
+  setSaturationValue: (value: React.SetStateAction<number | any>) => void;
+  sepiaValue: number;
+  setSepiaValue: (value: React.SetStateAction<number | any>) => void;
+}
+
+const ToolsSet = (props: ToolsContainerProps) => {
+  return (
+    <ToolsSection show={props.toolsOpen}>
+      <Button onClick={() => props.setToolsOpen(!props.toolsOpen)}>
+        {props.toolsOpen ? "Filers" : "Close Filters"}
+      </Button>
+      <Tool>
+        <ToolsHeader>Contrast</ToolsHeader>
+        <Slider
+          currentIndex={props.contrastValue}
+          onChange={(v) => props.setContrastValue(v)}
+        />
+      </Tool>
+
+      <Tool>
+        <ToolsHeader>Brightness</ToolsHeader>
+        <Slider
+          currentIndex={props.brightnessValue}
+          onChange={(v) => props.setBrightnessValue(v)}
+        />
+      </Tool>
+
+      <Tool>
+        <ToolsHeader>Angle</ToolsHeader>
+        <Slider currentIndex={props.angleValue} onChange={(v) => props.setAngleValue(v)} />
+      </Tool>
+
+      <Tool>
+        <ToolsHeader>Blur</ToolsHeader>
+        <Slider currentIndex={props.blurValue} onChange={(v) => props.setBlurValue(v)} />
+      </Tool>
+
+      <Tool>
+        <ToolsHeader>Saturation</ToolsHeader>
+        <Slider
+          currentIndex={props.saturationValue}
+          onChange={(v) => props.setSaturationValue(v)}
+        />
+      </Tool>
+
+      <Tool>
+        <ToolsHeader>Sepia</ToolsHeader>
+        <Slider currentIndex={props.sepiaValue} onChange={(v) => props.setSepiaValue(v)} />
+      </Tool>
+    </ToolsSection> 
+  );
+}
+
 const Create = () => {
   const [toolsOpen, setToolsOpen] = useState(true);
   const [constrastValue, setContrastValue] = useState<any>(0);
@@ -116,55 +181,21 @@ const Create = () => {
 
   return (
     <PageContainer>
-      <ToolsSection show={toolsOpen}>
-        <Button onClick={() => setToolsOpen(!toolsOpen)}>
-          {toolsOpen ? "Filers" : "Close Filters"}
-        </Button>
-        <Tool>
-          <ToolsHeader>Contrast</ToolsHeader>
-          <Slider
-            currentIndex={constrastValue}
-            onChange={(v) => setContrastValue(v)}
-          />
-        </Tool>
-
-        <Tool>
-          <ToolsHeader>Brightness</ToolsHeader>
-          <Slider
-            currentIndex={brigthtnessValue}
-            onChange={(v) => setBrightnessValue(v)}
-          />
-        </Tool>
-
-        <Tool>
-          <ToolsHeader>Angle</ToolsHeader>
-          <Slider
-            currentIndex={angleValue}
-            onChange={(v) => setAngleValue(v)}
-          />
-        </Tool>
-
-        <Tool>
-          <ToolsHeader>Blur</ToolsHeader>
-          <Slider currentIndex={blurValue} onChange={(v) => setBlurValue(v)} />
-        </Tool>
-
-        <Tool>
-          <ToolsHeader>Saturation</ToolsHeader>
-          <Slider
-            currentIndex={saturationValue}
-            onChange={(v) => setSaturationValue(v)}
-          />
-        </Tool>
-
-        <Tool>
-          <ToolsHeader>Sepia</ToolsHeader>
-          <Slider
-            currentIndex={sepiaValue}
-            onChange={(v) => setSepiaValue(v)}
-          />
-        </Tool>
-      </ToolsSection>
+      <ToolsSet 
+        toolsOpen={toolsOpen} 
+        setToolsOpen={setToolsOpen} 
+        contrastValue={constrastValue} 
+        setContrastValue={setContrastValue}
+        brightnessValue={brigthtnessValue}
+        setBrightnessValue={setBrightnessValue}
+        angleValue={angleValue}
+        setAngleValue={setAngleValue}
+        blurValue={blurValue}
+        setBlurValue={setBlurValue}
+        saturationValue={saturationValue}
+        setSaturationValue={setSaturationValue}
+        sepiaValue={sepiaValue}
+        setSepiaValue={setSepiaValue} />
 
       <ImageCanvas
         blur={blurValue}
