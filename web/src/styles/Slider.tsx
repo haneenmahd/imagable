@@ -10,9 +10,9 @@ const SliderStyle = styled(ReactSlider)`
 
   .slider-track {
     position: relative;
-    height: 10px;
+    height: 5px;
     width: 100%;
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(0, 0, 0, 0.4);
     border-radius: 30px;
   }
 
@@ -25,11 +25,11 @@ const SliderStyle = styled(ReactSlider)`
     align-items: center;
     justify-content: center;
     padding: 20px;
-    height: 20px;
-    width: 20px;
+    height: 5px;
+    width: 5px;
     margin: 0 4px;
     margin-right: 10px;
-    color: #111;
+    color: #000;
     border-radius: 100px;
     background: #eee;
     vertical-align: middle;
