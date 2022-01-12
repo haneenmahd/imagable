@@ -39,6 +39,7 @@ const NavBarComponent = styled.nav<NavBarComponentProps>`
   padding: 0px;
   width: 50%;
   height: 43px;
+  z-index: 200;
   ${p => p.scrolled && NavScrolledEffect}
 
   @media screen and (max-width: 600px) {
