@@ -35,8 +35,8 @@ export const ButtonStyle = styled.button<ButtonStylesProps>`
   cursor: pointer;
   transition: background ease-in 0.1s;
 
-  @media screen and (max-width: 350px) {
-    padding: 8px;
+  @media screen and (max-width: 600px) {
+    padding: 3.6%;
   }
 `;
 
