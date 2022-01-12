@@ -12,7 +12,7 @@ import NavContentGitHubIcon from "../assets/svg/github.svg";
 import globals from "../globals";
 
 const NavScrolledEffect = css`
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 `;
