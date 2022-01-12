@@ -118,7 +118,7 @@ const Create = () => {
     <PageContainer>
       <ToolsSection show={toolsOpen}>
         <Button onClick={() => setToolsOpen(!toolsOpen)}>
-          {toolsOpen ? "Tools" : "Filters"}
+          {toolsOpen ? "Filers" : "Close Filters"}
         </Button>
         <Tool>
           <ToolsHeader>Contrast</ToolsHeader>
