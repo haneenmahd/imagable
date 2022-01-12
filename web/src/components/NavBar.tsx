@@ -21,6 +21,7 @@ const NavMobileStyle = css`
   width: 100%;
   top: 0%;
   height: 60px;
+  border-radius: 0;
 `;
 
 interface NavBarComponentProps {
@@ -38,7 +39,8 @@ const NavBarComponent = styled.nav<NavBarComponentProps>`
   align-items: center;
   padding: 0px;
   width: 50%;
-  height: 43px;
+  height: 70px;
+  border-radius: 30px;
   transition: all .3s ease-in-out;
   z-index: 200;
   ${p => p.scrolled && NavScrolledEffect}
