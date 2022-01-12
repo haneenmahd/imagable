@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import BackBlur from "../styles/BackBlur";
 import Page from "../styles/Page";
 
-import Sunset from "../assets/png/Lake.png";
+import Lake from "../assets/png/Lake.png";
 import Slider from "../styles/Slider";
 
 const PageContainer = styled(Page)`
@@ -28,6 +28,7 @@ const ToolsSection = styled.div<{ show: boolean }>`
   z-index: 200;
   padding: 50px;
   box-shadow: 10px 20px 40px 0 rgba(0, 0, 0, 0.2);
+  overflow: scroll;
   ${BackBlur}
 `;
 
@@ -48,19 +49,30 @@ const ToolsPara = styled.p`
   color: #0f0f0f;
 `;
 
-const ImageCanvas = styled.img`
+interface ImageCavnvasProps {
+  blur: number;
+  contrast: number;
+  brightness: number;
+  sepia: number;
+  saturation: number;
+}
+
+const ImageCanvas = styled.img<ImageCavnvasProps>`
   max-height: 90vh;
   width: auto;
   border-radius: 30px;
-  filter: blur(1px) contrast(500px);
+  filter: contrast(${p => p.contrast + 100}%) brightness(${p => p.brightness}%) blur(${p => p.blur}px) saturate(${p => p.saturation + 100}%) sepia(${p => p.sepia}%);
   box-shadow: 20px 40px 50px 0 #c4c4c4aa;
 `;
 
 const Create = () => {
   const [toolsOpen, setToolsOpen] = useState(true);
   const [constrastValue, setContrastValue] = useState<any>(0);
-  const [brigthtnessValue, setBrightnessValue] = useState<any>(0);
+  const [brigthtnessValue, setBrightnessValue] = useState<any>(100);
   const [angleValue, setAngleValue] = useState<any>(0);
+  const [blurValue, setBlurValue] = useState<any>(0);
+  const [saturationValue, setSaturationValue] = useState<any>(0);
+  const [sepiaValue, setSepiaValue] = useState<any>(0);
 
   return (
     <PageContainer>
@@ -88,9 +100,38 @@ const Create = () => {
             onChange={(v) => setAngleValue(v)}
           />
         </Tool>
+
+        <Tool>
+          <ToolsHeader>Blur</ToolsHeader>
+          <Slider currentIndex={blurValue} onChange={(v) => setBlurValue(v)} />
+        </Tool>
+
+        <Tool>
+          <ToolsHeader>Saturation</ToolsHeader>
+          <Slider
+            currentIndex={saturationValue}
+            onChange={(v) => setSaturationValue(v)}
+          />
+        </Tool>
+
+        <Tool>
+          <ToolsHeader>Sepia</ToolsHeader>
+          <Slider
+            currentIndex={sepiaValue}
+            onChange={(v) => setSepiaValue(v)}
+          />
+        </Tool>
       </ToolsSection>
 
-      <ImageCanvas src={Sunset} />
+      <ImageCanvas
+        blur={blurValue}
+        saturation={saturationValue}
+        brightness={brigthtnessValue}
+        contrast={constrastValue}
+        sepia={sepiaValue}
+        src={Lake}
+        alt=""
+      />
     </PageContainer>
   );
 };
