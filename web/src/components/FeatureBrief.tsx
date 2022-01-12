@@ -122,7 +122,7 @@ const FeatureBriefCardHeader = styled.header`
 
 const FeatureBriefCardDescribe = styled.h3`
   font-size: 110%;
-  font-weight: bold;
+  font-weight: 500;
   margin: 8px 0;
 `;
 
