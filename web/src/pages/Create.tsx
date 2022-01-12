@@ -1,10 +1,11 @@
 import { useState } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import BackBlur from "../styles/BackBlur";
 import Page from "../styles/Page";
 
 import Lake from "../assets/png/Lake.png";
 import Slider from "../styles/Slider";
+import Button from "../styles/Button";
 
 const PageContainer = styled(Page)`
   min-height: 100vh;
@@ -15,8 +16,28 @@ const PageContainer = styled(Page)`
   justify-content: center;
 `;
 
+const ToolsClosed = css`
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 85%;
+  top: 10%;
+  overflow: hidden;
+
+  div {
+    display: none;
+  }
+
+  @media screen and (max-width: 1024px) {
+    width: 20px;
+    height: 20px;
+    top: 25%;
+  }
+`;
+
 const ToolsSection = styled.div<{ show: boolean }>`
-  display: ${(p) => (p.show ? "default" : "none")};
   position: absolute;
   top: 50%;
   left: 70%;
@@ -28,8 +49,20 @@ const ToolsSection = styled.div<{ show: boolean }>`
   z-index: 200;
   padding: 50px;
   box-shadow: 10px 20px 40px 0 rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.44, 0.18, 0.22, 0.82);
   overflow: scroll;
   ${BackBlur}
+
+  @media screen and (max-width: 1024px) {
+    width: 50vw;
+  }
+
+  @media screen and (max-width: 900px) {
+    width: 70vw;
+    left: 50%;
+  }
+
+  ${(p) => p.show && ToolsClosed}
 `;
 
 const Tool = styled.div`
@@ -44,6 +77,7 @@ const ToolsHeader = styled.header`
   margin: 8px 0;
 `;
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const ToolsPara = styled.p`
   font-size: 110%;
   color: #0f0f0f;
@@ -59,10 +93,16 @@ interface ImageCavnvasProps {
 
 const ImageCanvas = styled.img<ImageCavnvasProps>`
   max-height: 90vh;
-  width: auto;
+  max-width: 90vw;
   border-radius: 30px;
-  filter: contrast(${p => p.contrast + 100}%) brightness(${p => p.brightness}%) blur(${p => p.blur}px) saturate(${p => p.saturation + 100}%) sepia(${p => p.sepia}%);
+  filter: contrast(${(p) => p.contrast + 100}%)
+    brightness(${(p) => p.brightness}%) blur(${(p) => p.blur}px)
+    saturate(${(p) => p.saturation + 100}%) sepia(${(p) => p.sepia}%);
   box-shadow: 20px 40px 50px 0 #c4c4c4aa;
+
+  @media screen and (max-width: 1024px) {
+    width: 85vw;
+  }
 `;
 
 const Create = () => {
@@ -77,6 +117,9 @@ const Create = () => {
   return (
     <PageContainer>
       <ToolsSection show={toolsOpen}>
+        <Button onClick={() => setToolsOpen(!toolsOpen)}>
+          {toolsOpen ? "Tools" : "Filters"}
+        </Button>
         <Tool>
           <ToolsHeader>Contrast</ToolsHeader>
           <Slider

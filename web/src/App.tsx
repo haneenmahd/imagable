@@ -1,5 +1,6 @@
 import "./App.scss";
 import FeatureBrief from "./components/FeatureBrief";
+import Footer from "./components/Footer";
 
 import Landing from "./components/Landing";
 import NavBar from "./components/NavBar";
@@ -14,6 +15,7 @@ function App(): JSX.Element {
       <NavBar />
       <Landing />
       <FeatureBrief />
+      <Footer />
     </div>
   );
 }
