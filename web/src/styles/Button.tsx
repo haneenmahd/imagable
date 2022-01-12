@@ -23,7 +23,7 @@ interface ButtonStylesProps {
     theme?: "main" | "secondary";
 }
 
-const ButtonStyle = styled.button<ButtonStylesProps>`
+export const ButtonStyle = styled.button<ButtonStylesProps>`
   display: flex;
   flex-direction: row;
   justify-content: center;
