@@ -4,7 +4,6 @@ import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
 import './index.scss';
 
 import App from './App';
-import NavBar from './components/NavBar';
 
 // pages
 import Tools from './pages/Tools';
@@ -17,7 +16,6 @@ import Footer from './components/Footer';
 function RenderingApp() {
   return (
     <div style={{ maxWidth: "100vw" }}>
-      <NavBar />
       <Outlet />
       <Footer />
     </div>

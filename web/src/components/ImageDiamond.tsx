@@ -25,7 +25,7 @@ const ActiveEffectBox = css<{ text: string; }>`
   justify-content: center;
   align-items: center;
   padding: 4px 13px;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: 20px;

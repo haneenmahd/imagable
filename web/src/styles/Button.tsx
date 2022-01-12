@@ -23,7 +23,7 @@ interface ButtonStylesProps {
     theme?: "main" | "secondary";
 }
 
-const ButtonStyle = styled.button<ButtonStylesProps>`
+export const ButtonStyle = styled.button<ButtonStylesProps>`
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -35,8 +35,8 @@ const ButtonStyle = styled.button<ButtonStylesProps>`
   cursor: pointer;
   transition: background ease-in 0.1s;
 
-  @media screen and (max-width: 350px) {
-    padding: 8px;
+  @media screen and (max-width: 600px) {
+    padding: 3.6%;
   }
 `;
 

@@ -2,6 +2,7 @@ import "./App.scss";
 import FeatureBrief from "./components/FeatureBrief";
 
 import Landing from "./components/Landing";
+import NavBar from "./components/NavBar";
 
 /**
  * Main Render Component
@@ -10,6 +11,7 @@ import Landing from "./components/Landing";
 function App(): JSX.Element {
   return (
     <div className="App">
+      <NavBar />
       <Landing />
       <FeatureBrief />
     </div>

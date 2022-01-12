@@ -1,13 +1,19 @@
+import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
+import { ButtonStyle } from "../styles/Button";
 
 const FeatureBriefContainer = styled.div`
-    min-height: 100vh;
+    max-height: 100vh;
     width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
     padding: 5%;
+
+    @media screen and (max-width: 600px) {
+      max-height: 100%;
+    }
 `;
 
 type FeatureBriefCardTheme = string | "pink" | "green" | "skin" | "violet" | "default";
@@ -81,7 +87,7 @@ interface FeatureBriefCardProps {
 }
 
 const FeatureBriefCard = styled.div<FeatureBriefCardProps>`
-  height: 70vh;
+  max-height: 70vh;
   width: 40vw;
   border-radius: 20px;
   padding: 40px;
@@ -89,7 +95,7 @@ const FeatureBriefCard = styled.div<FeatureBriefCardProps>`
   ${(p) => serializeBrierCardTheme(p.theme)}
 
   @media screen and (max-width: 1400px) {
-    height: 60vh;
+    max-height: 60vh;
     width: 42vw;
     margin: 30px 20px;
   }
@@ -120,6 +126,23 @@ const FeatureBriefCardDescribe = styled.h3`
   margin: 8px 0;
 `;
 
+const FeatureBriefCardButton = styled(ButtonStyle)`
+  margin-top: 30px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  padding: 15px 30px;
+  font-size: 90%;
+  font-weight: bold;
+
+  &:hover {
+    background: rgba(255, 255, 255, 1);
+  }
+`;
+
+const FeatureBriefCardLink = styled(Link)`
+  font-size: 120%;
+`;
+
 const FeatureBrief = () => {
     return (
       <FeatureBriefContainer>
@@ -131,6 +154,12 @@ const FeatureBrief = () => {
             Simple and powerful tools right in your hands. It is just so easy to
             use them. Just made them even easier!
           </FeatureBriefCardDescribe>
+
+          <FeatureBriefCardButton>
+            <FeatureBriefCardLink to="/create">
+              Find what you can do
+            </FeatureBriefCardLink>
+          </FeatureBriefCardButton>
         </FeatureBriefCard>
 
         <FeatureBriefCard theme="pink">
@@ -138,6 +167,12 @@ const FeatureBrief = () => {
           <FeatureBriefCardDescribe>
             Our custom filters lets you take your photos to the next level
           </FeatureBriefCardDescribe>
+
+          <FeatureBriefCardButton>
+            <FeatureBriefCardLink to="/create">
+              Try out filters
+            </FeatureBriefCardLink>
+          </FeatureBriefCardButton>
         </FeatureBriefCard>
 
         <FeatureBriefCard theme="green">
@@ -147,15 +182,25 @@ const FeatureBrief = () => {
           <FeatureBriefCardDescribe>
             Export and convert your files between different image formats.
           </FeatureBriefCardDescribe>
+
+          <FeatureBriefCardButton>
+            <FeatureBriefCardLink to="/create">
+              Convert your images
+            </FeatureBriefCardLink>
+          </FeatureBriefCardButton>
         </FeatureBriefCard>
 
         <FeatureBriefCard theme="skin">
-          <FeatureBriefCardHeader>
-            Compress Images
-          </FeatureBriefCardHeader>
+          <FeatureBriefCardHeader>Compress Images</FeatureBriefCardHeader>
           <FeatureBriefCardDescribe>
             Compress your images to save time, speed and storage!
           </FeatureBriefCardDescribe>
+
+          <FeatureBriefCardButton>
+            <FeatureBriefCardLink to="/create">
+              Start Compressing!
+            </FeatureBriefCardLink>
+          </FeatureBriefCardButton>
         </FeatureBriefCard>
       </FeatureBriefContainer>
     );
