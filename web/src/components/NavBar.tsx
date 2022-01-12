@@ -37,7 +37,7 @@ const NavBarComponent = styled.nav<NavBarComponentProps>`
   justify-content: center;
   align-items: center;
   padding: 0px;
-  width: 45%;
+  width: 50%;
   height: 43px;
   ${p => p.scrolled && NavScrolledEffect}
 
