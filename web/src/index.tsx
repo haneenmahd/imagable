@@ -15,7 +15,7 @@ import Create from './pages/Create';
  */
 function RenderingApp() {
   return (
-    <div>
+    <div style={{ maxWidth: "100vw" }}>
       <NavBar />
       <Outlet />
     </div>
