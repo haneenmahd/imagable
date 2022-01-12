@@ -56,7 +56,13 @@ const FeatureBriefCard = styled.div<FeatureBriefCardProps>`
   margin: 20px 40px;
   ${(p) => serializeBrierCardTheme(p.theme)}
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 1400px) {
+    height: 60vh;
+    width: 42vw;
+    margin: 40px 20px;
+  }
+
+  @media screen and (max-width: 1050px) {
     height: 60vh;
     width: 80vw;
     margin: 40px 20px;
