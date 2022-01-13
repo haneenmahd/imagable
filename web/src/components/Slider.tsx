@@ -8,7 +8,7 @@ const SliderActive = css`
   background: #ffffff;
 `;
 
-const SliderTarget = styled.span<{ active: boolean; }>`
+const SliderTarget = styled.span<{ active: boolean }>`
   width: 4px;
   height: 28px;
   background: rgba(255, 255, 255, 0.46);
@@ -18,11 +18,11 @@ const SliderTarget = styled.span<{ active: boolean; }>`
   outline: none;
   transition: transform 0.3s ${globals.styling.transition};
 
-  &:hover {
+  &:hover, :focus {
     transform: scale(1.2);
   }
 
-  ${p => p.active && SliderActive}
+  ${(p) => p.active && SliderActive}
 
   @media screen and (max-width: 600px) {
     margin: 8px 6px;
@@ -36,6 +36,7 @@ const Slider = (props: {
   return (
     <SliderTarget
       onClick={() => props.setActiveIndex(props.keyIndex)}
+      onKeyDown={(e) => e.key === "Enter" ? props.setActiveIndex(props.keyIndex) : null}
       active={props.activeIndex === props.keyIndex ? true : false}
       tabIndex={props.keyIndex}
     />
