@@ -4,10 +4,6 @@ import styled, { keyframes } from "styled-components";
 // example image editor usage
 import EditorSampleImage from "../assets/png/editor-sample.jpg";
 import globals from "../globals";
-
-// fix this issue over here
-// module "/Users/''/Code/Javascript/@imagable/imagable/web/src/components/Slider"
-// Already included filename
 import Slider from "../components/Slider";
 
 const PageContainer = styled.div`
@@ -48,6 +44,79 @@ const Image = styled.img<{ width?: string }>`
   }
 `;
 
+const CurrentSliderContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+`;
+
+const SliderCurrentStatus = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+`;
+
+const SliderCurrentStatusText = styled.h1`
+  font-weight: 600;
+  font-size: 28px;
+  color: #ffffff;
+  margin: 0 4px;
+
+  @media screen and (max-width: 600px) {
+    font-size: 16px;
+  }
+`;
+
+const SliderContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  width: 100%;
+  height: 58px;
+`;
+
+const CurrentSlider = (props: {
+  statusText: { 
+    text: string; count: number; 
+  };
+  slider: {
+    activeSliderIndex: number;
+    setActiveSliderIndex: React.Dispatch<React.SetStateAction<number>>;
+    sliderCount: number;
+  };
+}) => {
+  const sliders: number[] = Array(21).fill(0);
+
+  return (
+    <CurrentSliderContainer>
+      <SliderCurrentStatus>
+        <SliderCurrentStatusText>
+          {props.statusText.text}
+        </SliderCurrentStatusText>
+        <SliderCurrentStatusText>
+          {props.statusText.count}px
+        </SliderCurrentStatusText>
+      </SliderCurrentStatus>
+
+      <SliderContainer>
+        {sliders.map((slider, index) => (
+          <Slider
+            keyIndex={index}
+            activeIndex={props.slider.activeSliderIndex}
+            setActiveIndex={props.slider.setActiveSliderIndex}
+            key={index}
+          />
+        ))}
+      </SliderContainer>
+    </CurrentSliderContainer>
+  );
+};
+
 const ControlViewStyleAnimation = keyframes`
   from {
     bottom: -100%;
@@ -81,9 +150,18 @@ const ControlsViewStyle = styled.div`
 `;
 
 const ControlsView = () => {
+  const [activeSliderIndex, setActiveSliderIndex] = useState(0);
   return (
     <ControlsViewStyle>
-      <Slider value={0} />
+      <CurrentSlider slider={{
+        activeSliderIndex,
+        setActiveSliderIndex,
+        sliderCount: 10
+      }}
+      statusText={{
+        count: activeSliderIndex,
+        text: "Brightness"
+      }} />
     </ControlsViewStyle>
   );
 }
