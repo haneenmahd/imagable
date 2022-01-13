@@ -8,7 +8,6 @@ import App from './App';
 // pages
 import Tools from './pages/Tools';
 import Create from './pages/Create';
-import Footer from './components/Footer';
 
 /**
  * This is the app component which is going to be the renderer for all child elements inside the app.
@@ -17,7 +16,6 @@ function RenderingApp() {
   return (
     <div style={{ maxWidth: "100vw" }}>
       <Outlet />
-      <Footer />
     </div>
   );
 }

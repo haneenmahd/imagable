@@ -63,17 +63,21 @@ const ButtonText = styled.p`
 `;
 
 interface ButtonProps extends ButtonStylesProps {
-    text: string;
+    text?: string;
     icon?: JSX.Element;
+    onClick?: any;
+    children?: React.ReactChildren | string;
 }
 
 const Button = (props: ButtonProps) => {
     return (
-        <ButtonStyle theme={props.theme}>
+        <ButtonStyle onClick={props.onClick} theme={props.theme}>
             {/* Render only if `props.icon` exists */}
             {props.icon && <ButtonIcon>{props.icon}</ButtonIcon>}
             {/* Render only if `props.icon` exists */}
-            <ButtonText>{props.text}</ButtonText>
+            {props.text && <ButtonText>{props.text}</ButtonText>}
+            
+            {props.children}
         </ButtonStyle>
     )
 }
