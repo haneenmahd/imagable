@@ -1,16 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import styled, { css } from "styled-components";
 import globals from "../globals";
-
-const SliderStyle = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  width: 100%;
-  height: 58px;
-`;
 
 const SliderActive = css`
   width: 5px;
@@ -23,7 +13,7 @@ const SliderTarget = styled.span<{ active: boolean; }>`
   height: 28px;
   background: rgba(255, 255, 255, 0.46);
   border-radius: 40px;
-  margin: 0 8px;
+  margin: 12px 8px;
   cursor: pointer;
   outline: none;
   transition: transform 0.3s ${globals.styling.transition};
@@ -33,6 +23,10 @@ const SliderTarget = styled.span<{ active: boolean; }>`
   }
 
   ${p => p.active && SliderActive}
+
+  @media screen and (max-width: 600px) {
+    margin: 8px 6px;
+  }
 `;
 const Slider = (props: {
   keyIndex: number;
