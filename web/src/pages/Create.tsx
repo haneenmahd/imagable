@@ -76,8 +76,9 @@ const SliderContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding: 10px 20px;
-  width: 100%;
+  max-width: 100%;
   height: 58px;
+  flex-wrap: wrap;
 `;
 
 const CurrentSlider = (props: {
@@ -102,7 +103,7 @@ const CurrentSlider = (props: {
           {props.statusText.text}
         </SliderCurrentStatusText>
         <SliderCurrentStatusText>
-          {props.statusText.count}
+          {props.statusText.count}%
         </SliderCurrentStatusText>
       </SliderCurrentStatus>
 
@@ -129,7 +130,7 @@ const ControlViewStyleAnimation = keyframes`
 const ControlsViewStyle = styled.div`
   position: fixed;
   bottom: 0;
-  height: 417px;
+  height: 317px;
   width: 100vw;
   display: flex;
   flex-direction: column;
