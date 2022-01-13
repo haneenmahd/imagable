@@ -4,6 +4,7 @@ import globals from "../globals";
 import TabBar from "./TabBar";
 import CurrentSlider from "./CurrentSlider";
 import Seperator from "./Seperator";
+import Filters from "./Filters";
 
 const ControlViewStyleAnimation = keyframes`
   from {
@@ -55,6 +56,7 @@ const ControlsView = () => {
 
       <TabBar />
       <Seperator />
+      <Filters />
     </ControlsViewStyle>
   );
 };
