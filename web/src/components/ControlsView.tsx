@@ -15,7 +15,7 @@ const ControlViewStyleAnimation = keyframes`
 const ControlsViewStyle = styled.div`
   position: fixed;
   bottom: 0;
-  height: 317px;
+  min-height: 317px;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -26,14 +26,19 @@ const ControlsViewStyle = styled.div`
   backdrop-filter: blur(63px);
   -webkit-backdrop-filter: blur(63px);
   animation: ${ControlViewStyleAnimation} 1s ${globals.styling.transition};
+  overflow: hidden;
 
-  @media screen and (min-width: 600px) {
+  @media screen and (min-width: 1000px) {
     position: relative;
     margin: 0 40px;
     width: 50vw;
     height: 90vh;
     border-radius: 30px;
     box-shadow: 4px 8px 28px 0px #00000026;
+  }
+
+  @media screen and (max-width: 900px) {
+    position: absolute;
   }
 `;
  

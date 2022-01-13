@@ -14,8 +14,8 @@ const TabTarget = styled.span<{ active: boolean }>`
   min-height: 50px;
   background: transparent;
   border-radius: 40px;
-  margin: 12px 8px;
   cursor: pointer;
+  margin: 8px;
   outline: none;
   transition: transform 0.3s ${globals.styling.transition};
 
@@ -25,10 +25,6 @@ const TabTarget = styled.span<{ active: boolean }>`
   }
 
   ${(p) => p.active && TabActive}
-
-  @media screen and (max-width: 600px) {
-    margin: 8px 6px;
-  }
 `;
 const Tab = (props: {
   keyIndex: number;

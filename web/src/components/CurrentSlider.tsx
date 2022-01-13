@@ -7,6 +7,10 @@ const CurrentSliderContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding: 10px;
+  
+  @media screen and (max-height: 740px) {
+    margin-top: 100px;
+  }
 `;
 
 const SliderCurrentStatus = styled.div`
@@ -15,14 +19,6 @@ const SliderCurrentStatus = styled.div`
   align-items: flex-start;
   padding: 0px;
   max-height: 100%;
-
-  @media screen and (max-height: 740px) {
-    margin-top: 100px;
-  }
-
-  @media screen and (max-height: 600px) {
-    margin-top: 0;
-  }
 `;
 
 const SliderCurrentStatusText = styled.h1`
