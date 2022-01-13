@@ -29,6 +29,7 @@ const ImageCanvasContainer = styled.div`
   }
 `;
 
+// pass in server response width from JIMP
 const Image = styled.img<{ width?: string }>`
   max-width: 100%;
   height: auto;
