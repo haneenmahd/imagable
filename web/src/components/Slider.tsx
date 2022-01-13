@@ -34,9 +34,7 @@ const SliderTarget = styled.span<{ active: boolean; }>`
 
   ${p => p.active && SliderActive}
 `;
-
-// 'C' suffix is used to denote that it is a React component not a styled component
-const SliderTargetC = (props: {
+const Slider = (props: {
   keyIndex: number;
   activeIndex: number;
   setActiveIndex: React.Dispatch<React.SetStateAction<number>>;
@@ -49,42 +47,5 @@ const SliderTargetC = (props: {
     />
   );
 };
-
-interface SliderProps {
-  value: number;
-  max?: number;
-  min?: number;
-  useNegativeIndex?: boolean;
-  negativeIndexMax?: number;
-}
-
-const Slider = (props: SliderProps) => {
-    const [activeIndex, setActiveIndex] = useState(0);
-
-    return (
-      <SliderStyle>
-        <SliderTargetC
-          setActiveIndex={setActiveIndex}
-          keyIndex={0}
-          activeIndex={activeIndex}
-        />
-        <SliderTargetC
-          setActiveIndex={setActiveIndex}
-          keyIndex={1}
-          activeIndex={activeIndex}
-        />
-        <SliderTargetC
-          setActiveIndex={setActiveIndex}
-          keyIndex={2}
-          activeIndex={activeIndex}
-        />
-        <SliderTargetC
-          setActiveIndex={setActiveIndex}
-          keyIndex={3}
-          activeIndex={activeIndex}
-        />
-      </SliderStyle>
-    );
-}
 
 export default Slider;
