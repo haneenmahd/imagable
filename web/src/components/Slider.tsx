@@ -18,7 +18,8 @@ const SliderTarget = styled.span<{ active: boolean }>`
   outline: none;
   transition: transform 0.3s ${globals.styling.transition};
 
-  &:hover, :focus {
+  &:hover,
+  :focus {
     transform: scale(1.2);
   }
 
@@ -26,6 +27,11 @@ const SliderTarget = styled.span<{ active: boolean }>`
 
   @media screen and (max-width: 600px) {
     margin: 8px 6px;
+  }
+
+  @media screen and (max-width: 1100px) {
+    width: 3px;
+    height: 24px;
   }
 `;
 const Slider = (props: {

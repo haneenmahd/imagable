@@ -7,4 +7,9 @@ const globals = {
   }
 };
 
+interface IconCommons {
+  active?: boolean;
+}
+
+export type { IconCommons };
 export default globals;
