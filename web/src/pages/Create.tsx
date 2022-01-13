@@ -81,8 +81,9 @@ const SliderContainer = styled.div`
 `;
 
 const CurrentSlider = (props: {
-  statusText: { 
-    text: string; count: number; 
+  statusText: {
+    text: string;
+    count: number;
   };
   slider: {
     activeSliderIndex: number;
@@ -90,7 +91,9 @@ const CurrentSlider = (props: {
     sliderCount: number;
   };
 }) => {
-  const sliders: number[] = Array(21).fill(0);
+  const steppers: number[] = [
+    0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100,
+  ];
 
   return (
     <CurrentSliderContainer>
@@ -99,14 +102,14 @@ const CurrentSlider = (props: {
           {props.statusText.text}
         </SliderCurrentStatusText>
         <SliderCurrentStatusText>
-          {props.statusText.count}px
+          {props.statusText.count}
         </SliderCurrentStatusText>
       </SliderCurrentStatus>
 
       <SliderContainer>
-        {sliders.map((slider, index) => (
+        {steppers.map((count, index) => (
           <Slider
-            keyIndex={index}
+            keyIndex={count}
             activeIndex={props.slider.activeSliderIndex}
             setActiveIndex={props.slider.setActiveSliderIndex}
             key={index}
@@ -150,21 +153,24 @@ const ControlsViewStyle = styled.div`
 `;
 
 const ControlsView = () => {
-  const [activeSliderIndex, setActiveSliderIndex] = useState(0);
+  const [activeSliderIndex, setActiveSliderIndex] = useState(50);
+
   return (
     <ControlsViewStyle>
-      <CurrentSlider slider={{
-        activeSliderIndex,
-        setActiveSliderIndex,
-        sliderCount: 10
-      }}
-      statusText={{
-        count: activeSliderIndex,
-        text: "Brightness"
-      }} />
+      <CurrentSlider
+        slider={{
+          activeSliderIndex,
+          setActiveSliderIndex,
+          sliderCount: 10,
+        }}
+        statusText={{
+          count: activeSliderIndex,
+          text: "Brightness",
+        }}
+      />
     </ControlsViewStyle>
   );
-}
+};
 
 const Create = () => {
   return (
@@ -173,9 +179,9 @@ const Create = () => {
         <Image width="40vw" src={EditorSampleImage} />
       </ImageCanvasContainer>
 
-      <ControlsView/>
+      <ControlsView />
     </PageContainer>
   );
-}
+};
 
 export default Create;
