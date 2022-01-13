@@ -3,6 +3,7 @@ import styled, { keyframes } from "styled-components";
 import globals from "../globals";
 import TabBar from "./TabBar";
 import CurrentSlider from "./CurrentSlider";
+import Seperator from "./Seperator";
 
 const ControlViewStyleAnimation = keyframes`
   from {
@@ -53,6 +54,7 @@ const ControlsView = () => {
       />
 
       <TabBar />
+      <Seperator />
     </ControlsViewStyle>
   );
 };
