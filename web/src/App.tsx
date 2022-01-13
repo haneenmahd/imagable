@@ -1,9 +1,5 @@
 import "./App.scss";
-import FeatureBrief from "./components/FeatureBrief";
-import Footer from "./components/Footer";
-
-import Landing from "./components/Landing";
-import NavBar from "./components/NavBar";
+import Create from "./pages/Create";
 
 /**
  * Main Render Component
@@ -12,10 +8,7 @@ import NavBar from "./components/NavBar";
 function App(): JSX.Element {
   return (
     <div className="App">
-      <NavBar />
-      <Landing />
-      <FeatureBrief />
-      <Footer />
+      <Create />
     </div>
   );
 }
