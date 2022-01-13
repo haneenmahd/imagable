@@ -8,7 +8,7 @@ const globals = {
 };
 
 interface IconCommons {
-  active?: boolean;
+  active: boolean;
 }
 
 export type { IconCommons };
