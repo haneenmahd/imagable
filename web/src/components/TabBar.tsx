@@ -11,14 +11,11 @@ const TabBarStyle = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 7% 5%;
   width: 80%;
   height: 100px;
-  margin-top: 20px;
 
   @media screen and (max-width: 600px) {
     width: 100%;
-    margin: 20px 0;
   }
 `;
 

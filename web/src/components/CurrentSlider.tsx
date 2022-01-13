@@ -7,10 +7,6 @@ const CurrentSliderContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding: 10px;
-  
-  @media screen and (max-height: 740px) {
-    margin-top: 100px;
-  }
 `;
 
 const SliderCurrentStatus = styled.div`
