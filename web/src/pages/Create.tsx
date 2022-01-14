@@ -58,10 +58,10 @@ const Create = () => {
 
   // settings
   const [brightnessSliderIndex, setBrightnessSliderIndex] = useState(100);
-  const [qualitySliderIndex, setQualitySliderIndex] = useState(0);
-  const [saturationSliderIndex, setSaturationSliderIndex] = useState(0);
-  const [contrastSliderIndex, setContrastSliderIndex] = useState(0);
-  const [filterSliderIndex, setFilterSliderIndex] = useState(0);
+  const [qualitySliderIndex, setQualitySliderIndex] = useState(100);
+  const [saturationSliderIndex, setSaturationSliderIndex] = useState(10);
+  const [contrastSliderIndex, setContrastSliderIndex] = useState(10);
+  const [filterSliderIndex, setFilterSliderIndex] = useState(50);
 
   const filterInput: FilterInput = {
     brightness: brightnessSliderIndex,
