@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 // illustration purpose
 import EditorSampleImage from "../assets/png/editor-sample.jpg";
@@ -46,6 +46,35 @@ const Create = () => {
   const [activeSliderIndex, setActiveSliderIndex] = useState(0);
   const [activeFilterIndex, setActiveFiterIndex] = useState(0);
   const [activeTabBarIndex, setActiveTabBarIndex] = useState(0);
+  const [activeCurrentSliderText, setActiveCurrentSliderText] = useState("Brightness");
+
+  useEffect(() => {
+    switch (activeTabBarIndex) {
+      case 0:
+        setActiveCurrentSliderText("Brightness");
+        break;
+
+      case 1:
+        setActiveCurrentSliderText("Crop");
+        break;
+
+      case 2:
+        setActiveCurrentSliderText("Saturation");
+        break;
+
+      case 3:
+        setActiveCurrentSliderText("Contrast");
+        break;
+
+      case 4:
+        setActiveCurrentSliderText("Filters");
+        break;
+
+      default:
+        setActiveCurrentSliderText("Not available option");
+        break;
+    }
+  }, [activeTabBarIndex]);
 
   return (
     <PageContainer>
@@ -60,6 +89,7 @@ const Create = () => {
         setFilterActiveIndex={setActiveFiterIndex}
         tabBarActiveIndex={activeTabBarIndex}
         setTabBarActiveIndex={setActiveTabBarIndex}
+        currentSliderText={activeCurrentSliderText}
          />
     </PageContainer>
   );

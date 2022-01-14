@@ -49,6 +49,7 @@ const ControlsView = (props: {
   setFilterActiveIndex: React.Dispatch<React.SetStateAction<number>>;
   tabBarActiveIndex: number;
   setTabBarActiveIndex: React.Dispatch<React.SetStateAction<number>>;
+  currentSliderText: string;
 }) => {
   const activeSliderIndex = props.activeSliderIndex,
     setActiveSliderIndex = props.setActiveSliderIndex;
@@ -63,7 +64,7 @@ const ControlsView = (props: {
         }}
         statusText={{
           count: activeSliderIndex,
-          text: "Brightness",
+          text: props.currentSliderText,
         }}
       />
 
