@@ -38,14 +38,18 @@ const FilterCircleTarget = styled.img<{ active?: boolean }>`
   ${(p) => p.active && FilterCircleActive}
 `;
 
-const FilterCircleAccessibilityText = styled.p<{ active?: boolean; }>`
+const FilterCircleAccessibilityText = styled.p<{ active?: boolean }>`
   font-weight: 500;
   font-size: 100%;
   line-height: 1rem;
   margin: 4px 0;
   color: #fff;
 
-  ${p => p.active && css`font-weight: 600;`}
+  ${(p) =>
+    p.active &&
+    css`
+      font-weight: 600;
+    `}
 `;
 
 const FilterCircle = (props: {
@@ -58,7 +62,8 @@ const FilterCircle = (props: {
   return (
     <FilterBox>
       <FilterCircleAccessibilityText
-        active={props.activeIndex === props.keyIndex ? true : false}>
+        active={props.activeIndex === props.keyIndex ? true : false}
+      >
         {props.accessibilityText}
       </FilterCircleAccessibilityText>
       <FilterCircleTarget
