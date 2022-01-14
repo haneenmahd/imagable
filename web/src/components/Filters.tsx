@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import EditorSample from "../assets/png/editor-sample.jpg";
+import EditorSample from "../assets/png/logo.png";
 import FilterCircle from "./FilterCircle";
 
 const FilterStyle = styled.div`
