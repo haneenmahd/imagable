@@ -22,6 +22,7 @@ const Filters = (props: {
   return (
     <FilterStyle>
       <FilterCircle
+        accessibilityText="Baked"
         keyIndex={0}
         activeIndex={activeIndex}
         setActiveIndex={setActiveIndex}
@@ -29,6 +30,7 @@ const Filters = (props: {
       />
 
       <FilterCircle
+        accessibilityText="Orion"
         keyIndex={1}
         activeIndex={activeIndex}
         setActiveIndex={setActiveIndex}

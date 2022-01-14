@@ -1,10 +1,51 @@
-import React from "react";
-import styled, { keyframes } from "styled-components";
-import globals from "../globals";
+import React, {useState} from "react";
+import styled, {css, keyframes} from "styled-components";
 import TabBar from "./TabBar";
-import CurrentSlider from "./CurrentSlider";
 import Seperator from "./Seperator";
 import Filters from "./Filters";
+import globals from "../globals";
+import {BookOpen} from "react-feather";
+
+const CloseControlsView = styled.button`
+  display: none;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 2% 4%;
+  background: linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.45),
+    rgba(0, 0, 0, 0.15) 200px
+  );
+  border: 0.5px solid #ffffff43;
+  box-shadow: 4px 8px 28px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border-radius: 39px;
+  color: #fff;
+  font-size: 90%;
+  font-weight: 700;
+  cursor: pointer;
+  margin-bottom: 1%;
+  transition: all 0.3s ${globals.styling.transition};
+
+  p {
+    display: flex;
+    align-items: center;
+
+    svg {
+      margin: 0 8px;
+    }
+  }
+
+  &:hover {
+    background-color: #fafafa20;
+  }
+
+  @media screen and (max-width: 1100px) {
+    display: flex;
+  }
+`;
 
 const ControlViewStyleAnimation = keyframes`
   from {
@@ -12,7 +53,32 @@ const ControlViewStyleAnimation = keyframes`
   }
 `;
 
-const ControlsViewStyle = styled.div`
+const ClosedControlViewStyle = css`
+  height: 50px;
+  min-height: 50px;
+  bottom: 0%;
+
+  * {
+    opacity: 0;
+    display: none;
+    transition: opacity 0.3s ${globals.styling.transition};
+  }
+
+  button,
+  svg,
+  p,
+  path {
+    opacity: 1;
+    display: inherit;
+  }
+
+  button {
+    padding: 15px;
+    margin-bottom: 0;
+  }
+`;
+
+const ControlsViewStyle = styled.div<{visible: boolean}>`
   position: fixed;
   bottom: 0;
   min-height: 317px;
@@ -27,8 +93,11 @@ const ControlsViewStyle = styled.div`
   -webkit-backdrop-filter: blur(63px);
   animation: ${ControlViewStyleAnimation} 1s ${globals.styling.transition};
   overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.42, 0, 0.49, 0.79);
 
-  @media screen and (min-width: 1000px) {
+  ${(p) => p.visible && ClosedControlViewStyle}
+
+  @media screen and (min-width: 1100px) {
     position: relative;
     margin: 0 40px;
     width: 50vw;
@@ -43,30 +112,29 @@ const ControlsViewStyle = styled.div`
 `;
 
 const ControlsView = (props: {
-  activeSliderIndex: number;
-  setActiveSliderIndex: React.Dispatch<React.SetStateAction<number>>;
+  currentSlider: JSX.Element;
   filterActiveIndex: number;
   setFilterActiveIndex: React.Dispatch<React.SetStateAction<number>>;
   tabBarActiveIndex: number;
   setTabBarActiveIndex: React.Dispatch<React.SetStateAction<number>>;
   currentSliderText: string;
 }) => {
-  const activeSliderIndex = props.activeSliderIndex,
-    setActiveSliderIndex = props.setActiveSliderIndex;
+  const [isControlsOpen, setControlsOpen] = useState(false);
 
   return (
-    <ControlsViewStyle>
-      <CurrentSlider
-        slider={{
-          activeSliderIndex,
-          setActiveSliderIndex,
-          sliderCount: 10,
-        }}
-        statusText={{
-          count: activeSliderIndex,
-          text: props.currentSliderText,
-        }}
-      />
+    <ControlsViewStyle visible={isControlsOpen}>
+      <CloseControlsView onClick={() => setControlsOpen(!isControlsOpen)}>
+        {isControlsOpen ? (
+          <p>
+            <BookOpen /> Open Editor
+          </p>
+        ) : (
+          <p>
+            <BookOpen /> Close Editor
+          </p>
+        )}
+      </CloseControlsView>
+      {props.currentSlider}
 
       <TabBar
         activeTab={props.tabBarActiveIndex}
