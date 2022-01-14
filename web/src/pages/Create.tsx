@@ -8,6 +8,7 @@ import FiltersSlider from "../components/sliders/FiltersSlider";
 import ContrastSlider from "../components/sliders/ContrastSlider";
 import SaturationSlider from "../components/sliders/SaturationSlider";
 import QualitySlider from "../components/sliders/QualitySlider";
+import { applyFilter, FilterInput } from "../globals";
 
 const PageContainer = styled.div`
   position: relative;
@@ -35,10 +36,12 @@ const ImageCanvasContainer = styled.div`
 `;
 
 // pass in server response width from JIMP
-const Image = styled.img<{ width?: string }>`
+const Image = styled.img<{ width?: string; filterInput: FilterInput }>`
   max-width: 100%;
   height: auto;
   width: ${(p) => p.width};
+
+  filter: ${(p) => applyFilter(p.filterInput)};
 
   @media screen and (max-width: 600px) {
     max-width: 95vw;
@@ -59,6 +62,15 @@ const Create = () => {
   const [saturationSliderIndex, setSaturationSliderIndex] = useState(0);
   const [contrastSliderIndex, setContrastSliderIndex] = useState(0);
   const [filterSliderIndex, setFilterSliderIndex] = useState(0);
+
+  const filterInput: FilterInput = {
+    brightness: brightnessSliderIndex,
+    saturation: saturationSliderIndex,
+    contrast: contrastSliderIndex,
+    hueRotate: 0,
+    blur: 0,
+    sepia: 0
+  }
 
   const [activeSlider, setActiveSlider] = useState(
     <BrightnessSlider
@@ -135,7 +147,7 @@ const Create = () => {
   return (
     <PageContainer>
       <ImageCanvasContainer>
-        <Image width="40vw" src={EditorSampleImage} />
+        <Image filterInput={filterInput} width="40vw" src={EditorSampleImage} />
       </ImageCanvasContainer>
 
       <ControlsView

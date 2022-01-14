@@ -11,7 +11,7 @@ interface IconCommons {
   active?: boolean;
 }
 
-interface FilterOutput {
+interface FilterInput {
   sepia?: number;
   blur?: number;
   saturation?: number;
@@ -20,16 +20,14 @@ interface FilterOutput {
   hueRotate?: number;
 }
 
-export function applyFilter(_input: FilterOutput): string {
+export function applyFilter(_input: FilterInput): string {
   let mixUpFilter: string = "";
 
-  mixUpFilter.concat(
-    `blur(${_input.blur}) sepia(${_input.sepia}%) saturation(${_input.saturation}) contrast(${_input.contrast}) brightness(${_input.brightness}) hue-rotate(${_input.hueRotate})`
-  );
+  mixUpFilter += `blur(${_input.blur}) sepia(${_input.sepia}%) saturation(${_input.saturation}) contrast(${_input.contrast}) brightness(${_input.brightness}%) hue-rotate(${_input.hueRotate})`;
 
   return mixUpFilter;
 }
 
-export type { FilterOutput };
+export type { FilterInput };
 export type { IconCommons };
 export default globals;
