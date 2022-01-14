@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 import styled from "styled-components";
 // illustration purpose
 import EditorSampleImage from "../assets/png/editor-sample.jpg";
@@ -8,7 +8,7 @@ import FiltersSlider from "../components/sliders/FiltersSlider";
 import ContrastSlider from "../components/sliders/ContrastSlider";
 import SaturationSlider from "../components/sliders/SaturationSlider";
 import QualitySlider from "../components/sliders/QualitySlider";
-import { applyFilter, FilterInput } from "../globals";
+import {applyFilter, FilterInput} from "../globals";
 
 const PageContainer = styled.div`
   position: relative;
@@ -36,7 +36,7 @@ const ImageCanvasContainer = styled.div`
 `;
 
 // pass in server response width from JIMP
-const Image = styled.img<{ width?: string; filterInput: FilterInput }>`
+const Image = styled.img<{width?: string; filterInput: FilterInput}>`
   max-width: 100%;
   height: auto;
   width: ${(p) => p.width};

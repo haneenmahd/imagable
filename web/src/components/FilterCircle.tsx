@@ -1,12 +1,12 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled, {css} from "styled-components";
 import globals from "../globals";
 
 const FilterBoxActive = css`
   font-size: 16px;
 `;
 
-const FilterBox = styled.div<{ active?: boolean }>`
+const FilterBox = styled.div<{active?: boolean}>`
   text-align: center;
   height: 100px;
   width: auto;
@@ -24,7 +24,7 @@ const FilterCircleActive = css`
   height: 60px;
 `;
 
-const FilterCircleTarget = styled.img<{ active?: boolean }>`
+const FilterCircleTarget = styled.img<{active?: boolean}>`
   width: 50px;
   height: 50px;
   border: 2px solid #d9d9d9;
@@ -38,7 +38,7 @@ const FilterCircleTarget = styled.img<{ active?: boolean }>`
   ${(p) => p.active && FilterCircleActive}
 `;
 
-const FilterCircleAccessibilityText = styled.p<{ active?: boolean }>`
+const FilterCircleAccessibilityText = styled.p<{active?: boolean}>`
   font-weight: 500;
   font-size: 100%;
   line-height: 1rem;

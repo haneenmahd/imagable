@@ -1,4 +1,4 @@
-import { css } from "styled-components";
+import {css} from "styled-components";
 
 const BackBlur = css`
   -webkit-backdrop-filter: blur(20px);

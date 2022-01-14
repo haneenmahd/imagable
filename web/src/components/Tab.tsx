@@ -1,12 +1,12 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled, {css} from "styled-components";
 import globals from "../globals";
 
 const TabActive = css`
   background-color: #fafafa13;
 `;
 
-const TabTarget = styled.span<{ active: boolean }>`
+const TabTarget = styled.span<{active: boolean}>`
   display: flex;
   align-items: center;
   justify-content: center;

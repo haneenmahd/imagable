@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, {FunctionComponent} from "react";
 import Slider from "../Slider";
 import {
   CurrentSliderContainer,

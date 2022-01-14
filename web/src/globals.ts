@@ -1,6 +1,6 @@
 // global variables that should be used under specific views or components
 
-import { css, FlattenSimpleInterpolation } from "styled-components";
+import {css, FlattenSimpleInterpolation} from "styled-components";
 
 // that re-use the same thing again and again
 const globals = {
@@ -32,6 +32,6 @@ export function applyFilter(_input: FilterInput): FlattenSimpleInterpolation {
   return mixUpFilter;
 }
 
-export type { FilterInput };
-export type { IconCommons };
+export type {FilterInput};
+export type {IconCommons};
 export default globals;

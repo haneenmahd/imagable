@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import styled, {keyframes} from "styled-components";
 import globals from "../globals";
 import TabBar from "./TabBar";
 import Seperator from "./Seperator";

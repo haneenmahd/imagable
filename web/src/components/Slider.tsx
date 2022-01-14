@@ -1,6 +1,6 @@
-import styled, { css } from "styled-components";
+import styled, {css} from "styled-components";
 import globals from "../globals";
-import { SliderProps } from "./sliders/SliderCommons";
+import {SliderProps} from "./sliders/SliderCommons";
 
 const SliderActive = css`
   width: 5px;
@@ -8,7 +8,7 @@ const SliderActive = css`
   background: #ffffff;
 `;
 
-const SliderTarget = styled.span<{ active: boolean }>`
+const SliderTarget = styled.span<{active: boolean}>`
   width: 4px;
   height: 28px;
   background: rgba(255, 255, 255, 0.46);
