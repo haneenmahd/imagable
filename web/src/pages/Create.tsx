@@ -55,7 +55,7 @@ const Create = () => {
         break;
 
       case 1:
-        setActiveCurrentSliderText("Crop");
+        setActiveCurrentSliderText("Quality");
         break;
 
       case 2:
