@@ -48,7 +48,9 @@ app.post('/api/blur', upload.single('image-file'), async (req, res) => {
 	// req.file is the `profile-file` file
 	// req.body will hold the text fields, if there were any
 	await blur(filePath, 2);
-	res.sendFile(filePath);
+	const base64 = Buffer.from(fs.readFileSync(`${filePath}`)).toString();
+
+	res.send({ imageData: base64 });
 });
 
 app.listen(port, () =>
