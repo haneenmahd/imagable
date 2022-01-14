@@ -1,9 +1,40 @@
-import React from "react";
-import styled, {keyframes} from "styled-components";
-import globals from "../globals";
+import React, {useState} from "react";
+import styled, {css, keyframes} from "styled-components";
 import TabBar from "./TabBar";
 import Seperator from "./Seperator";
 import Filters from "./Filters";
+import globals from "../globals";
+
+const CloseControlsView = styled.button`
+  display: none;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 2% 4%;
+  background: linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.45),
+    rgba(0, 0, 0, 0.15) 200px
+  );
+  border: 0.5px solid #ffffff43;
+  box-shadow: 4px 8px 28px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border-radius: 39px;
+  color: #fff;
+  font-size: 90%;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ${globals.styling.transition};
+
+  &:hover {
+    background-color: #fafafa20;
+  }
+
+  @media screen and (max-width: 1100px) {
+    display: flex;
+  }
+`;
 
 const ControlViewStyleAnimation = keyframes`
   from {
@@ -11,7 +42,24 @@ const ControlViewStyleAnimation = keyframes`
   }
 `;
 
-const ControlsViewStyle = styled.div`
+const ClosedControlViewStyle = css`
+  height: 50px;
+  min-height: 50px;
+  bottom: 0%;
+
+  * {
+    opacity: 0;
+    display: none;
+    transition: opacity 0.3s ${globals.styling.transition};
+  }
+
+  button {
+    opacity: 1;
+    display: inherit;
+  }
+`;
+
+const ControlsViewStyle = styled.div<{visible: boolean}>`
   position: fixed;
   bottom: 0;
   min-height: 317px;
@@ -26,6 +74,9 @@ const ControlsViewStyle = styled.div`
   -webkit-backdrop-filter: blur(63px);
   animation: ${ControlViewStyleAnimation} 1s ${globals.styling.transition};
   overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.42, 0, 0.49, 0.79);
+
+  ${(p) => p.visible && ClosedControlViewStyle}
 
   @media screen and (min-width: 1100px) {
     position: relative;
@@ -49,8 +100,13 @@ const ControlsView = (props: {
   setTabBarActiveIndex: React.Dispatch<React.SetStateAction<number>>;
   currentSliderText: string;
 }) => {
+  const [isControlsOpen, setControlsOpen] = useState(true);
+
   return (
-    <ControlsViewStyle>
+    <ControlsViewStyle visible={isControlsOpen}>
+      <CloseControlsView onClick={() => setControlsOpen(!isControlsOpen)}>
+        {isControlsOpen ? "Open Editor" : "Close Editor"}
+      </CloseControlsView>
       {props.currentSlider}
 
       <TabBar
