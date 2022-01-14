@@ -74,7 +74,7 @@ const ClosedControlViewStyle = css`
 
   button {
     padding: 15px;
-    margin-bottom: 0;
+    margin-bottom: 0%;
   }
 `;
 
