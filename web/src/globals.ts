@@ -3,8 +3,8 @@
 const globals = {
   githubUrl: "https://github.com/imagable",
   styling: {
-    transition: "cubic-bezier(0.44, 0.18, 0.22, 0.82)"
-  }
+    transition: "cubic-bezier(0.44, 0.18, 0.22, 0.82)",
+  },
 };
 
 interface IconCommons {
@@ -23,8 +23,9 @@ interface FilterOutput {
 export function applyFilter(_input: FilterOutput): string {
   let mixUpFilter: string = "";
 
-  mixUpFilter.concat(`blur(${_input.blur}) sepia(${_input.sepia}%) saturation(${_input.saturation}) contrast(${_input.contrast}) brightness(${_input.brightness}) hue-rotate(${_input
-  .hueRotate})`);
+  mixUpFilter.concat(
+    `blur(${_input.blur}) sepia(${_input.sepia}%) saturation(${_input.saturation}) contrast(${_input.contrast}) brightness(${_input.brightness}) hue-rotate(${_input.hueRotate})`
+  );
 
   return mixUpFilter;
 }

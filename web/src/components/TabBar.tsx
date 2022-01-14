@@ -22,7 +22,8 @@ const TabBar = (props: {
   activeTab: number;
   setActiveTab: React.Dispatch<React.SetStateAction<number>>;
 }) => {
-  const activeTab = props.activeTab, setActiveTab = props.setActiveTab;
+  const activeTab = props.activeTab,
+    setActiveTab = props.setActiveTab;
 
   return (
     <TabBarStyle>

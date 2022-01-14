@@ -2,25 +2,25 @@ import styled, { css } from "styled-components";
 import Tokens from "./tokens";
 
 const DefaultStyles = css`
-    background: #FFEFEF;
-    color: ${Tokens.themeColors.lightSecondaryColor};
+  background: #ffefef;
+  color: ${Tokens.themeColors.lightSecondaryColor};
 
-    &:hover {
-      background: #e6d2d2;
-    }
+  &:hover {
+    background: #e6d2d2;
+  }
 `;
 
 const MainStyles = css`
-    background: #92A9BD;
-    color: #FFEFEF;
+  background: #92a9bd;
+  color: #ffefef;
 
-    &:hover {
-      background: #5c7183;
-    }
+  &:hover {
+    background: #5c7183;
+  }
 `;
 
 interface ButtonStylesProps {
-    theme?: "main" | "secondary";
+  theme?: "main" | "secondary";
 }
 
 export const ButtonStyle = styled.button<ButtonStylesProps>`
@@ -41,12 +41,15 @@ export const ButtonStyle = styled.button<ButtonStylesProps>`
 `;
 
 const ButtonIcon = styled.span`
-    height: 20px; width: 20px;
-    margin: 0 5px;
+  height: 20px;
+  width: 20px;
+  margin: 0 5px;
 
-    & svg, img {
-        height: 20px; width: 20px;
-    }
+  & svg,
+  img {
+    height: 20px;
+    width: 20px;
+  }
 `;
 
 const ButtonText = styled.p`
@@ -63,23 +66,23 @@ const ButtonText = styled.p`
 `;
 
 interface ButtonProps extends ButtonStylesProps {
-    text?: string;
-    icon?: JSX.Element;
-    onClick?: any;
-    children?: React.ReactChildren | string;
+  text?: string;
+  icon?: JSX.Element;
+  onClick?: any;
+  children?: React.ReactChildren | string;
 }
 
 const Button = (props: ButtonProps) => {
-    return (
-        <ButtonStyle onClick={props.onClick} theme={props.theme}>
-            {/* Render only if `props.icon` exists */}
-            {props.icon && <ButtonIcon>{props.icon}</ButtonIcon>}
-            {/* Render only if `props.icon` exists */}
-            {props.text && <ButtonText>{props.text}</ButtonText>}
-            
-            {props.children}
-        </ButtonStyle>
-    )
-}
+  return (
+    <ButtonStyle onClick={props.onClick} theme={props.theme}>
+      {/* Render only if `props.icon` exists */}
+      {props.icon && <ButtonIcon>{props.icon}</ButtonIcon>}
+      {/* Render only if `props.icon` exists */}
+      {props.text && <ButtonText>{props.text}</ButtonText>}
+
+      {props.children}
+    </ButtonStyle>
+  );
+};
 
 export default Button;

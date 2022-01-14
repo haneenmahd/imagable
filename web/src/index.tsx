@@ -1,13 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
-import './index.scss';
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
+import "./index.scss";
 
-import App from './App';
+import App from "./App";
 
 // pages
-import Tools from './pages/Tools';
-import Create from './pages/Create';
+import Tools from "./pages/Tools";
+import Create from "./pages/Create";
 
 /**
  * This is the app component which is going to be the renderer for all child elements inside the app.
@@ -32,5 +32,5 @@ ReactDOM.render(
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );

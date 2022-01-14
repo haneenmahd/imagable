@@ -6,13 +6,13 @@ const FilterBoxActive = css`
   font-size: 16px;
 `;
 
-const FilterBox = styled.div<{ active?: boolean; }>`
+const FilterBox = styled.div<{ active?: boolean }>`
   height: 100px;
   width: auto;
   font-weight: bold;
   font-size: 15px;
 
-  ${p => p.active && FilterBoxActive}
+  ${(p) => p.active && FilterBoxActive}
 `;
 
 const FilterCircleActive = css`

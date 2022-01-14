@@ -12,26 +12,30 @@ const FilterStyle = styled.div`
   width: 100%;
 `;
 
-const Filters = (props: { activeIndex: number; setActiveIndex: React.Dispatch<React.SetStateAction<number>>; }) => {
-    const activeIndex = props.activeIndex, setActiveIndex = props.setActiveIndex;
+const Filters = (props: {
+  activeIndex: number;
+  setActiveIndex: React.Dispatch<React.SetStateAction<number>>;
+}) => {
+  const activeIndex = props.activeIndex,
+    setActiveIndex = props.setActiveIndex;
 
-    return (
-      <FilterStyle>
-        <FilterCircle
-          keyIndex={0}
-          activeIndex={activeIndex}
-          setActiveIndex={setActiveIndex}
-          imageSource={EditorSample}
-        />
+  return (
+    <FilterStyle>
+      <FilterCircle
+        keyIndex={0}
+        activeIndex={activeIndex}
+        setActiveIndex={setActiveIndex}
+        imageSource={EditorSample}
+      />
 
-        <FilterCircle
-          keyIndex={1}
-          activeIndex={activeIndex}
-          setActiveIndex={setActiveIndex}
-          imageSource={EditorSample}
-        />
-      </FilterStyle>
-    );
-}
+      <FilterCircle
+        keyIndex={1}
+        activeIndex={activeIndex}
+        setActiveIndex={setActiveIndex}
+        imageSource={EditorSample}
+      />
+    </FilterStyle>
+  );
+};
 
 export default Filters;

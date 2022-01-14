@@ -2,22 +2,22 @@
 // updated at `tokens.ts` in `src/styles`.
 // NOTE: change only the values of themeColors
 
-$main-bg: #F4F4F4;
-$main-color: #7C99AC;
-$secondary-color: #92A9BD;
-$light-secondary-color: #768DA1;
-$accent-color: #FFEFEF;
-$light-accent: #AEC3D6;
-$secondary-accent-color: #D3DEDC;
+$main-bg: #f4f4f4;
+$main-color: #7c99ac;
+$secondary-color: #92a9bd;
+$light-secondary-color: #768da1;
+$accent-color: #ffefef;
+$light-accent: #aec3d6;
+$secondary-accent-color: #d3dedc;
 
 // UI TEXT SELECTION COLOR
 $ui-text-selection-color: #aec3d65d;
 
 // UI SPACING VARIABLES
 @mixin main-app-padding {
-    padding: 0 80px;
+  padding: 0 80px;
 
-    @media screen and (max-width: 600px) {
-        padding: 0 30px;
-    }
-};
+  @media screen and (max-width: 600px) {
+    padding: 0 30px;
+  }
+} ;

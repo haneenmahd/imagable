@@ -41,7 +41,7 @@ const ControlsViewStyle = styled.div`
     position: absolute;
   }
 `;
- 
+
 const ControlsView = (props: {
   activeSliderIndex: number;
   setActiveSliderIndex: React.Dispatch<React.SetStateAction<number>>;
@@ -68,9 +68,10 @@ const ControlsView = (props: {
         }}
       />
 
-      <TabBar 
-        activeTab={props.tabBarActiveIndex} 
-        setActiveTab={props.setTabBarActiveIndex} />
+      <TabBar
+        activeTab={props.tabBarActiveIndex}
+        setActiveTab={props.setTabBarActiveIndex}
+      />
       <Seperator />
       <Filters
         activeIndex={props.filterActiveIndex}

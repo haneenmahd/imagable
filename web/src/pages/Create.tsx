@@ -46,7 +46,8 @@ const Create = () => {
   const [activeSliderIndex, setActiveSliderIndex] = useState(0);
   const [activeFilterIndex, setActiveFiterIndex] = useState(0);
   const [activeTabBarIndex, setActiveTabBarIndex] = useState(0);
-  const [activeCurrentSliderText, setActiveCurrentSliderText] = useState("Brightness");
+  const [activeCurrentSliderText, setActiveCurrentSliderText] =
+    useState("Brightness");
 
   useEffect(() => {
     switch (activeTabBarIndex) {
@@ -82,15 +83,15 @@ const Create = () => {
         <Image width="40vw" src={EditorSampleImage} />
       </ImageCanvasContainer>
 
-      <ControlsView 
-        activeSliderIndex={activeSliderIndex} 
+      <ControlsView
+        activeSliderIndex={activeSliderIndex}
         setActiveSliderIndex={setActiveSliderIndex}
         filterActiveIndex={activeFilterIndex}
         setFilterActiveIndex={setActiveFiterIndex}
         tabBarActiveIndex={activeTabBarIndex}
         setTabBarActiveIndex={setActiveTabBarIndex}
         currentSliderText={activeCurrentSliderText}
-         />
+      />
     </PageContainer>
   );
 };
