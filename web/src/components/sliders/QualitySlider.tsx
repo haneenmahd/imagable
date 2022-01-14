@@ -8,18 +8,18 @@ import {
   stepperCounts,
 } from "./SliderCommons";
 
-interface BrightnessSliderProps {
+interface QualitySliderProps {
   count: number;
   setCount: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const BrightnessSlider: FunctionComponent<BrightnessSliderProps> = (
-  props: BrightnessSliderProps
+const QualitySlider: FunctionComponent<QualitySliderProps> = (
+  props: QualitySliderProps
 ) => {
   return (
     <CurrentSliderContainer>
       <SliderCurrentStatus>
-        <SliderCurrentStatusText>Brightness</SliderCurrentStatusText>
+        <SliderCurrentStatusText>Quality</SliderCurrentStatusText>
         <SliderCurrentStatusText>{props.count}%</SliderCurrentStatusText>
       </SliderCurrentStatus>
 
@@ -37,4 +37,4 @@ const BrightnessSlider: FunctionComponent<BrightnessSliderProps> = (
   );
 };
 
-export default BrightnessSlider;
+export default QualitySlider;
