@@ -5,6 +5,37 @@ import TabBar from "./TabBar";
 import Seperator from "./Seperator";
 import Filters from "./Filters";
 
+const CloseControlsView = styled.button`
+  display: none;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 2% 4%;
+  background: linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.45),
+    rgba(0, 0, 0, 0.15) 200px
+  );
+  border: 0.5px solid #ffffff43;
+  box-shadow: 4px 8px 28px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border-radius: 39px;
+  color: #fff;
+  font-size: 90%;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ${globals.styling.transition};
+
+  &:hover {
+    background-color: #fafafa20;
+  }
+
+  @media screen and (max-width: 1100px) {
+    display: flex;
+  }
+`;
+
 const ControlViewStyleAnimation = keyframes`
   from {
     bottom: -100%;
@@ -51,6 +82,7 @@ const ControlsView = (props: {
 }) => {
   return (
     <ControlsViewStyle>
+      <CloseControlsView>Close</CloseControlsView>
       {props.currentSlider}
 
       <TabBar
