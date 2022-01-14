@@ -27,7 +27,7 @@ export function applyFilter(_input: FilterOutput): string {
   .hueRotate})`);
 
   return mixUpFilter;
-} 
+}
 
 export type { FilterOutput };
 export type { IconCommons };
