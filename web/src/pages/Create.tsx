@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 // illustration purpose
 import EditorSampleImage from "../assets/png/editor-sample.jpg";
@@ -43,13 +43,21 @@ const Image = styled.img<{ width?: string }>`
 `;
 
 const Create = () => {
+  const [activeSliderIndex, setActiveSliderIndex] = useState(0);
+  const [activeFilterIndex, setActiveFiterIndex] = useState(0);
+
   return (
     <PageContainer>
       <ImageCanvasContainer>
         <Image width="40vw" src={EditorSampleImage} />
       </ImageCanvasContainer>
 
-      <ControlsView />
+      <ControlsView 
+        activeSliderIndex={activeSliderIndex} 
+        setActiveSliderIndex={setActiveSliderIndex}
+        filterActiveIndex={activeFilterIndex}
+        setFilterActiveIndex={setActiveFiterIndex}
+         />
     </PageContainer>
   );
 };

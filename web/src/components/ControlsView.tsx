@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled, { keyframes } from "styled-components";
 import globals from "../globals";
 import TabBar from "./TabBar";
@@ -42,8 +42,14 @@ const ControlsViewStyle = styled.div`
   }
 `;
  
-const ControlsView = () => {
-  const [activeSliderIndex, setActiveSliderIndex] = useState(50);
+const ControlsView = (props: {
+  activeSliderIndex: number;
+  setActiveSliderIndex: React.Dispatch<React.SetStateAction<number>>;
+  filterActiveIndex: number;
+  setFilterActiveIndex: React.Dispatch<React.SetStateAction<number>>;
+}) => {
+  const activeSliderIndex = props.activeSliderIndex,
+    setActiveSliderIndex = props.setActiveSliderIndex;
 
   return (
     <ControlsViewStyle>
@@ -61,7 +67,7 @@ const ControlsView = () => {
 
       <TabBar />
       <Seperator />
-      <Filters />
+      <Filters activeIndex={props.filterActiveIndex} setActiveIndex={props.setFilterActiveIndex} />
     </ControlsViewStyle>
   );
 };
