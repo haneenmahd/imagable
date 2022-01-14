@@ -14,7 +14,7 @@ import Create from "./pages/Create";
  */
 function RenderingApp() {
   return (
-    <div style={{ maxWidth: "100vw" }}>
+    <div style={{maxWidth: "100vw"}}>
       <Outlet />
     </div>
   );
