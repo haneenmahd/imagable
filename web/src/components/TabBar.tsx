@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styled from "styled-components";
 import CropIcon from "../assets/js/CropIcon";
 import DropIcon from "../assets/js/DropIcon";
@@ -19,8 +18,11 @@ const TabBarStyle = styled.div`
   }
 `;
 
-const TabBar = () => {
-  const [activeTab, setActiveTab] = useState(0);
+const TabBar = (props: {
+  activeTab: number;
+  setActiveTab: React.Dispatch<React.SetStateAction<number>>;
+}) => {
+  const activeTab = props.activeTab, setActiveTab = props.setActiveTab;
 
   return (
     <TabBarStyle>

@@ -45,6 +45,7 @@ const Image = styled.img<{ width?: string }>`
 const Create = () => {
   const [activeSliderIndex, setActiveSliderIndex] = useState(0);
   const [activeFilterIndex, setActiveFiterIndex] = useState(0);
+  const [activeTabBarIndex, setActiveTabBarIndex] = useState(0);
 
   return (
     <PageContainer>
@@ -57,6 +58,8 @@ const Create = () => {
         setActiveSliderIndex={setActiveSliderIndex}
         filterActiveIndex={activeFilterIndex}
         setFilterActiveIndex={setActiveFiterIndex}
+        tabBarActiveIndex={activeTabBarIndex}
+        setTabBarActiveIndex={setActiveTabBarIndex}
          />
     </PageContainer>
   );
