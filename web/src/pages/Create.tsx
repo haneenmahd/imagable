@@ -36,14 +36,13 @@ const ImageCanvasContainer = styled.div`
   }
 
   &:hover {
-    transform: scale(1.095);
-    box-shadow: 15px 28px 15px rgba(0, 0, 0, 0.1);
+    transform: scale(1.055);
+    box-shadow: 21px 28px 21px rgba(0, 0, 0, 0.32);
   }
 
   @media screen and (max-width: 600px) {
     &:hover {
       transform: scale(1);
-      box-shadow: 21px 28px 21px rgba(0, 0, 0, 0.32);
     }
   }
 `;
