@@ -27,7 +27,7 @@ const ControlsViewStyle = styled.div`
   animation: ${ControlViewStyleAnimation} 1s ${globals.styling.transition};
   overflow: hidden;
 
-  @media screen and (min-width: 1000px) {
+  @media screen and (min-width: 1100px) {
     position: relative;
     margin: 0 40px;
     width: 50vw;
