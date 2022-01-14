@@ -52,7 +52,7 @@ const Create = () => {
   const [activeTabBarIndex, setActiveTabBarIndex] = useState(0);
   const [activeCurrentSliderText, setActiveCurrentSliderText] =
     useState("Brightness");
-  
+
   // settings
   const [brightnessSliderIndex, setBrightnessSliderIndex] = useState(0);
   const [qualitySliderIndex, setQualitySliderIndex] = useState(0);
@@ -60,7 +60,12 @@ const Create = () => {
   const [contrastSliderIndex, setContrastSliderIndex] = useState(0);
   const [filterSliderIndex, setFilterSliderIndex] = useState(0);
 
-  const [activeSlider, setActiveSlider] = useState(<BrightnessSlider count={brightnessSliderIndex} setCount={setBrightnessSliderIndex} />);
+  const [activeSlider, setActiveSlider] = useState(
+    <BrightnessSlider
+      count={brightnessSliderIndex}
+      setCount={setBrightnessSliderIndex}
+    />
+  );
 
   useEffect(() => {
     switch (activeTabBarIndex) {
@@ -76,29 +81,56 @@ const Create = () => {
 
       case 1:
         setActiveCurrentSliderText("Quality");
-        setActiveSlider(<QualitySlider count={qualitySliderIndex} setCount={setQualitySliderIndex} />);
+        setActiveSlider(
+          <QualitySlider
+            count={qualitySliderIndex}
+            setCount={setQualitySliderIndex}
+          />
+        );
         break;
 
       case 2:
         setActiveCurrentSliderText("Saturation");
-        setActiveSlider(<SaturationSlider count={saturationSliderIndex} setCount={setSaturationSliderIndex} />);
+        setActiveSlider(
+          <SaturationSlider
+            count={saturationSliderIndex}
+            setCount={setSaturationSliderIndex}
+          />
+        );
         break;
 
       case 3:
         setActiveCurrentSliderText("Contrast");
-        setActiveSlider(<ContrastSlider count={contrastSliderIndex} setCount={setContrastSliderIndex} />);
+        setActiveSlider(
+          <ContrastSlider
+            count={contrastSliderIndex}
+            setCount={setContrastSliderIndex}
+          />
+        );
         break;
 
       case 4:
         setActiveCurrentSliderText("Filters");
-        setActiveSlider(<FiltersSlider count={filterSliderIndex} setCount={setFilterSliderIndex} />);
+        setActiveSlider(
+          <FiltersSlider
+            count={filterSliderIndex}
+            setCount={setFilterSliderIndex}
+          />
+        );
         break;
 
       default:
         setActiveCurrentSliderText("Not available option");
         break;
     }
-  }, [activeTabBarIndex, brightnessSliderIndex, qualitySliderIndex, saturationSliderIndex, contrastSliderIndex, filterSliderIndex]);
+  }, [
+    activeTabBarIndex,
+    brightnessSliderIndex,
+    qualitySliderIndex,
+    saturationSliderIndex,
+    contrastSliderIndex,
+    filterSliderIndex,
+  ]);
 
   return (
     <PageContainer>
