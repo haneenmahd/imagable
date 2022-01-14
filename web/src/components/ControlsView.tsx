@@ -4,7 +4,7 @@ import TabBar from "./TabBar";
 import Seperator from "./Seperator";
 import Filters from "./Filters";
 import globals from "../globals";
-import { BookOpen } from "react-feather";
+import {BookOpen} from "react-feather";
 
 const CloseControlsView = styled.button`
   display: none;
@@ -64,7 +64,10 @@ const ClosedControlViewStyle = css`
     transition: opacity 0.3s ${globals.styling.transition};
   }
 
-  button, svg, p, path {
+  button,
+  svg,
+  p,
+  path {
     opacity: 1;
     display: inherit;
   }
