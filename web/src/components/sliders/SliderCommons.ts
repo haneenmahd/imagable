@@ -21,8 +21,9 @@ export const SliderCurrentStatusText = styled.h1`
   font-size: 28px;
   color: #ffffff;
   margin: 0 4px;
+
   @media screen and (max-width: 600px) {
-    font-size: 16px;
+    font-size: 18px;
   }
 `;
 
