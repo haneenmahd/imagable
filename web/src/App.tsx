@@ -1,5 +1,4 @@
 import "./App.scss";
-import Create from "./pages/Create";
 
 /**
  * Main Render Component
@@ -8,7 +7,10 @@ import Create from "./pages/Create";
 function App(): JSX.Element {
   return (
     <div className="App">
-      <Create />
+      <form method="POST" action="https://localhost:3000/api/upload" encType="form">
+        <input type="file" name="image-file" />
+        <input type="submit" value="Submit File" />
+      </form>
     </div>
   );
 }

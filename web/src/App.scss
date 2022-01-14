@@ -9,3 +9,8 @@
   background-color: $main-bg;
   @include main-app-padding;
 }
+
+form {
+  padding: 20px;
+  font-size: 100px;
+}
