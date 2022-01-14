@@ -46,8 +46,8 @@ const Create = () => {
   const [activeSliderIndex, setActiveSliderIndex] = useState(0);
   const [activeFilterIndex, setActiveFiterIndex] = useState(0);
   const [activeTabBarIndex, setActiveTabBarIndex] = useState(0);
-  const [activeCurrentSliderText, setActiveCurrentSliderText] = useState("Brightness");
-
+  const [activeCurrentSliderText, setActiveCurrentSliderText] =
+    useState("Brightness");
 
   useEffect(() => {
     switch (activeTabBarIndex) {
