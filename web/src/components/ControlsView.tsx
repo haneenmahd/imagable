@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import styled, {css, keyframes} from "styled-components";
 import TabBar from "./TabBar";
 import Seperator from "./Seperator";
@@ -46,7 +46,7 @@ const ClosedControlViewStyle = css`
   height: 50px;
   min-height: 50px;
   bottom: 0%;
-  
+
   * {
     opacity: 0;
     display: none;
