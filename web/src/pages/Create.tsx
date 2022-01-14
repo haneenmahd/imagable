@@ -69,8 +69,8 @@ const Create = () => {
     contrast: contrastSliderIndex,
     hueRotate: 0,
     blur: 0,
-    sepia: 0
-  }
+    sepia: 0,
+  };
 
   const [activeSlider, setActiveSlider] = useState(
     <BrightnessSlider
