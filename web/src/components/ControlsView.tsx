@@ -58,7 +58,7 @@ const ClosedControlViewStyle = css`
   min-height: 50px;
   bottom: 0%;
 
-  * {
+  *, div {
     opacity: 0;
     display: none;
     transition: opacity 0.3s ${globals.styling.transition};
@@ -70,6 +70,7 @@ const ClosedControlViewStyle = css`
   path {
     opacity: 1;
     display: inherit;
+    margin: 0;
   }
 
   button {
