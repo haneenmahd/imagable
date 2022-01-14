@@ -8,7 +8,7 @@ import FiltersSlider from "../components/sliders/FiltersSlider";
 import ContrastSlider from "../components/sliders/ContrastSlider";
 import SaturationSlider from "../components/sliders/SaturationSlider";
 import QualitySlider from "../components/sliders/QualitySlider";
-import {applyFilter, FilterInput} from "../globals";
+import globals, {applyFilter, FilterInput} from "../globals";
 
 const PageContainer = styled.div`
   position: relative;
@@ -28,10 +28,23 @@ const ImageCanvasContainer = styled.div`
   box-shadow: 15px 28px 21px rgba(0, 0, 0, 0.08);
   border-radius: 49px;
   overflow: hidden;
+  transition: 0.3s ${globals.styling.transition};
 
   @media screen and (max-width: 1100px) {
-    max-width: 95vw;
+    max-width: 90vw;
     max-height: 95vh;
+  }
+
+  &:hover {
+    transform: scale(1.095);
+    box-shadow: 15px 28px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  @media screen and (max-width: 600px) {
+    &:hover {
+      transform: scale(1);
+      box-shadow: 21px 28px 21px rgba(0, 0, 0, 0.32);
+    }
   }
 `;
 
@@ -44,9 +57,8 @@ const Image = styled.img<{width?: string; filterInput: FilterInput}>`
   ${(p) => applyFilter(p.filterInput)};
 
   @media screen and (max-width: 600px) {
-    max-width: 95vw;
-    max-height: 95vh;
-    width: 90vw;
+    width: 100%;
+    height: 100%;
   }
 `;
 
