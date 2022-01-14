@@ -30,7 +30,7 @@ const Tab = (props: {
   keyIndex: number;
   activeIndex: number;
   setActiveIndex: React.Dispatch<React.SetStateAction<number>>;
-  children?: React.ReactChildren | JSX.Element; 
+  children?: React.ReactChildren | JSX.Element;
 }) => {
   return (
     <TabTarget
@@ -39,8 +39,9 @@ const Tab = (props: {
         e.key === "Enter" ? props.setActiveIndex(props.keyIndex) : null
       }
       active={props.activeIndex === props.keyIndex ? true : false}
-      tabIndex={props.keyIndex}>
-          {props.children}
+      tabIndex={props.keyIndex}
+    >
+      {props.children}
     </TabTarget>
   );
 };

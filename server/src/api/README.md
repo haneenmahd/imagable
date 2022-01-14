@@ -1,4 +1,5 @@
 # These are the effects you can use to edit your images
+
 - blit
 - blur
 - brightness
@@ -16,7 +17,7 @@
 - scale
 - sepia
 - **Effects**
-    - circle
-    - document *can be used on document like files*
-    - fishEye
-    - shadow
+  - circle
+  - document _can be used on document like files_
+  - fishEye
+  - shadow

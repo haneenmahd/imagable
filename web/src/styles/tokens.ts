@@ -50,12 +50,12 @@ const themeColors = {
 };
 
 const Tokens = {
-    MainHeaderStyle,
-    MainHeaderStyleMobile,
-    SecondaryHeaderStyle,
-    SecondaryHeaderStyleMobile,
-    SecondaryHeaderStyleMobileSmall,
-    themeColors
+  MainHeaderStyle,
+  MainHeaderStyleMobile,
+  SecondaryHeaderStyle,
+  SecondaryHeaderStyleMobile,
+  SecondaryHeaderStyleMobileSmall,
+  themeColors,
 };
 
 export default Tokens;

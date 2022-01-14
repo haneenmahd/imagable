@@ -42,7 +42,9 @@ const Slider = (props: {
   return (
     <SliderTarget
       onClick={() => props.setActiveIndex(props.keyIndex)}
-      onKeyDown={(e) => e.key === "Enter" ? props.setActiveIndex(props.keyIndex) : null}
+      onKeyDown={(e) =>
+        e.key === "Enter" ? props.setActiveIndex(props.keyIndex) : null
+      }
       active={props.activeIndex === props.keyIndex ? true : false}
       tabIndex={props.keyIndex}
     />

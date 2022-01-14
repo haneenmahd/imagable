@@ -1,6 +1,5 @@
 import { IconCommons } from "../../globals";
 
-
 const CropIcon = (props: IconCommons) => {
   return (
     <svg
