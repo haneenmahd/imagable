@@ -4,6 +4,7 @@ import TabBar from "./TabBar";
 import Seperator from "./Seperator";
 import Filters from "./Filters";
 import globals from "../globals";
+import { BookOpen } from "react-feather";
 
 const CloseControlsView = styled.button`
   display: none;
@@ -25,7 +26,17 @@ const CloseControlsView = styled.button`
   font-size: 90%;
   font-weight: 700;
   cursor: pointer;
+  margin-bottom: 1%;
   transition: all 0.3s ${globals.styling.transition};
+
+  p {
+    display: flex;
+    align-items: center;
+
+    svg {
+      margin: 0 8px;
+    }
+  }
 
   &:hover {
     background-color: #fafafa20;
@@ -53,9 +64,14 @@ const ClosedControlViewStyle = css`
     transition: opacity 0.3s ${globals.styling.transition};
   }
 
-  button {
+  button, svg, p, path {
     opacity: 1;
     display: inherit;
+  }
+
+  button {
+    padding: 15px;
+    margin-bottom: 0;
   }
 `;
 
@@ -100,12 +116,20 @@ const ControlsView = (props: {
   setTabBarActiveIndex: React.Dispatch<React.SetStateAction<number>>;
   currentSliderText: string;
 }) => {
-  const [isControlsOpen, setControlsOpen] = useState(true);
+  const [isControlsOpen, setControlsOpen] = useState(false);
 
   return (
     <ControlsViewStyle visible={isControlsOpen}>
       <CloseControlsView onClick={() => setControlsOpen(!isControlsOpen)}>
-        {isControlsOpen ? "Open Editor" : "Close Editor"}
+        {isControlsOpen ? (
+          <p>
+            <BookOpen /> Open Editor
+          </p>
+        ) : (
+          <p>
+            <BookOpen /> Close Editor
+          </p>
+        )}
       </CloseControlsView>
       {props.currentSlider}
 
