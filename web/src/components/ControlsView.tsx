@@ -58,7 +58,8 @@ const ClosedControlViewStyle = css`
   min-height: 50px;
   bottom: 0%;
 
-  *, div {
+  *,
+  div {
     opacity: 0;
     display: none;
     transition: opacity 0.3s ${globals.styling.transition};
