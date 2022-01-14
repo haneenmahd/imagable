@@ -6,6 +6,10 @@ const SliderActive = css`
   width: 5px;
   height: 44px;
   background: #ffffff;
+
+  @media screen and (max-width: 1100px) {
+    height: 28px;
+  }
 `;
 
 const SliderTarget = styled.span<{active: boolean}>`
