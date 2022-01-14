@@ -1,8 +1,13 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 // illustration purpose
 import EditorSampleImage from "../assets/png/editor-sample.jpg";
 import ControlsView from "../components/ControlsView";
+import BrightnessSlider from "../components/sliders/BrightnessSlider";
+import FiltersSlider from "../components/sliders/FiltersSlider";
+import ContrastSlider from "../components/sliders/ContrastSlider";
+import SaturationSlider from "../components/sliders/SaturationSlider";
+import QualitySlider from "../components/sliders/QualitySlider";
 
 const PageContainer = styled.div`
   position: relative;
@@ -43,39 +48,57 @@ const Image = styled.img<{ width?: string }>`
 `;
 
 const Create = () => {
-  const [activeSliderIndex, setActiveSliderIndex] = useState(0);
   const [activeFilterIndex, setActiveFiterIndex] = useState(0);
   const [activeTabBarIndex, setActiveTabBarIndex] = useState(0);
   const [activeCurrentSliderText, setActiveCurrentSliderText] =
     useState("Brightness");
+  
+  // settings
+  const [brightnessSliderIndex, setBrightnessSliderIndex] = useState(0);
+  const [qualitySliderIndex, setQualitySliderIndex] = useState(0);
+  const [saturationSliderIndex, setSaturationSliderIndex] = useState(0);
+  const [contrastSliderIndex, setContrastSliderIndex] = useState(0);
+  const [filterSliderIndex, setFilterSliderIndex] = useState(0);
+
+  const [activeSlider, setActiveSlider] = useState(<BrightnessSlider count={brightnessSliderIndex} setCount={setBrightnessSliderIndex} />);
 
   useEffect(() => {
     switch (activeTabBarIndex) {
       case 0:
         setActiveCurrentSliderText("Brightness");
+        setActiveSlider(
+          <BrightnessSlider
+            count={brightnessSliderIndex}
+            setCount={setBrightnessSliderIndex}
+          />
+        );
         break;
 
       case 1:
         setActiveCurrentSliderText("Quality");
+        setActiveSlider(<QualitySlider count={qualitySliderIndex} setCount={setQualitySliderIndex} />);
         break;
 
       case 2:
         setActiveCurrentSliderText("Saturation");
+        setActiveSlider(<SaturationSlider count={saturationSliderIndex} setCount={setSaturationSliderIndex} />);
         break;
 
       case 3:
         setActiveCurrentSliderText("Contrast");
+        setActiveSlider(<ContrastSlider count={contrastSliderIndex} setCount={setContrastSliderIndex} />);
         break;
 
       case 4:
         setActiveCurrentSliderText("Filters");
+        setActiveSlider(<FiltersSlider count={filterSliderIndex} setCount={setFilterSliderIndex} />);
         break;
 
       default:
         setActiveCurrentSliderText("Not available option");
         break;
     }
-  }, [activeTabBarIndex]);
+  }, [activeTabBarIndex, brightnessSliderIndex, qualitySliderIndex, saturationSliderIndex, contrastSliderIndex, filterSliderIndex]);
 
   return (
     <PageContainer>
@@ -84,8 +107,7 @@ const Create = () => {
       </ImageCanvasContainer>
 
       <ControlsView
-        activeSliderIndex={activeSliderIndex}
-        setActiveSliderIndex={setActiveSliderIndex}
+        currentSlider={activeSlider}
         filterActiveIndex={activeFilterIndex}
         setFilterActiveIndex={setActiveFiterIndex}
         tabBarActiveIndex={activeTabBarIndex}
