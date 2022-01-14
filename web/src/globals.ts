@@ -25,9 +25,7 @@ interface FilterInput {
 
 export function applyFilter(_input: FilterInput): FlattenSimpleInterpolation {
   let mixUpFilter: FlattenSimpleInterpolation = css`
-    filter: blur(${_input.blur}%) sepia(${_input.sepia}%)
-      saturation(${_input.saturation}%) contrast(${_input.contrast}%)
-      brightness(${_input.brightness}%) hue-rotate(${_input.hueRotate}%);
+    filter: blur(${_input.blur}px) brightness(${_input.brightness}%) contrast(${_input.contrast! / 10}) saturate(${_input.saturation! / 10});
   `;
 
   return mixUpFilter;

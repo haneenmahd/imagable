@@ -29,7 +29,7 @@ const ImageCanvasContainer = styled.div`
   border-radius: 49px;
   overflow: hidden;
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 1100px) {
     max-width: 95vw;
     max-height: 95vh;
   }
@@ -41,7 +41,7 @@ const Image = styled.img<{ width?: string; filterInput: FilterInput }>`
   height: auto;
   width: ${(p) => p.width};
 
-  filter: ${(p) => applyFilter(p.filterInput)};
+  ${(p) => applyFilter(p.filterInput)};
 
   @media screen and (max-width: 600px) {
     max-width: 95vw;
@@ -57,7 +57,7 @@ const Create = () => {
     useState("Brightness");
 
   // settings
-  const [brightnessSliderIndex, setBrightnessSliderIndex] = useState(0);
+  const [brightnessSliderIndex, setBrightnessSliderIndex] = useState(100);
   const [qualitySliderIndex, setQualitySliderIndex] = useState(0);
   const [saturationSliderIndex, setSaturationSliderIndex] = useState(0);
   const [contrastSliderIndex, setContrastSliderIndex] = useState(0);
