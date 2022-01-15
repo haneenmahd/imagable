@@ -40,7 +40,7 @@ app.post('/api/resizer', upload.single('image-file'), async (req, res) => {
 
 	await resize(filePath, { height: 100, width: 100 });
 
-	res.end();
+	res.sendFile(filePath);
 });
 
 app.listen(port, () =>
