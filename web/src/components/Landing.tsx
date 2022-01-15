@@ -94,6 +94,7 @@ const ImageInputLabel = styled.div`
 `;
 
 const GenerateIconButton = styled(ImageInputLabel)`
+  flex-direction: row;
   margin: 0 8px;
   font-weight: 600;
   background-color: #77ea7e;
