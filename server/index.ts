@@ -13,10 +13,10 @@ const app = express();
 makeSure();
 
 const storage = multer.diskStorage({
-	destination: function (req, file, cb) {
+	destination: function (_req, _file, cb) {
 		cb(null, './uploads');
 	},
-	filename: function (req, file, cb) {
+	filename: function (_req, file, cb) {
 		cb(null, file.originalname);
 	},
 });
@@ -32,7 +32,7 @@ app.use((req, _res, next) => {
 // use /uploads to server the images within the response
 app.use('/uploads', express.static('uploads'));
 
-app.get('/api/icon-size-data', (req, res) => {
+app.get('/api/icon-size-data', (_req, res) => {
 	res.sendFile(`${process.cwd()}/data/data.json`);
 });
 
