@@ -31,10 +31,7 @@ code {
 
 h1 {
   font-weight: 900;
-  color: transparent;
-  background: linear-gradient(105.95deg, #768da1 38.89%, #7c99ac 72.04%);
-  background-clip: text;
-  -webkit-background-clip: text;
+  color: $secondary-color;
 }
 
 h2,
@@ -44,6 +41,10 @@ h5,
 h6 {
   font-weight: 500;
   color: $secondary-color;
+}
+
+p {
+  color: $accent-color;
 }
 
 a {
