@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap");
-@import "./styles/variables.scss";
+@import "./styles/variables.css";
 
 * {
   margin: 0;
@@ -11,7 +11,7 @@
 }
 
 *::selection {
-  background-color: $ui-text-selection-color;
+  background-color: var(--ui-text-selection-color);
 }
 
 body {
@@ -31,7 +31,7 @@ code {
 
 h1 {
   font-weight: 900;
-  color: $secondary-color;
+  color: var(--secondary-color);
 }
 
 h2,
@@ -40,11 +40,11 @@ h4,
 h5,
 h6 {
   font-weight: 500;
-  color: $secondary-color;
+  color: var(--secondary-color);
 }
 
 p {
-  color: $accent-color;
+  color: var(--accent-color);
 }
 
 a {

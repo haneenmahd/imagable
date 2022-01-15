@@ -14,10 +14,6 @@
   "license": "ISC",
   "devDependencies": {
     "husky": "^7.0.0",
-    "prettier": "^2.5.1",
-    "sass": "^1.48.0"
-  },
-  "dependencies": {
-    "node-sass": "^7.0.1"
+    "prettier": "^2.5.1"
   }
 }
