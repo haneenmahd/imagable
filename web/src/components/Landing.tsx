@@ -172,7 +172,10 @@ const Landing: FunctionComponent<LandingProps> = () => {
           </ImageInputLabel>
 
           <GenerateIconButton>
-            Generate Icons <span role="img" aria-label="working man">👷🏻‍♀️</span>
+            Generate Icons{" "}
+            <span role="img" aria-label="working man">
+              👷🏻‍♀️
+            </span>
           </GenerateIconButton>
         </ActionsContainer>
 
