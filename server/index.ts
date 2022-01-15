@@ -5,7 +5,6 @@ import path from 'path';
 
 import resize from './src/api/resize';
 
-const __dirname = process.cwd();
 const port = process.env.PORT || 3000;
 
 const app = express();
