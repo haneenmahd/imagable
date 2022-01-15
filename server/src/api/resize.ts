@@ -11,5 +11,5 @@ module.exports = async function resize(
 ) {
 	const image = new jimp(file);
 
-	image.resize();
+	image.resize(resizeOptions.width, resizeOptions.height);
 };
