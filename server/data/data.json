@@ -1,0 +1,119 @@
+[
+    {
+        "iconPlatform": "apple",
+        "iconSizes": [
+            {
+                "name": "iPhone",
+                "resolutions": {
+                    "2x": {
+                        "width": 120,
+                        "height": 120
+                    },
+                    "3x": {
+                        "width": 180,
+                        "height": 180
+                    }
+                }
+            },
+            {
+                "name": "iPad Pro",
+                "resolutions": {
+                    "2x": {
+                        "width": 167,
+                        "height": 167
+                    }
+                }
+            },
+            {
+                "name": "iPad, iPad Mini",
+                "resolutions": {
+                    "2x": {
+                        "width": 152,
+                        "height": 152
+                    }
+                }
+            },
+            {
+                "name": "App Store",
+                "resolutions": {
+                    "1x": {
+                        "height": 1024,
+                        "width": 1024
+                    }
+                }
+            }
+        ],
+        "spotlightIconSizes": [
+            {
+                "name": "iPhone",
+                "resolutions": {
+                    "3x": {
+                        "height": 120,
+                        "width": 120
+                    },
+                    "2x": {
+                        "height": 80,
+                        "width": 80
+                    }
+                }
+            },
+            {
+                "name": "iPad Pro, iPad, iPad Mini",
+                "resolutions": {
+                    "2x": {
+                        "height": 80,
+                        "width": 80
+                    }
+                }
+            }
+        ],
+        "settingsIconSizes": [
+            {
+                "name": "iPhone",
+                "resolutions": {
+                    "3x": {
+                        "height": 87,
+                        "width": 87
+                    },
+                    "2x": {
+                        "height": 58,
+                        "width": 58
+                    }
+                }
+            },
+            {
+                "name": "iPad Pro, iPad, iPad Mini",
+                "resolutions": {
+                    "2x": {
+                        "width": 58,
+                        "height": 58
+                    }
+                }
+            }
+        ],
+        "notificationIconSizes": [
+            {
+                "name": "iPhone",
+                "resolutions": {
+                    "3x": {
+                        "height": 60,
+                        "width": 60
+                    },
+                    "2x": {
+                        "width": 40,
+                        "height": 40
+                    }
+                }
+            },
+            {
+                "name": "iPad Pro, iPad, iPad Mini",
+                "resolutions": {
+                    "2x": {
+                        "height": 40,
+                        "width": 40
+                    }
+                }
+            }
+        ]
+    }
+]
