@@ -15,7 +15,7 @@ export interface IconSizes {
 
 export interface IconSizePlatformData {
 	iconPlatform: string;
-	iconSizes?: IconSizes[];
+	iconSizes: IconSizes[];
 	spotlightIconSizes?: IconSizes[];
 	settingsIconSizes?: IconSizes[];
 	notificationIconSizes?: IconSizes[];
