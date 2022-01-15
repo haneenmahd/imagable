@@ -3,7 +3,7 @@ import fs from 'fs';
 import multer from 'multer';
 import path from 'path';
 
-import blur from './src/api/blur.js';
+import resize from './src/api/resize';
 
 const __dirname = process.cwd();
 const port = process.env.PORT || 3000;
@@ -43,12 +43,17 @@ app.post('/api/upload', upload.single('image-file'), (req, res) => {
 	return res.send(response);
 });
 
-app.post('/api/blur', upload.single('image-file'), async (req, res) => {
+app.post('/api/resizer', upload.single('image-file'), async (req, res) => {
 	const filePath = path.resolve(__dirname, 'uploads', req.file.filename);
 	// req.file is the `profile-file` file
 	// req.body will hold the text fields, if there were any
-	await blur(filePath, 2);
-	res.sendFile(filePath);
+	await resize(filePath, {
+		height: Number(req.query.height),
+		width: Number(req.query.width),
+	});
+	const base64 = Buffer.from(fs.readFileSync(`${filePath}`)).toString();
+
+	res.send({ imageData: base64 });
 });
 
 app.listen(port, () =>

@@ -1,11 +1,15 @@
 import jimp from 'jimp';
-import { ResizeOptions } from '../../types/types';
 
-export default async function resize(file: string, options: ResizeOptions) {
-	const image = await jimp.read(file);
+interface ResizeOptions {
+	height: number;
+	width: number;
+}
 
-	image.resize(options.width, options.height || jimp.AUTO);
+export default async function resize(
+	file: string,
+	resizeOptions: ResizeOptions
+) {
+	const image = new jimp(file);
 
-	// Save and overwrite the image
-	await image.writeAsync('test/image.png');
+	image.resize(resizeOptions.width, resizeOptions.height);
 }

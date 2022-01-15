@@ -1,5 +1,5 @@
 import "./App.scss";
-import Create from "./pages/Create";
+import Landing from "./components/Landing";
 
 /**
  * Main Render Component
@@ -8,7 +8,7 @@ import Create from "./pages/Create";
 function App(): JSX.Element {
   return (
     <div className="App">
-      <Create />
+      <Landing />
     </div>
   );
 }
