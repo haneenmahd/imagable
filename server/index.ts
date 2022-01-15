@@ -1,5 +1,4 @@
 import express from 'express';
-import fs from 'fs';
 import multer from 'multer';
 import path from 'path';
 
@@ -36,27 +35,12 @@ app.get('/api/icon-size-data', (_req, res) => {
 	res.sendFile(`${process.cwd()}/data/data.json`);
 });
 
-app.post('/api/upload', upload.single('image-file'), (req, res) => {
-	const url = `${req.protocol}://${req.get('host')}`;
-	console.log(JSON.stringify(req.file));
-
-	let response = '<a href="/">Home</a><br>';
-	response += 'Files uploaded successfully.<br>';
-	response += `<img src='${url}/${req.file.path}' /><br>`;
-
-	return res.send(response);
-});
-
 app.post('/api/resizer', upload.single('image-file'), async (req, res) => {
-	const filePath = path.resolve(__dirname, 'uploads', req.file.filename);
-	await resize(filePath, {
-		height: Number(req.query.height),
-		width: Number(req.query.width),
-	});
+	const filePath = path.resolve(process.cwd(), req.file.path);
 
-	const base64 = Buffer.from(fs.readFileSync(`${filePath}`)).toString();
+	await resize(filePath, { height: 100, width: 100 });
 
-	res.send({ imageData: base64 });
+	res.end();
 });
 
 app.listen(port, () =>
