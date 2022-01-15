@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Test for /api/resizer</title>
+	</head>
+	<body>
+		<form
+			id="main-form"
+			method="post"
+			action="http://localhost:3000/api/resizer"
+			enctype="multipart/form-data"
+		>
+			<input type="file" accept="image/*" name="image-file" />
+			<input type="submit" value="Submit" />
+		</form>
+		<script>
+			var mainForm = document.getElementById('main-form');
+
+			mainForm.onsubmit = (e) => {};
+		</script>
+	</body>
+</html>
