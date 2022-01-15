@@ -10,11 +10,14 @@ export default async function resize(
 	resizeOptions: ResizeOptions = {
 		height: Jimp.AUTO,
 		width: 400,
-	}
+	},
+	output?: string
 ) {
 	const image = await Jimp.read(file);
 
 	image.resize(resizeOptions.width, resizeOptions.height);
 
-	await image.writeAsync(file);
+	await image.writeAsync(
+		output === null || output === undefined ? output : file
+	);
 }
