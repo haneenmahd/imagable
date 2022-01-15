@@ -10,7 +10,7 @@ import fs from 'fs';
 /**
  * `makeSure` ensures and executes everything that is needed to be ran before initializing the server
  *
- * https://github.com/imagable/imagable
+ * Copyright © 2022: https://github.com/imagable/imagable
  * 😊
  */
 export default function makeSure(): void {
