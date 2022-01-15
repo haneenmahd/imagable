@@ -9,8 +9,8 @@ export interface IconSizes {
 		[ratio: string]: {
 			width: number;
 			height: number;
-		}
-	}
+		};
+	};
 }
 
 export interface IconSizePlatformData {
