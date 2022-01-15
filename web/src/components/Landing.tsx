@@ -12,8 +12,6 @@ const Container = styled.div`
   padding: 80px;
 
   @media screen and (max-width: 600px) {
-    width: 90vw;
-    height: 80vh;
     padding: 30px;
   }
 `;
@@ -32,12 +30,17 @@ const Header = styled.header`
 const ImageUploadContainer = styled.div`
   width: 100%;
   ${AllCenter}
-  justify-content: flex-start;
   margin-top: 50px;
 
   h1,
   p {
     margin: 4px 0;
+  }
+
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 20px;
   }
 `;
 
@@ -49,11 +52,15 @@ const ActionsContainer = styled.div`
   ${AllCenter}
   align-items: center;
   flex-direction: column;
+
+  @media screen and (max-width: 600px) {
+    padding: 20px;
+  }
 `;
 
 const ImageInputLabel = styled.div`
   height: 50px;
-  max-width: 300px;
+  max-width: 350px;
   flex-direction: column;
   ${AllCenter}
   background-color: #d8d8d8;
