@@ -3,6 +3,7 @@ import multer from 'multer';
 import path from 'path';
 
 import resize from './src/api/resize';
+import resizeAll from './src/resizeForAll';
 import makeSure from './src/utils/makeSure';
 
 const port = process.env.PORT || 3000;
@@ -41,6 +42,14 @@ app.post('/api/resizer', upload.single('image-file'), async (req, res) => {
 	await resize(filePath, { height: 100, width: 100 });
 
 	res.sendFile(filePath);
+});
+
+app.get('/api/allResize', upload.single('image-file'), async (req, res) => {
+	const filePath = path.resolve(process.cwd(), 'uploads', 'logo192.png');
+
+	resizeAll(filePath);
+
+	res.end();
 });
 
 app.listen(port, () =>
