@@ -18,6 +18,6 @@ export default async function resize(
 	image.resize(resizeOptions.width, resizeOptions.height);
 
 	await image.writeAsync(
-		output === null || output === undefined ? output : file
+		output !== null || output !== undefined ? output : file
 	);
 }
