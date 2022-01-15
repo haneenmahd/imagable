@@ -149,7 +149,11 @@ const Landing: FunctionComponent<LandingProps> = () => {
         <h1>Imagable</h1>
         <p>
           Imagable automatically builds your icons for different platforms for
-          easily and lightning fast ⚡️!
+          easily and lightning fast{" "}
+          <span role="img" aria-label="lightning fast">
+            ⚡️
+          </span>
+          !
         </p>
       </Header>
 
@@ -167,7 +171,9 @@ const Landing: FunctionComponent<LandingProps> = () => {
             <label htmlFor="user-input-image-file">{uploadButtonText}</label>
           </ImageInputLabel>
 
-          <GenerateIconButton>Generate Icons 👷🏻‍♀️</GenerateIconButton>
+          <GenerateIconButton>
+            Generate Icons <span role="img" aria-label="working man">👷🏻‍♀️</span>
+          </GenerateIconButton>
         </ActionsContainer>
 
         <ImageUploadPreviewContainer>
