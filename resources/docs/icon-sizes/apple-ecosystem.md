@@ -10,7 +10,7 @@ This describes the icon sizes necessary for Across all apple devices.
 
 ### Spotlight
 **iPhone**: 120x120px @3x, 80x80px @2x
-**iPad Pro, iPad, iPad Mini** @2x
+**iPad Pro, iPad, iPad Mini** 80x80px @2x
 
 ### Settings
 **iPhone**: 87x87px @3x, 58x58px @2x
