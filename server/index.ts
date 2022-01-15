@@ -23,6 +23,12 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
+app.use((req, res, next) => {
+	console.log('Requesting for route', req.path);
+
+	next();
+});
+
 // use /uploads to server the images within the response
 app.use('/uploads', express.static('uploads'));
 
