@@ -1,4 +1,4 @@
-import {useState} from "react";
+import React, {useState} from "react";
 import {FunctionComponent} from "react";
 import styled from "styled-components";
 import globals from "../globals";

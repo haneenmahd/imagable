@@ -10,11 +10,11 @@ const globals = {
   },
 };
 
-interface IconCommons {
+export interface IconCommons {
   active?: boolean;
 }
 
-interface FilterInput {
+export interface FilterInput {
   sepia?: number;
   blur?: number;
   saturation?: number;
@@ -32,6 +32,4 @@ export function applyFilter(_input: FilterInput): FlattenSimpleInterpolation {
   return mixUpFilter;
 }
 
-export type {FilterInput};
-export type {IconCommons};
 export default globals;
