@@ -1,4 +1,4 @@
-import jimp from 'jimp';
+import Jimp from 'jimp';
 
 interface ResizeOptions {
 	height: number;
@@ -7,9 +7,14 @@ interface ResizeOptions {
 
 export default async function resize(
 	file: string,
-	resizeOptions: ResizeOptions
+	resizeOptions: ResizeOptions = {
+		height: Jimp.AUTO,
+		width: 400
+	}
 ) {
-	const image = new jimp(file);
+	const image = await Jimp.read(file);
 
 	image.resize(resizeOptions.width, resizeOptions.height);
+	
+	await image.writeAsync(file);
 }
