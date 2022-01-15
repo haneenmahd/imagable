@@ -23,29 +23,43 @@ const Header = styled.header`
   p {
     margin: 4px 0;
   }
+
+  p {
+      font-size: 18px;
+  }
 `;
 
 const ImageUploadContainer = styled.div`
   width: 100%;
   ${AllCenter}
   justify-content: flex-start;
-  margin-top: 0px;
+  margin-top: 50px;
+
+  h1, p {
+      margin: 4px 0;
+  }
 `;
 
 const ImageInput = styled.input`
   display: none;
 `;
 
+const ActionsContainer = styled.div`
+    ${AllCenter}
+    align-items: center;
+    flex-direction: column;
+`;
+
 const ImageInputLabel = styled.div`
-  height: 300px;
-  width: 300px;
+  height: 50px;
+  max-width: 300px;
   flex-direction: column;
   ${AllCenter}
   background-color: #d8d8d8;
   margin: 20px 0;
   padding: 15px;
   border-radius: 20px;
-  border: 2px solid transparent;
+  border: 2px solid #2222225e;
   transition: all 0.3s ${globals.styling.transition};
 
   /* Append cursor style to every child element inside ImageInputLabel */
@@ -54,12 +68,8 @@ const ImageInputLabel = styled.div`
   }
 
   label {
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 600;
-  }
-
-  p {
-    font-size: 13px;
   }
 
   &:hover {
@@ -75,12 +85,25 @@ const ImageInputLabel = styled.div`
   }
 `;
 
+const GenerateIconButton = styled(ImageInputLabel)`
+  margin: 0 8px;
+  font-weight: 600;
+  background-color: #77ea7e;
+  color: #27522a;
+  cursor: pointer;
+
+  &:hover {
+    border-color: #27522a;
+  }
+`;
+
 const ImageUploadPreviewContainer = styled.div`
-  height: auto;
-  width: 500px;
+  height: 200px;
+  width: 200px;
   border-radius: 30px;
   overflow: hidden;
   margin: 0px 40px;
+  border: 2px solid #c4c4c430;
   ${AllCenter}
 `;
 
@@ -94,18 +117,32 @@ interface LandingProps {}
 
 const Landing: FunctionComponent<LandingProps> = () => {
   const [imageUploadUrl, setImageUploadUrl] = useState("");
+  const [uploadButtonText, setUploadButtonText] = useState("Upload Image");
+
+  const handleUpload = () => {
+    setUploadButtonText("Uploaded ✅");
+
+    setTimeout(() => {
+        setUploadButtonText("Upload Image");
+    }, 3000);
+  };
 
   const loadFile: (e: any) => void = (e) => {
     const file: any = e.target.files![0];
 
     setImageUploadUrl(URL.createObjectURL(file));
+
+    handleUpload();
   };
 
   return (
     <Container>
       <Header>
         <h1>Imagable</h1>
-        <p>Design your logo, resize it for other platforms right here😃!</p>
+        <p>
+          Imagable automatically builds your icons for different platforms for
+          easily and lightning fast ⚡️!
+        </p>
       </Header>
 
       <ImageInput
@@ -117,12 +154,13 @@ const Landing: FunctionComponent<LandingProps> = () => {
       />
 
       <ImageUploadContainer>
-        <ImageInputLabel>
-          <label htmlFor="user-input-image-file">
-            {imageUploadUrl !== "" ? "Uploaded ✅" : "Upload Image"}
-          </label>
-          <p>Upload Image of any size and resolution</p>
-        </ImageInputLabel>
+        <ActionsContainer>
+          <ImageInputLabel>
+            <label htmlFor="user-input-image-file">{uploadButtonText}</label>
+          </ImageInputLabel>
+
+          <GenerateIconButton>Generate Icons 👷🏻‍♀️</GenerateIconButton>
+        </ActionsContainer>
 
         <ImageUploadPreviewContainer>
           <ImageUploadPreview
