@@ -25,7 +25,7 @@ const Header = styled.header`
   }
 
   p {
-      font-size: 18px;
+    font-size: 18px;
   }
 `;
 
@@ -35,8 +35,9 @@ const ImageUploadContainer = styled.div`
   justify-content: flex-start;
   margin-top: 50px;
 
-  h1, p {
-      margin: 4px 0;
+  h1,
+  p {
+    margin: 4px 0;
   }
 `;
 
@@ -45,9 +46,9 @@ const ImageInput = styled.input`
 `;
 
 const ActionsContainer = styled.div`
-    ${AllCenter}
-    align-items: center;
-    flex-direction: column;
+  ${AllCenter}
+  align-items: center;
+  flex-direction: column;
 `;
 
 const ImageInputLabel = styled.div`
@@ -123,7 +124,7 @@ const Landing: FunctionComponent<LandingProps> = () => {
     setUploadButtonText("Uploaded ✅");
 
     setTimeout(() => {
-        setUploadButtonText("Upload Image");
+      setUploadButtonText("Upload Image");
     }, 3000);
   };
 
