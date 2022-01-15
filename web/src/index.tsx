@@ -5,10 +5,6 @@ import "./index.scss";
 
 import App from "./App";
 
-// pages
-import Tools from "./pages/Tools";
-import Create from "./pages/Create";
-
 /**
  * This is the app component which is going to be the renderer for all child elements inside the app.
  */
@@ -26,8 +22,6 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={<RenderingApp />}>
           <Route index element={<App />} />
-          <Route path="/tools" element={<Tools />} />
-          <Route path="/create" element={<Create />} />
         </Route>
       </Routes>
     </BrowserRouter>
