@@ -19,6 +19,7 @@
 		"@types/express": "^4.17.13",
 		"@types/multer": "^1.4.7",
 		"@types/node": "^17.0.7",
+		"@types/to-ico": "^1.1.1",
 		"@typescript-eslint/eslint-plugin": "^5.9.0",
 		"@typescript-eslint/parser": "^5.9.0",
 		"eslint": "^7.32.0",
@@ -34,7 +35,9 @@
 	},
 	"dependencies": {
 		"express": "^4.17.2",
+		"image-to-icon-converter": "^1.0.1",
 		"jimp": "^0.16.1",
-		"multer": "^1.4.4"
+		"multer": "^1.4.4",
+		"to-ico": "^1.1.5"
 	}
 }
