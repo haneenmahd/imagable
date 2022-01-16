@@ -17,6 +17,7 @@ const Container = styled.div`
 `;
 
 const Header = styled.header`
+  text-align: center;
   h1,
   p {
     margin: 4px 0;
@@ -24,6 +25,12 @@ const Header = styled.header`
 
   p {
     font-size: 18px;
+  }
+
+  @media screen and (max-width: 600px) {
+   h1, p {
+     margin: 8px 8px;
+   } 
   }
 `;
 
