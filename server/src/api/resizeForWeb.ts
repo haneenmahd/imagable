@@ -11,8 +11,8 @@ import path from 'path';
 export default async (file: string) => {
 	const iconSizeData: IconSizeData = data;
 
-	// iconSizeData's index number 2 is web's icon data
-	const webData = iconSizeData[2];
+	// iconSizeData's index number 1 is web's icon data
+	const webData = iconSizeData[1];
 
 	webData.iconSizes.forEach(async (icon) => {
 		if (icon.resolutions['1x'] !== undefined) {
