@@ -44,12 +44,8 @@ app.get('/api/icon-size-data', (_req, res) => {
 	res.sendFile(`${process.cwd()}/data/data.json`);
 });
 
-app.post('/api/resizer', upload.single('image-file'), async (req, res) => {
-	const filePath = path.resolve(process.cwd(), req.file.path);
-
-	await resize(filePath, { height: 100, width: 100 });
-
-	res.sendFile(filePath);
+app.post('/api/resize', upload.single('image-file'), async (req, res) => {
+	const filePath = path.resolve(process.cwd(), 'user-data', req.file.filename);
 });
 
 app.post('/api/allResize', upload.single('image-file'), async (req, res) => {
