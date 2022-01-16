@@ -54,5 +54,25 @@
 			<input type="file" accept="image/*" name="image-file" required />
 			<input type="submit" value="Submit" />
 		</form>
+
+		<form
+			method="post"
+			action="http://localhost:3000/api/resize-for-android"
+			enctype="multipart/form-data"
+		>
+			<h1>Resize for Android</h1>
+			<input type="file" accept="image/*" name="image-file" required />
+			<input type="submit" value="Submit" />
+		</form>
+
+		<form
+			method="post"
+			action="http://localhost:3000/api/resize-for-apple"
+			enctype="multipart/form-data"
+		>
+			<h1>Resize for Apple</h1>
+			<input type="file" accept="image/*" name="image-file" required />
+			<input type="submit" value="Submit" />
+		</form>
 	</body>
 </html>
