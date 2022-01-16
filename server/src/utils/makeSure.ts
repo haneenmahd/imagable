@@ -14,8 +14,8 @@ import fs from 'fs';
  * 😊
  */
 export default function makeSure(): void {
-	if (fs.existsSync('uploads') !== true) {
-		fs.mkdir('uploads', (err) => {
+	if (fs.existsSync('user-data') !== true) {
+		fs.mkdir('user-data', (err) => {
 			if (err) return true;
 		});
 	}
