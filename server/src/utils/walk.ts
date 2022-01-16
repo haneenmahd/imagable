@@ -6,15 +6,18 @@ const walk = (
 	done: (error: Error, results?: string[]) => void
 ) => {
 	let results = [];
-	fs.readdir(dir, function (err, list) {
+	fs.readdir(dir, (err, list) => {
 		if (err) return done(err);
+
 		let pending = list.length;
 		if (!pending) return done(null, results);
-		list.forEach(function (file) {
+
+		list.forEach(file => {
 			file = path.resolve(dir, file);
-			fs.stat(file, function (err, stat) {
+			
+			fs.stat(file, (err, stat) => {
 				if (stat && stat.isDirectory()) {
-					walk(file, function (err, res) {
+					walk(file, (err, res) => {
 						results = results.concat(res);
 						if (!--pending) done(null, results);
 					});
