@@ -10,7 +10,7 @@
 		"lint": "eslint .",
 		"dev:node": "nodemon",
 		"format": "prettier --write .",
-		"clean": "rm -rf dist"
+		"clean": "rm -rf dist && rm -rf user-data"
 	},
 	"keywords": [],
 	"author": "",
