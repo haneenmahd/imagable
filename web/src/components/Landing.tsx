@@ -136,12 +136,26 @@ const Landing: FunctionComponent<LandingProps> = () => {
   const [imageUploadUrl, setImageUploadUrl] = useState("");
   const [uploadButtonText, setUploadButtonText] = useState("Upload Image");
 
-  const handleUpload = () => {
-    setUploadButtonText("Uploaded ✅");
+  const handleUpload = (e: { target: { files: any; }; }) => {
+    const files = e.target.files;
+    const formData = new FormData();
+    formData.append("image-file", files[0]);
 
-    setTimeout(() => {
-      setUploadButtonText("Upload Image");
-    }, 3000);
+    fetch("http://localhost:3000/api/allResize", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setUploadButtonText("Uploaded ✅");
+
+        setTimeout(() => {
+          setUploadButtonText("Upload Image");
+        }, 1000);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   const loadFile: (e: any) => void = (e) => {
@@ -149,7 +163,7 @@ const Landing: FunctionComponent<LandingProps> = () => {
 
     setImageUploadUrl(URL.createObjectURL(file));
 
-    handleUpload();
+    handleUpload(e);
   };
 
   return (
@@ -170,8 +184,8 @@ const Landing: FunctionComponent<LandingProps> = () => {
         id="user-input-image-file"
         type="file"
         accept="image/*"
-        name="user-input-image-file"
-        onChange={(e) => loadFile(e)}
+        name="image-file"
+        onChange={loadFile}
       />
 
       <ImageUploadContainer>
