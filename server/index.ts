@@ -7,6 +7,8 @@ import makeSure from './src/utils/makeSure';
 import setHeaderAsZip from './src/utils/setHeaderAsZip';
 import resizeForWeb from './src/api/resizeForWeb';
 import cleanUpIconData from './src/utils/cleanUpIconData';
+import resizeForApple from './src/api/resizeForApple';
+import resizeForAndroid from './src/api/resizeForAndroid';
 
 const port = process.env.PORT || 3000;
 
@@ -56,6 +58,52 @@ app.post(
 		const zip = archiver('zip');
 
 		await resizeForWeb(filePath);
+
+		zip.pipe(res);
+
+		zip
+			.directory('./user-data/icon-set-imagable', 'icon-set-imagable')
+			.finalize();
+
+		res.on('close', () => {
+			cleanUpIconData();
+		});
+	}
+);
+
+app.post(
+	'/api/resize-for-apple',
+	upload.single('image-file'),
+	async (req, res) => {
+		setHeaderAsZip(res);
+
+		const filePath = path.resolve(process.cwd(), 'user-data', req.file.filename);
+		const zip = archiver('zip');
+
+		await resizeForApple(filePath);
+
+		zip.pipe(res);
+
+		zip
+			.directory('./user-data/icon-set-imagable', 'icon-set-imagable')
+			.finalize();
+
+		res.on('close', () => {
+			cleanUpIconData();
+		});
+	}
+);
+
+app.post(
+	'/api/resize-for-android',
+	upload.single('image-file'),
+	async (req, res) => {
+		setHeaderAsZip(res);
+
+		const filePath = path.resolve(process.cwd(), 'user-data', req.file.filename);
+		const zip = archiver('zip');
+
+		await resizeForAndroid(filePath);
 
 		zip.pipe(res);
 
