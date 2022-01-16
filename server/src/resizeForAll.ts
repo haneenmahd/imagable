@@ -7,8 +7,6 @@ import path from 'path';
  * Writes and generates icon for all platforms.
  *
  * The Core Function of the API.
- *
- * NOTE: fix undefined file names. This is caused by icon objects which do not '1x' property. Use '2x' or '3x' if available.
  */
 export default async (file: string) => {
 	const iconSizeData: IconSizeData = data;
