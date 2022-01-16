@@ -66,9 +66,7 @@ app.post('/api/allResize', upload.single('image-file'), async (req, res) => {
 
 	zip.pipe(res);
 
-	zip
-		.directory('./user-data/icon-set-imagable', 'icon-set-imagable')
-		.finalize();
+	zip.directory('./user-data/icon-set-imagable', 'icon-set-imagable').finalize();
 });
 
 app.listen(port, () =>
