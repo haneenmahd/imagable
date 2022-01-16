@@ -136,7 +136,9 @@ const Landing: FunctionComponent<LandingProps> = () => {
   const [imageUploadUrl, setImageUploadUrl] = useState("");
   const [uploadButtonText, setUploadButtonText] = useState("Upload Image");
 
-  const handleUpload = (e: { target: { files: any; }; }) => {
+  // handleDownloads and as well
+  // merge `handleUpload` and `handleDownloads` into a single function handler
+  const handleUpload = (e: {target: {files: any}}) => {
     const files = e.target.files;
     const formData = new FormData();
     formData.append("image-file", files[0]);
