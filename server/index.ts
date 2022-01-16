@@ -1,7 +1,6 @@
 import express from 'express';
 import multer from 'multer';
 import path from 'path';
-import fs from 'fs';
 import archiver from 'archiver';
 import resize from './src/api/resize';
 import resizeAll from './src/resizeForAll';
