@@ -14,7 +14,7 @@ makeSure();
 
 const storage = multer.diskStorage({
 	destination: function (_req, _file, cb) {
-		cb(null, './uploads');
+		cb(null, './user-data');
 	},
 	filename: function (_req, file, cb) {
 		cb(null, file.originalname);
@@ -29,8 +29,8 @@ app.use((req, _res, next) => {
 	next();
 });
 
-// use /uploads to server the images within the response
-app.use('/uploads', express.static('uploads'));
+// use /user-data to server the images within the response
+app.use('/user-data', express.static('user-data'));
 
 app.get('/api/icon-size-data', (_req, res) => {
 	res.sendFile(`${process.cwd()}/data/data.json`);
@@ -45,7 +45,7 @@ app.post('/api/resizer', upload.single('image-file'), async (req, res) => {
 });
 
 app.get('/api/allResize', upload.single('image-file'), async (req, res) => {
-	const filePath = path.resolve(process.cwd(), 'uploads', 'logo192.png');
+	const filePath = path.resolve(process.cwd(), 'user-data', 'logo192.png');
 
 	resizeAll(filePath);
 

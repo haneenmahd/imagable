@@ -15,13 +15,38 @@ export default async (file: string) => {
 
 	for (const platform of iconSizeData) {
 		platform.iconSizes.forEach(async (icon) => {
-			const outputFileName = path.resolve(
-				path.dirname(file),
-				icon.name,
-				`${icon.resolutions['1x']?.height}x${icon.resolutions['1x']?.width}.png`
-			);
+			if (icon.resolutions['1x'] !== undefined) {
+				const outputFileName = path.resolve(
+					path.dirname(file),
+					platform.iconPlatform,
+					icon.name,
+					`${icon.resolutions['1x']?.height}x${icon.resolutions['1x']?.width}.png`
+				);
 
-			await resize(file, icon.resolutions['1x'], outputFileName);
+				await resize(file, icon.resolutions['1x'], outputFileName);
+
+				console.log(platform.iconPlatform, icon.name, 'Done');
+			} else if (icon.resolutions['2x'] !== undefined) {
+				const outputFileName = path.resolve(
+					path.dirname(file),
+					platform.iconPlatform,
+					icon.name,
+					`${icon.resolutions['2x']?.height}x${icon.resolutions['2x']?.width}.png`
+				);
+
+				await resize(file, icon.resolutions['2x'], outputFileName);
+			} else if (icon.resolutions['3x'] !== undefined) {
+				const outputFileName = path.resolve(
+					path.dirname(file),
+					platform.iconPlatform,
+					icon.name,
+					`${icon.resolutions['3x']?.height}x${icon.resolutions['3x']?.width}.png`
+				);
+
+				await resize(file, icon.resolutions['3x'], outputFileName);
+			}
+
+
 		});
 
 		platform.notificationIconSizes?.forEach((size) => {
