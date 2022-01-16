@@ -28,18 +28,6 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 app.use(express.static(path.resolve(process.cwd(), 'user-data')));
-app.use((req, _res, next) => {
-	console.log(
-		'Requesting for route',
-		req.path,
-		'from',
-		req.get('host'),
-		'\nIP version:',
-		req.socket.remoteFamily
-	);
-
-	next();
-});
 
 // use /user-data to server the images within the response
 app.use('/user-data', express.static('user-data'));
@@ -117,21 +105,113 @@ app.post(
 	}
 );
 
-app.post('/api/allResize', upload.single('image-file'), async (req, res) => {
-	setHeaderAsZip(res);
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+app.use(
+	'/api/allResize',
+	upload.single('image-file'),
+	async (req, _res, next) => {
+		const filePath = path.resolve(process.cwd(), 'user-data', req.file.filename);
 
-	const filePath = path.resolve(process.cwd(), 'user-data', req.file.filename);
-	const zip = archiver('zip');
+		await resizeAll(filePath);
 
-	await resizeAll(filePath);
+		// continue request
+		next();
+	}
+);
 
-	zip.pipe(res);
+app.post('/api/allResize', upload.single('image-file'), (_req, res) => {
+	res.write(
+		JSON.stringify({ message: 'give out send request to /api/get-data' })
+	);
 
-	zip.directory('./user-data/icon-set-imagable', 'icon-set-imagable').finalize();
+	res.end();
+});
 
-	res.on('close', () => {
-		cleanUpIconData();
-	});
+app.get('/api/data', (req, res) => {
+	interface FilesObject {
+		folderName: string;
+		files: string[];
+	}
+
+	interface ResponseDataObject {
+		folderName: string;
+		files: FilesObject[];
+	}
+
+	type ResponseData = ResponseDataObject[];
+
+	const response: ResponseData = [
+		{
+			folderName: 'apple',
+			files: [
+				{
+					folderName: 'App Store',
+					files: ['1024x1024.png'],
+				},
+				{
+					folderName: 'iPad Pro',
+					files: ['167x167.png'],
+				},
+				{
+					folderName: 'iPad Pro, iPad, iPad Mini',
+					files: ['40x40.png', '58x58.png', '80x80.png'],
+				},
+				{
+					folderName: 'iPad, iPad Mini',
+					files: ['152x152.png'],
+				},
+				{
+					folderName: 'iPhone',
+					files: ['40x40.png', '58x58.png', '80x80.png', '120x120.png'],
+				},
+			],
+		},
+		{
+			folderName: 'android',
+			files: [
+				{
+					folderName: 'Google Play',
+					files: ['512x512.png'],
+				},
+				{
+					folderName: 'midmap-xhdpi',
+					files: ['96x96.png'],
+				},
+				{
+					folderName: 'mipmap-hdpi',
+					files: ['72x72.png']
+				},
+				{
+					folderName: 'mipmap-ldpi',
+					files: ['36x36.png']
+				},
+				{
+					folderName: 'mipmap-mdpi',
+					files: ['48x48.png']
+				},
+				{
+					folderName: 'mipmap-xxhdpi',
+					files: ['144x144.png']
+				},
+				{
+					folderName: 'mipmap-xxxhdpi',
+					files: ['192x192.png']
+				}
+			],
+		},
+		{
+			folderName: 'web',
+			files: [
+				{
+					folderName: 'ico',
+					files: ['16x16.png']
+				}
+			]
+		}
+	];
+
+	res.write(JSON.stringify(response));
+	res.end();
 });
 
 app.listen(port, () =>
