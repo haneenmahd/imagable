@@ -10,10 +10,10 @@
 		<form
 			id="main-form"
 			method="post"
-			action="http://localhost:3000/api/resizer"
+			action="http://localhost:3000/api/allResize"
 			enctype="multipart/form-data"
 		>
-			<input type="file" accept="image/*" name="image-file" />
+			<input type="file" accept="image/*" name="image-file" required />
 			<input type="submit" value="Submit" />
 		</form>
 		<script>
