@@ -28,9 +28,10 @@ const Header = styled.header`
   }
 
   @media screen and (max-width: 600px) {
-   h1, p {
-     margin: 8px 8px;
-   } 
+    h1,
+    p {
+      margin: 8px;
+    }
   }
 `;
 
