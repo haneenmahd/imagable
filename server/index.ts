@@ -179,24 +179,24 @@ app.get('/api/data', (req, res) => {
 				},
 				{
 					folderName: 'mipmap-hdpi',
-					files: ['72x72.png']
+					files: ['72x72.png'],
 				},
 				{
 					folderName: 'mipmap-ldpi',
-					files: ['36x36.png']
+					files: ['36x36.png'],
 				},
 				{
 					folderName: 'mipmap-mdpi',
-					files: ['48x48.png']
+					files: ['48x48.png'],
 				},
 				{
 					folderName: 'mipmap-xxhdpi',
-					files: ['144x144.png']
+					files: ['144x144.png'],
 				},
 				{
 					folderName: 'mipmap-xxxhdpi',
-					files: ['192x192.png']
-				}
+					files: ['192x192.png'],
+				},
 			],
 		},
 		{
@@ -204,10 +204,10 @@ app.get('/api/data', (req, res) => {
 			files: [
 				{
 					folderName: 'ico',
-					files: ['16x16.png']
-				}
-			]
-		}
+					files: ['16x16.png'],
+				},
+			],
+		},
 	];
 
 	res.write(JSON.stringify(response));
