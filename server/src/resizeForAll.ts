@@ -45,8 +45,6 @@ export default async (file: string) => {
 
 				await resize(file, icon.resolutions['3x'], outputFileName);
 			}
-
-
 		});
 
 		platform.notificationIconSizes?.forEach((size) => {
