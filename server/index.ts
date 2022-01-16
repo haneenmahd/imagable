@@ -2,9 +2,11 @@ import express from 'express';
 import multer from 'multer';
 import path from 'path';
 import archiver from 'archiver';
-import resize from './src/api/resize';
 import resizeAll from './src/resizeForAll';
 import makeSure from './src/utils/makeSure';
+import setHeaderAsZip from './src/utils/setHeaderAsZip';
+import resizeForWeb from './src/api/resizeForWeb';
+import cleanUpIconData from './src/utils/cleanUpIconData';
 
 const port = process.env.PORT || 3000;
 
@@ -44,15 +46,31 @@ app.get('/api/icon-size-data', (_req, res) => {
 	res.sendFile(`${process.cwd()}/data/data.json`);
 });
 
-app.post('/api/resize', upload.single('image-file'), async (req, res) => {
-	const filePath = path.resolve(process.cwd(), 'user-data', req.file.filename);
-});
+app.post(
+	'/api/resize-for-web',
+	upload.single('image-file'),
+	async (req, res) => {
+		setHeaderAsZip(res);
+
+		const filePath = path.resolve(process.cwd(), 'user-data', req.file.filename);
+		const zip = archiver('zip');
+
+		await resizeForWeb(filePath);
+
+		zip.pipe(res);
+
+		zip
+			.directory('./user-data/icon-set-imagable', 'icon-set-imagable')
+			.finalize();
+
+		res.on('close', () => {
+			cleanUpIconData();
+		});
+	}
+);
 
 app.post('/api/allResize', upload.single('image-file'), async (req, res) => {
-	res.writeHead(200, {
-		'Content-Type': 'application/zip',
-		'Content-disposition': 'attachment; filename=user-data/icon-set-imagable.zip',
-	});
+	setHeaderAsZip(res);
 
 	const filePath = path.resolve(process.cwd(), 'user-data', req.file.filename);
 	const zip = archiver('zip');
@@ -62,6 +80,10 @@ app.post('/api/allResize', upload.single('image-file'), async (req, res) => {
 	zip.pipe(res);
 
 	zip.directory('./user-data/icon-set-imagable', 'icon-set-imagable').finalize();
+
+	res.on('close', () => {
+		cleanUpIconData();
+	});
 });
 
 app.listen(port, () =>
