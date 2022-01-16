@@ -1,7 +1,8 @@
 import express from 'express';
 import multer from 'multer';
 import path from 'path';
-
+import fs from 'fs';
+import archiver from 'archiver';
 import resize from './src/api/resize';
 import resizeAll from './src/resizeForAll';
 import makeSure from './src/utils/makeSure';
@@ -23,8 +24,16 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
+app.use(express.static(path.resolve(process.cwd(), 'user-data')));
 app.use((req, _res, next) => {
-	console.log('Requesting for route', req.path);
+	console.log(
+		'Requesting for route',
+		req.path,
+		'from',
+		req.get('host'),
+		'\nIP version:',
+		req.socket.remoteFamily
+	);
 
 	next();
 });
@@ -44,12 +53,22 @@ app.post('/api/resizer', upload.single('image-file'), async (req, res) => {
 	res.sendFile(filePath);
 });
 
-app.get('/api/allResize', upload.single('image-file'), async (req, res) => {
-	const filePath = path.resolve(process.cwd(), 'user-data', 'logo192.png');
+app.post('/api/allResize', upload.single('image-file'), async (req, res) => {
+	res.writeHead(200, {
+		'Content-Type': 'application/zip',
+		'Content-disposition': 'attachment; filename=user-data/icon-set-imagable.zip',
+	});
 
-	resizeAll(filePath);
+	const filePath = path.resolve(process.cwd(), 'user-data', req.file.filename);
+	const zip = archiver('zip');
 
-	res.end();
+	await resizeAll(filePath);
+
+	zip.pipe(res);
+
+	zip
+		.directory('./user-data/icon-set-imagable', 'icon-set-imagable')
+		.finalize();
 });
 
 app.listen(port, () =>
