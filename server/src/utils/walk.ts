@@ -1,7 +1,10 @@
 import fs from 'fs';
 import path from 'path';
 
-const walk = (dir: string, done: (error: Error, results?: string[]) => void) => {
+const walk = (
+	dir: string,
+	done: (error: Error, results?: string[]) => void
+) => {
 	let results = [];
 	fs.readdir(dir, function (err, list) {
 		if (err) return done(err);
