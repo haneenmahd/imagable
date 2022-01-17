@@ -1,0 +1,1 @@
+# This is a copy from https://github.com/imagable/imagable/blob/master/common/data.json

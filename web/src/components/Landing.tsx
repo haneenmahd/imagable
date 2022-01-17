@@ -1,4 +1,4 @@
-import {useState} from "react";
+import React, {useState} from "react";
 import {FunctionComponent} from "react";
 import styled from "styled-components";
 import globals from "../globals";
@@ -12,13 +12,12 @@ const Container = styled.div`
   padding: 80px;
 
   @media screen and (max-width: 600px) {
-    width: 90vw;
-    height: 80vh;
     padding: 30px;
   }
 `;
 
 const Header = styled.header`
+  text-align: center;
   h1,
   p {
     margin: 4px 0;
@@ -27,17 +26,29 @@ const Header = styled.header`
   p {
     font-size: 18px;
   }
+
+  @media screen and (max-width: 600px) {
+    h1,
+    p {
+      margin: 8px;
+    }
+  }
 `;
 
 const ImageUploadContainer = styled.div`
   width: 100%;
   ${AllCenter}
-  justify-content: flex-start;
   margin-top: 50px;
 
   h1,
   p {
     margin: 4px 0;
+  }
+
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 20px;
   }
 `;
 
@@ -49,11 +60,15 @@ const ActionsContainer = styled.div`
   ${AllCenter}
   align-items: center;
   flex-direction: column;
+
+  @media screen and (max-width: 600px) {
+    padding: 20px;
+  }
 `;
 
 const ImageInputLabel = styled.div`
   height: 50px;
-  max-width: 300px;
+  max-width: 350px;
   flex-direction: column;
   ${AllCenter}
   background-color: #d8d8d8;
@@ -87,6 +102,7 @@ const ImageInputLabel = styled.div`
 `;
 
 const GenerateIconButton = styled(ImageInputLabel)`
+  flex-direction: row;
   margin: 0 8px;
   font-weight: 600;
   background-color: #77ea7e;
@@ -120,12 +136,28 @@ const Landing: FunctionComponent<LandingProps> = () => {
   const [imageUploadUrl, setImageUploadUrl] = useState("");
   const [uploadButtonText, setUploadButtonText] = useState("Upload Image");
 
-  const handleUpload = () => {
-    setUploadButtonText("Uploaded ✅");
+  // handleDownloads and as well
+  // merge `handleUpload` and `handleDownloads` into a single function handler
+  const handleUpload = (e: {target: {files: any}}) => {
+    const files = e.target.files;
+    const formData = new FormData();
+    formData.append("image-file", files[0]);
 
-    setTimeout(() => {
-      setUploadButtonText("Upload Image");
-    }, 3000);
+    fetch("http://localhost:3000/api/allResize", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setUploadButtonText("Uploaded ✅");
+
+        setTimeout(() => {
+          setUploadButtonText("Upload Image");
+        }, 1000);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   const loadFile: (e: any) => void = (e) => {
@@ -133,7 +165,7 @@ const Landing: FunctionComponent<LandingProps> = () => {
 
     setImageUploadUrl(URL.createObjectURL(file));
 
-    handleUpload();
+    handleUpload(e);
   };
 
   return (
@@ -142,7 +174,11 @@ const Landing: FunctionComponent<LandingProps> = () => {
         <h1>Imagable</h1>
         <p>
           Imagable automatically builds your icons for different platforms for
-          easily and lightning fast ⚡️!
+          easily and lightning fast{" "}
+          <span role="img" aria-label="lightning fast">
+            ⚡️
+          </span>
+          !
         </p>
       </Header>
 
@@ -150,8 +186,8 @@ const Landing: FunctionComponent<LandingProps> = () => {
         id="user-input-image-file"
         type="file"
         accept="image/*"
-        name="user-input-image-file"
-        onChange={(e) => loadFile(e)}
+        name="image-file"
+        onChange={loadFile}
       />
 
       <ImageUploadContainer>
@@ -160,7 +196,12 @@ const Landing: FunctionComponent<LandingProps> = () => {
             <label htmlFor="user-input-image-file">{uploadButtonText}</label>
           </ImageInputLabel>
 
-          <GenerateIconButton>Generate Icons 👷🏻‍♀️</GenerateIconButton>
+          <GenerateIconButton>
+            Generate Icons{" "}
+            <span role="img" aria-label="working man">
+              👷🏻‍♀️
+            </span>
+          </GenerateIconButton>
         </ActionsContainer>
 
         <ImageUploadPreviewContainer>

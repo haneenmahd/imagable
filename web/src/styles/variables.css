@@ -1,0 +1,8 @@
+:root {
+  --main-bg: #e1e1e1;
+  --main-color: #242424;
+  --secondary-color: #333;
+  --accent-color: #6a6969;
+  --ui-text-selection-color: #aec3d65d;
+  --main-app-padding: 0 80px;
+}

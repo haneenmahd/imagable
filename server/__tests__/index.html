@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Test for Imagable API's</title>
+	</head>
+	<style>
+		* {
+			font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+				Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+		}
+
+		body {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: center;
+			padding: 100px;
+		}
+
+		form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: flex-start;
+			background-color: #c4c4c450;
+			margin: 20px;
+			width: 400px;
+			border-radius: 30px;
+			padding: 40px;
+		}
+
+		form input {
+			margin: 10px 0;
+		}
+	</style>
+	<body>
+		<form
+			method="post"
+			action="http://localhost:3000/api/allResize"
+			enctype="multipart/form-data"
+		>
+			<h1>Resize for all</h1>
+			<input type="file" accept="image/*" name="image-file" required />
+			<input type="submit" value="Submit" />
+		</form>
+
+		<form
+			method="post"
+			action="http://localhost:3000/api/resize-for-web"
+			enctype="multipart/form-data"
+		>
+			<h1>Resize for Web</h1>
+			<input type="file" accept="image/*" name="image-file" required />
+			<input type="submit" value="Submit" />
+		</form>
+
+		<form
+			method="post"
+			action="http://localhost:3000/api/resize-for-android"
+			enctype="multipart/form-data"
+		>
+			<h1>Resize for Android</h1>
+			<input type="file" accept="image/*" name="image-file" required />
+			<input type="submit" value="Submit" />
+		</form>
+
+		<form
+			method="post"
+			action="http://localhost:3000/api/resize-for-apple"
+			enctype="multipart/form-data"
+		>
+			<h1>Resize for Apple</h1>
+			<input type="file" accept="image/*" name="image-file" required />
+			<input type="submit" value="Submit" />
+		</form>
+	</body>
+</html>
