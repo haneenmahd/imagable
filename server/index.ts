@@ -140,7 +140,10 @@ app.get('/api/data', (req, res) => {
 
 	interface FilesObject {
 		folderName: string;
-		files: string[];
+		files: {
+			size: number;
+			path: string;
+		}[];
 	}
 
 	interface ResponseDataObject {
@@ -156,65 +159,138 @@ app.get('/api/data', (req, res) => {
 			files: [
 				{
 					folderName: 'App Store',
-					files: ['1024x1024.png'],
+					files: [
+						{
+							size: 1024,
+							path: path.resolve(
+								process.cwd(),
+								'user-data',
+								'icon-set-imagable',
+								'apple',
+								'App Store',
+								'1024x1024.png'
+							),
+						},
+					],
 				},
 				{
 					folderName: 'iPad Pro',
-					files: ['167x167.png'],
+					files: [
+						{
+							size: 167,
+							path: path.resolve(
+								process.cwd(),
+								'user-data',
+								'icon-set-imagable',
+								'apple',
+								'iPad Pro',
+								'167x167.png'
+							),
+						},
+					],
 				},
 				{
 					folderName: 'iPad Pro, iPad, iPad Mini',
-					files: ['40x40.png', '58x58.png', '80x80.png'],
+					files: [
+						{
+							size: 40,
+							path: path.resolve(
+								process.cwd(),
+								'user-data',
+								'icon-set-imagable',
+								'apple',
+								'iPad Pro, iPad, iPad Mini',
+								'40x40.png'
+							),
+						},
+						{
+							size: 58,
+							path: path.resolve(
+								process.cwd(),
+								'user-data',
+								'icon-set-imagable',
+								'apple',
+								'iPad Pro, iPad, iPad Mini',
+								'58x58.png'
+							),
+						},
+						{
+							size: 80,
+							path: path.resolve(
+								process.cwd(),
+								'user-data',
+								'icon-set-imagable',
+								'apple',
+								'iPad Pro, iPad, iPad Mini',
+								'80x80.png'
+							),
+						},
+					],
 				},
 				{
 					folderName: 'iPad, iPad Mini',
-					files: ['152x152.png'],
+					files: [
+						{
+							size: 152,
+							path: path.resolve(
+								process.cwd(),
+								'user-data',
+								'icon-set-imagable',
+								'apple',
+								'iPad, iPad Mini',
+								'152x152.png'
+							),
+						},
+					],
 				},
 				{
 					folderName: 'iPhone',
-					files: ['40x40.png', '58x58.png', '80x80.png', '120x120.png'],
-				},
-			],
-		},
-		{
-			folderName: 'android',
-			files: [
-				{
-					folderName: 'Google Play',
-					files: ['512x512.png'],
-				},
-				{
-					folderName: 'midmap-xhdpi',
-					files: ['96x96.png'],
-				},
-				{
-					folderName: 'mipmap-hdpi',
-					files: ['72x72.png'],
-				},
-				{
-					folderName: 'mipmap-ldpi',
-					files: ['36x36.png'],
-				},
-				{
-					folderName: 'mipmap-mdpi',
-					files: ['48x48.png'],
-				},
-				{
-					folderName: 'mipmap-xxhdpi',
-					files: ['144x144.png'],
-				},
-				{
-					folderName: 'mipmap-xxxhdpi',
-					files: ['192x192.png'],
-				},
-			],
-		},
-		{
-			folderName: 'web',
-			files: [
-				{
-					folderName: 'ico',
-					files: ['16x16.png'],
+					files: [
+						{
+							size: 40,
+							path: path.resolve(
+								process.cwd(),
+								'user-data',
+								'icon-set-imagable',
+								'apple',
+								'iPhone',
+								'40x40.png'
+							),
+						},
+						{
+							size: 58,
+							path: path.resolve(
+								process.cwd(),
+								'user-data',
+								'icon-set-imagable',
+								'apple',
+								'iPhone',
+								'58x58.png'
+							),
+						},
+						{
+							size: 80,
+							path: path.resolve(
+								process.cwd(),
+								'user-data',
+								'icon-set-imagable',
+								'apple',
+								'iPhone',
+								'80x80.png'
+							),
+						},
+						{
+							size: 120,
+							path: path.resolve(
+								process.cwd(),
+								'user-data',
+								'icon-set-imagable',
+								'apple',
+								'iPhone',
+								'120x120.png'
+							),
+						},
+					],
 				},
 			],
 		},
