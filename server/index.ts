@@ -10,6 +10,7 @@ import resizeForWeb from './src/api/resizeForWeb';
 import cleanUpIconData from './src/utils/cleanUpIconData';
 import resizeForApple from './src/api/resizeForApple';
 import resizeForAndroid from './src/api/resizeForAndroid';
+import generatePath from './src/utils/generatePath';
 
 const port = process.env.PORT || 3000;
 
@@ -162,12 +163,11 @@ app.get('/api/data', (req, res) => {
 					files: [
 						{
 							size: 1024,
-							path: path.resolve(
-								process.cwd(),
-								'user-data',
-								'icon-set-imagable',
-								'apple',
-								'App Store',
+							path: generatePath(
+								'user-data/',
+								'icon-set-imagable/',
+								'apple/',
+								'App Store/',
 								'1024x1024.png'
 							),
 						},
@@ -178,12 +178,11 @@ app.get('/api/data', (req, res) => {
 					files: [
 						{
 							size: 167,
-							path: path.resolve(
-								process.cwd(),
-								'user-data',
-								'icon-set-imagable',
-								'apple',
-								'iPad Pro',
+							path: generatePath(
+								'user-data/',
+								'icon-set-imagable/',
+								'apple/',
+								'App Store/',
 								'167x167.png'
 							),
 						},
@@ -194,34 +193,31 @@ app.get('/api/data', (req, res) => {
 					files: [
 						{
 							size: 40,
-							path: path.resolve(
-								process.cwd(),
-								'user-data',
-								'icon-set-imagable',
-								'apple',
-								'iPad Pro, iPad, iPad Mini',
+							path: generatePath(
+								'user-data/',
+								'icon-set-imagable/',
+								'apple/',
+								'App Store/',
 								'40x40.png'
 							),
 						},
 						{
 							size: 58,
-							path: path.resolve(
-								process.cwd(),
-								'user-data',
-								'icon-set-imagable',
-								'apple',
-								'iPad Pro, iPad, iPad Mini',
+							path: generatePath(
+								'user-data/',
+								'icon-set-imagable/',
+								'apple/',
+								'App Store/',
 								'58x58.png'
 							),
 						},
 						{
 							size: 80,
-							path: path.resolve(
-								process.cwd(),
-								'user-data',
-								'icon-set-imagable',
-								'apple',
-								'iPad Pro, iPad, iPad Mini',
+							path: generatePath(
+								'user-data/',
+								'icon-set-imagable/',
+								'apple/',
+								'App Store/',
 								'80x80.png'
 							),
 						},
@@ -232,12 +228,11 @@ app.get('/api/data', (req, res) => {
 					files: [
 						{
 							size: 152,
-							path: path.resolve(
-								process.cwd(),
-								'user-data',
-								'icon-set-imagable',
-								'apple',
-								'iPad, iPad Mini',
+							path: generatePath(
+								'user-data/',
+								'icon-set-imagable/',
+								'apple/',
+								'App Store/',
 								'152x152.png'
 							),
 						},
@@ -248,45 +243,41 @@ app.get('/api/data', (req, res) => {
 					files: [
 						{
 							size: 40,
-							path: path.resolve(
-								process.cwd(),
-								'user-data',
-								'icon-set-imagable',
-								'apple',
-								'iPhone',
+							path: generatePath(
+								'user-data/',
+								'icon-set-imagable/',
+								'apple/',
+								'App Store/',
 								'40x40.png'
 							),
 						},
 						{
 							size: 58,
-							path: path.resolve(
-								process.cwd(),
-								'user-data',
-								'icon-set-imagable',
-								'apple',
-								'iPhone',
+							path: generatePath(
+								'user-data/',
+								'icon-set-imagable/',
+								'apple/',
+								'App Store/',
 								'58x58.png'
 							),
 						},
 						{
 							size: 80,
-							path: path.resolve(
-								process.cwd(),
-								'user-data',
-								'icon-set-imagable',
-								'apple',
-								'iPhone',
+							path: generatePath(
+								'user-data/',
+								'icon-set-imagable/',
+								'apple/',
+								'App Store/',
 								'80x80.png'
 							),
 						},
 						{
 							size: 120,
-							path: path.resolve(
-								process.cwd(),
-								'user-data',
-								'icon-set-imagable',
-								'apple',
-								'iPhone',
+							path: generatePath(
+								'user-data/',
+								'icon-set-imagable/',
+								'apple/',
+								'App Store/',
 								'120x120.png'
 							),
 						},
