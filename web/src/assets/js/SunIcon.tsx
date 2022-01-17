@@ -1,4 +1,4 @@
-import {IconCommons} from "../../globals";
+import { IconCommons } from "../../globals";
 
 const SunIcon = (props: IconCommons) => {
   return (

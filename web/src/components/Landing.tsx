@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from "react";
-import {FunctionComponent} from "react";
+import React, { useEffect, useState } from "react";
+import { FunctionComponent } from "react";
 import styled from "styled-components";
-import globals from "../globals";
+import globals, { ResponseData } from "../globals";
 import AllCenter from "../styles/AllCenter";
 
 const Container = styled.div`
@@ -137,27 +137,25 @@ const Landing: FunctionComponent<LandingProps> = () => {
     "https://cdn.vox-cdn.com/thumbor/DMXD2zLif49j6IP2i3Avda2Cyl0=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/22312759/rickroll_4k.jpg"
   );
   const [uploadButtonText, setUploadButtonText] = useState("Upload Image");
-  const [dataStructue, setDataStructure] = useState([]);
-  
+  const [dataStructue, setDataStructure] = useState<ResponseData>([]);
+
   const handleDownloads = () => {
     fetch("http://localhost:3000/api/data", {
-      method: 'GET'
-    })
-      .then((response) => {
-        response.json()
-          .then((data) => {
-            setDataStructure(data);
-          });
+      method: "GET",
+    }).then((response) => {
+      response.json().then((data) => {
+        setDataStructure(data);
       });
-  }
+    });
+  };
 
   useEffect(() => {
-    console.log(dataStructue[0]);
-  }, [dataStructue])
+    console.log(dataStructue[0]?.folderName);
+  }, [dataStructue]);
 
   // handleDownloads and as well
   // merge `handleUpload` and `handleDownloads` into a single function handler
-  const handleUpload = (e: {target: {files: any}}) => {
+  const handleUpload = (e: { target: { files: any } }) => {
     const files = e.target.files;
     const formData = new FormData();
     formData.append("image-file", files[0]);

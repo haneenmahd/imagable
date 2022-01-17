@@ -1,4 +1,4 @@
-import {css} from "styled-components";
+import { css } from "styled-components";
 
 const AllCenter = css`
   display: flex;

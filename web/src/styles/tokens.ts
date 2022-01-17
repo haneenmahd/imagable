@@ -11,7 +11,7 @@ For common styles like dark-mode text color or button responsive size you can th
 DO NOT IMPLEMENT COMPONENTS HERE! JUST STYLES
 */
 
-import {css} from "styled-components";
+import { css } from "styled-components";
 
 const MainHeaderStyle = css`
   font-size: 70px;

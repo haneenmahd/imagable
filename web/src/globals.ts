@@ -1,6 +1,6 @@
 // global variables that should be used under specific views or components
 
-import {css, FlattenSimpleInterpolation} from "styled-components";
+import { css, FlattenSimpleInterpolation } from "styled-components";
 
 // that re-use the same thing again and again
 const globals = {
