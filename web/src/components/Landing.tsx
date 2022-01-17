@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {FunctionComponent} from "react";
 import styled from "styled-components";
 import globals from "../globals";
@@ -133,8 +133,27 @@ const ImageUploadPreview = styled.img`
 interface LandingProps {}
 
 const Landing: FunctionComponent<LandingProps> = () => {
-  const [imageUploadUrl, setImageUploadUrl] = useState("");
+  const [imageUploadUrl, setImageUploadUrl] = useState(
+    "https://cdn.vox-cdn.com/thumbor/DMXD2zLif49j6IP2i3Avda2Cyl0=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/22312759/rickroll_4k.jpg"
+  );
   const [uploadButtonText, setUploadButtonText] = useState("Upload Image");
+  const [dataStructue, setDataStructure] = useState([]);
+  
+  const handleDownloads = () => {
+    fetch("http://localhost:3000/api/data", {
+      method: 'GET'
+    })
+      .then((response) => {
+        response.json()
+          .then((data) => {
+            setDataStructure(data);
+          });
+      });
+  }
+
+  useEffect(() => {
+    console.log(dataStructue[0]);
+  }, [dataStructue])
 
   // handleDownloads and as well
   // merge `handleUpload` and `handleDownloads` into a single function handler
@@ -196,7 +215,7 @@ const Landing: FunctionComponent<LandingProps> = () => {
             <label htmlFor="user-input-image-file">{uploadButtonText}</label>
           </ImageInputLabel>
 
-          <GenerateIconButton>
+          <GenerateIconButton onClick={() => handleDownloads()}>
             Generate Icons{" "}
             <span role="img" aria-label="working man">
               👷🏻‍♀️

@@ -1,6 +1,7 @@
 import express from 'express';
 import multer from 'multer';
 import path from 'path';
+import cors from 'cors';
 import archiver from 'archiver';
 import resizeAll from './src/resizeForAll';
 import makeSure from './src/utils/makeSure';
@@ -26,6 +27,13 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
+
+const corsOptions: cors.CorsOptions = {
+	origin: '*',
+	methods: ['GET', 'POST']
+};
+
+app.use(cors(corsOptions));
 
 app.use(express.static(path.resolve(process.cwd(), 'user-data')));
 
@@ -128,6 +136,8 @@ app.post('/api/allResize', upload.single('image-file'), (_req, res) => {
 });
 
 app.get('/api/data', (req, res) => {
+	res.setHeader('Content-Type', 'application/json');
+
 	interface FilesObject {
 		folderName: string;
 		files: string[];
@@ -210,8 +220,7 @@ app.get('/api/data', (req, res) => {
 		},
 	];
 
-	res.write(JSON.stringify(response));
-	res.end();
+	res.end(JSON.stringify(response));
 });
 
 app.listen(port, () =>
