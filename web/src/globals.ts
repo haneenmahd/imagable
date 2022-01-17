@@ -35,7 +35,7 @@ export function applyFilter(_input: FilterInput): FlattenSimpleInterpolation {
 export interface FileObject {
   folderName: string;
   files: string[];
-};
+}
 
 export interface ResponseDataObject {
   folderName: string;
