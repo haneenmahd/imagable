@@ -32,4 +32,16 @@ export function applyFilter(_input: FilterInput): FlattenSimpleInterpolation {
   return mixUpFilter;
 }
 
+export interface FileObject {
+  folderName: string;
+  files: string[];
+};
+
+export interface ResponseDataObject {
+  folderName: string;
+  files: FileObject[];
+}
+
+export type ResponseData = ResponseDataObject[];
+
 export default globals;
