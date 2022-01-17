@@ -30,7 +30,7 @@ const upload = multer({ storage: storage });
 
 const corsOptions: cors.CorsOptions = {
 	origin: '*',
-	methods: ['GET', 'POST']
+	methods: ['GET', 'POST'],
 };
 
 app.use(cors(corsOptions));
