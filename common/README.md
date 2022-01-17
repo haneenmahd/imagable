@@ -1,0 +1,1 @@
+Folder to contain data that needs to be shared between `server` and `web` directories.
