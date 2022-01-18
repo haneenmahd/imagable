@@ -11,6 +11,12 @@
   padding: var(--main-app-padding);
 }
 
+@media screen and (max-width: 600px) {
+  .App {
+    padding: 0;
+  }
+}
+
 form {
   padding: 20px;
   font-size: 100px;

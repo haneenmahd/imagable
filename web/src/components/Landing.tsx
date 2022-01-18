@@ -6,13 +6,13 @@ import AllCenter from "../styles/AllCenter";
 
 const Container = styled.div`
   min-height: 100vh;
-  width: 100vw;
+  max-width: 100vw;
   background-color: #fff;
   box-shadow: 20px 30px 40px 0 #000a0028;
   padding: 80px;
 
   @media screen and (max-width: 600px) {
-    padding: 30px;
+    padding: 30px 0;
   }
 `;
 
@@ -28,9 +28,13 @@ const Header = styled.header`
   }
 
   @media screen and (max-width: 600px) {
-    h1,
-    p {
+    h1, p {
       margin: 8px;
+    }
+
+    p {
+      font-size: 16px;
+      padding: 0 12px;
     }
   }
 `;
@@ -150,7 +154,7 @@ const Landing: FunctionComponent<LandingProps> = () => {
   };
 
   useEffect(() => {
-    console.log(dataStructue[0]?.folderName);
+    console.log(dataStructue);
   }, [dataStructue]);
 
   // handleDownloads and as well
