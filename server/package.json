@@ -10,7 +10,9 @@
 		"lint": "eslint .",
 		"dev:node": "nodemon",
 		"format": "prettier --write .",
-		"clean": "rm -rf dist && rm -rf user-data"
+		"clean": "rm -rf dist && rm -rf user-data",
+		"tsc": "tsc",
+		"postinstall": "npm run tsc"
 	},
 	"keywords": [],
 	"author": "",
