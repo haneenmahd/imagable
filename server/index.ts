@@ -285,6 +285,116 @@ app.get('/api/data', (req, res) => {
 				},
 			],
 		},
+		{
+			folderName: 'android',
+			files: [
+				{
+					folderName: 'Google Play',
+					files: [
+						{
+							size: 512,
+							path: generatePath(
+								'user-data/',
+								'icon-set-imagable/',
+								'android/',
+								'Google Play/',
+								'512x512.png'
+							),
+						},
+					],
+				},
+				{
+					folderName: 'midmap-xhdpi',
+					files: [
+						{
+							size: 96,
+							path: generatePath(
+								'user-data/',
+								'icon-set-imagable/',
+								'android/',
+								'midmap-xhdpi/',
+								'96x96.png'
+							),
+						},
+					],
+				},
+				{
+					folderName: 'midmap-hdpi',
+					files: [
+						{
+							size: 72,
+							path: generatePath(
+								'user-data/',
+								'icon-set-imagable/',
+								'android/',
+								'midmap-hdpi/',
+								'72x72.png'
+							),
+						},
+					],
+				},
+				{
+					folderName: 'midmap-ldpi',
+					files: [
+						{
+							size: 36,
+							path: generatePath(
+								'user-data/',
+								'icon-set-imagable/',
+								'android/',
+								'midmap-ldpi/',
+								'36x36.png'
+							),
+						},
+					],
+				},
+				{
+					folderName: 'midmap-mdpi',
+					files: [
+						{
+							size: 48,
+							path: generatePath(
+								'user-data/',
+								'icon-set-imagable/',
+								'android/',
+								'midmap-mdpi/',
+								'48x48.png'
+							),
+						},
+					],
+				},
+				{
+					folderName: 'midmap-xxhdpi',
+					files: [
+						{
+							size: 144,
+							path: generatePath(
+								'user-data/',
+								'icon-set-imagable/',
+								'android/',
+								'midmap-xxhdpi/',
+								'144x144.png'
+							),
+						},
+					],
+				},
+				{
+					folderName: 'midmap-xxxhdpi',
+					files: [
+						{
+							size: 192,
+							path: generatePath(
+								'user-data/',
+								'icon-set-imagable/',
+								'android/',
+								'midmap-xxxhdpi/',
+								'192x192.png'
+							),
+						},
+					],
+				},
+			],
+		},
 	];
 
 	res.end(JSON.stringify(response));
