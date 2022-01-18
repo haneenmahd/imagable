@@ -73,7 +73,7 @@ const IconsGrid: FunctionComponent<IconsGridProps> = (props) => {
               />
 
               <IconGridText key={index}>
-                Icon for {data.folderName}-{file.folderName}
+                {data.folderName}-{file.folderName}
                 <br />
                 <p>
                   {size.size}x{size.size}
