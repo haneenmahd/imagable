@@ -21,6 +21,7 @@ const IconGrid = styled.a`
   padding: 20px 0;
   margin: 30px;
   text-align: center;
+  padding: 20px;
   cursor: pointer;
   overflow: hidden;
   transition: 0.3s ${globals.styling.transition};
@@ -52,7 +53,7 @@ const IconGridText = styled.span`
 
 const IconGridImage = styled.img`
   max-height: 100%;
-  max-width: 100%;
+  max-width: 100%;  
 `;
 
 interface IconsGridProps {
@@ -78,7 +79,6 @@ const IconsGrid: FunctionComponent<IconsGridProps> = (props) => {
                   {size.size}x{size.size}
                 </p>
               </IconGridText>
-              {console.log(index)}
             </IconGrid>
           ))
         )
