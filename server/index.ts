@@ -182,7 +182,7 @@ app.get('/api/data', (req, res) => {
 								'user-data/',
 								'icon-set-imagable/',
 								'apple/',
-								'App Store/',
+								'iPad Pro/',
 								'167x167.png'
 							),
 						},
@@ -197,7 +197,7 @@ app.get('/api/data', (req, res) => {
 								'user-data/',
 								'icon-set-imagable/',
 								'apple/',
-								'App Store/',
+								'iPad Pro, iPad, iPad Mini/',
 								'40x40.png'
 							),
 						},
@@ -207,7 +207,7 @@ app.get('/api/data', (req, res) => {
 								'user-data/',
 								'icon-set-imagable/',
 								'apple/',
-								'App Store/',
+								'iPad Pro, iPad, iPad Mini/',
 								'58x58.png'
 							),
 						},
@@ -217,7 +217,7 @@ app.get('/api/data', (req, res) => {
 								'user-data/',
 								'icon-set-imagable/',
 								'apple/',
-								'App Store/',
+								'iPad Pro, iPad, iPad Mini/',
 								'80x80.png'
 							),
 						},
@@ -232,7 +232,7 @@ app.get('/api/data', (req, res) => {
 								'user-data/',
 								'icon-set-imagable/',
 								'apple/',
-								'App Store/',
+								'iPad, iPad Mini/',
 								'152x152.png'
 							),
 						},
@@ -247,7 +247,7 @@ app.get('/api/data', (req, res) => {
 								'user-data/',
 								'icon-set-imagable/',
 								'apple/',
-								'App Store/',
+								'iPhone/',
 								'40x40.png'
 							),
 						},
@@ -257,7 +257,7 @@ app.get('/api/data', (req, res) => {
 								'user-data/',
 								'icon-set-imagable/',
 								'apple/',
-								'App Store/',
+								'iPhone/',
 								'58x58.png'
 							),
 						},
@@ -267,7 +267,7 @@ app.get('/api/data', (req, res) => {
 								'user-data/',
 								'icon-set-imagable/',
 								'apple/',
-								'App Store/',
+								'iPhone/',
 								'80x80.png'
 							),
 						},
@@ -277,7 +277,7 @@ app.get('/api/data', (req, res) => {
 								'user-data/',
 								'icon-set-imagable/',
 								'apple/',
-								'App Store/',
+								'iPhone/',
 								'120x120.png'
 							),
 						},
