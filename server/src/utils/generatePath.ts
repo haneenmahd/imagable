@@ -1,5 +1,11 @@
 import getServerUrl from './getServerUrl';
 
 export default function generatePath(...files: string[]): string {
-	return `${getServerUrl()}/${files}`;
+	const paths: string[] = [getServerUrl()];
+
+	files.map((file) => {
+		paths.push(file);
+	});
+
+	return paths.join('');
 }

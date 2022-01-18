@@ -174,7 +174,7 @@
                 }
             },
             {
-                "name": "midmap-xhdpi",
+                "name": "mipmap-xhdpi",
                 "resolutions": {
                     "1x": {
                         "height": 96,

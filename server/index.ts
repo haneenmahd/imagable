@@ -38,6 +38,13 @@ app.use(cors(corsOptions));
 
 app.use(express.static(path.resolve(process.cwd(), 'user-data')));
 
+// clean up
+app.use((req, res, next) => {
+	cleanUpIconData();
+
+	next();
+});
+
 // use /user-data to server the images within the response
 app.use('/user-data', express.static('user-data'));
 
@@ -182,7 +189,7 @@ app.get('/api/data', (req, res) => {
 								'user-data/',
 								'icon-set-imagable/',
 								'apple/',
-								'App Store/',
+								'iPad Pro/',
 								'167x167.png'
 							),
 						},
@@ -197,7 +204,7 @@ app.get('/api/data', (req, res) => {
 								'user-data/',
 								'icon-set-imagable/',
 								'apple/',
-								'App Store/',
+								'iPad Pro, iPad, iPad Mini/',
 								'40x40.png'
 							),
 						},
@@ -207,7 +214,7 @@ app.get('/api/data', (req, res) => {
 								'user-data/',
 								'icon-set-imagable/',
 								'apple/',
-								'App Store/',
+								'iPad Pro, iPad, iPad Mini/',
 								'58x58.png'
 							),
 						},
@@ -217,7 +224,7 @@ app.get('/api/data', (req, res) => {
 								'user-data/',
 								'icon-set-imagable/',
 								'apple/',
-								'App Store/',
+								'iPad Pro, iPad, iPad Mini/',
 								'80x80.png'
 							),
 						},
@@ -232,7 +239,7 @@ app.get('/api/data', (req, res) => {
 								'user-data/',
 								'icon-set-imagable/',
 								'apple/',
-								'App Store/',
+								'iPad, iPad Mini/',
 								'152x152.png'
 							),
 						},
@@ -247,7 +254,7 @@ app.get('/api/data', (req, res) => {
 								'user-data/',
 								'icon-set-imagable/',
 								'apple/',
-								'App Store/',
+								'iPhone/',
 								'40x40.png'
 							),
 						},
@@ -257,7 +264,7 @@ app.get('/api/data', (req, res) => {
 								'user-data/',
 								'icon-set-imagable/',
 								'apple/',
-								'App Store/',
+								'iPhone/',
 								'58x58.png'
 							),
 						},
@@ -267,7 +274,7 @@ app.get('/api/data', (req, res) => {
 								'user-data/',
 								'icon-set-imagable/',
 								'apple/',
-								'App Store/',
+								'iPhone/',
 								'80x80.png'
 							),
 						},
@@ -277,7 +284,7 @@ app.get('/api/data', (req, res) => {
 								'user-data/',
 								'icon-set-imagable/',
 								'apple/',
-								'App Store/',
+								'iPhone/',
 								'120x120.png'
 							),
 						},
@@ -304,7 +311,7 @@ app.get('/api/data', (req, res) => {
 					],
 				},
 				{
-					folderName: 'midmap-xhdpi',
+					folderName: 'mipmap-xhdpi',
 					files: [
 						{
 							size: 96,
@@ -312,14 +319,14 @@ app.get('/api/data', (req, res) => {
 								'user-data/',
 								'icon-set-imagable/',
 								'android/',
-								'midmap-xhdpi/',
+								'mipmap-xhdpi/',
 								'96x96.png'
 							),
 						},
 					],
 				},
 				{
-					folderName: 'midmap-hdpi',
+					folderName: 'mipmap-hdpi',
 					files: [
 						{
 							size: 72,
@@ -327,14 +334,14 @@ app.get('/api/data', (req, res) => {
 								'user-data/',
 								'icon-set-imagable/',
 								'android/',
-								'midmap-hdpi/',
+								'mipmap-hdpi/',
 								'72x72.png'
 							),
 						},
 					],
 				},
 				{
-					folderName: 'midmap-ldpi',
+					folderName: 'mipmap-ldpi',
 					files: [
 						{
 							size: 36,
@@ -342,14 +349,14 @@ app.get('/api/data', (req, res) => {
 								'user-data/',
 								'icon-set-imagable/',
 								'android/',
-								'midmap-ldpi/',
+								'mipmap-ldpi/',
 								'36x36.png'
 							),
 						},
 					],
 				},
 				{
-					folderName: 'midmap-mdpi',
+					folderName: 'mipmap-mdpi',
 					files: [
 						{
 							size: 48,
@@ -357,14 +364,14 @@ app.get('/api/data', (req, res) => {
 								'user-data/',
 								'icon-set-imagable/',
 								'android/',
-								'midmap-mdpi/',
+								'mipmap-mdpi/',
 								'48x48.png'
 							),
 						},
 					],
 				},
 				{
-					folderName: 'midmap-xxhdpi',
+					folderName: 'mipmap-xxhdpi',
 					files: [
 						{
 							size: 144,
@@ -372,14 +379,14 @@ app.get('/api/data', (req, res) => {
 								'user-data/',
 								'icon-set-imagable/',
 								'android/',
-								'midmap-xxhdpi/',
+								'mipmap-xxhdpi/',
 								'144x144.png'
 							),
 						},
 					],
 				},
 				{
-					folderName: 'midmap-xxxhdpi',
+					folderName: 'mipmap-xxxhdpi',
 					files: [
 						{
 							size: 192,
@@ -387,7 +394,7 @@ app.get('/api/data', (req, res) => {
 								'user-data/',
 								'icon-set-imagable/',
 								'android/',
-								'midmap-xxxhdpi/',
+								'mipmap-xxxhdpi/',
 								'192x192.png'
 							),
 						},
