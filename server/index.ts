@@ -395,6 +395,26 @@ app.get('/api/data', (req, res) => {
 				},
 			],
 		},
+		{
+			folderName: 'web',
+			files: [
+				{
+					folderName: 'ico',
+					files: [
+						{
+							size: 16,
+							path: generatePath(
+								'user-data/',
+								'icon-set-imagable/',
+								'web/',
+								'ico/',
+								'16x16.png'
+							),
+						},
+					],
+				},
+			],
+		},
 	];
 
 	res.end(JSON.stringify(response));
