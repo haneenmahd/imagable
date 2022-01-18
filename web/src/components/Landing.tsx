@@ -147,8 +147,8 @@ const Landing: FunctionComponent<LandingProps> = () => {
   const [uploadButtonText, setUploadButtonText] = useState("Upload Image");
   const [dataStructue, setDataStructure] = useState<ResponseData>([]);
 
-  const handleDataStrucute = () => {
-    fetch(`${getServerUrl()}/api/data`, {
+  const handleDataStrucute = async () => {
+    await fetch(`${getServerUrl()}/api/data`, {
       method: "GET",
     }).then((response) => {
       response.json().then((data) => {
@@ -159,12 +159,12 @@ const Landing: FunctionComponent<LandingProps> = () => {
 
   // handleDownloads and as well
   // merge `handleUpload` and `handleDownloads` into a single function handler
-  const handleUpload = (e: { target: { files: any } }) => {
+  const handleUpload = async (e: { target: { files: any } }) => {
     const files = e.target.files;
     const formData = new FormData();
     formData.append("image-file", files[0]);
 
-    fetch(`${getServerUrl()}/api/allResize`, {
+    await fetch(`${getServerUrl()}/api/allResize`, {
       method: "POST",
       body: formData,
     })
@@ -181,12 +181,12 @@ const Landing: FunctionComponent<LandingProps> = () => {
       });
   };
 
-  const loadFile: (e: any) => void = (e) => {
+  const loadFile: (e: any) => void =  async (e) => {
     const file: any = e.target.files![0];
 
     setImageUploadUrl(URL.createObjectURL(file));
 
-    handleUpload(e);
+    await handleUpload(e);
   };
 
   return (
@@ -218,7 +218,7 @@ const Landing: FunctionComponent<LandingProps> = () => {
             <label htmlFor="user-input-image-file">{uploadButtonText}</label>
           </ImageInputLabel>
 
-          <GenerateIconButton onClick={() => handleDataStrucute()}>
+          <GenerateIconButton onClick={async () => await handleDataStrucute()}>
             Generate Icons{" "}
             <span role="img" aria-label="working man">
               👷🏻‍♀️
