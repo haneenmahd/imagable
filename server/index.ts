@@ -304,7 +304,7 @@ app.get('/api/data', (req, res) => {
 					],
 				},
 				{
-					folderName: 'midmap-xhdpi',
+					folderName: 'mipmap-xhdpi',
 					files: [
 						{
 							size: 96,
@@ -312,14 +312,14 @@ app.get('/api/data', (req, res) => {
 								'user-data/',
 								'icon-set-imagable/',
 								'android/',
-								'midmap-xhdpi/',
+								'mipmap-xhdpi/',
 								'96x96.png'
 							),
 						},
 					],
 				},
 				{
-					folderName: 'midmap-hdpi',
+					folderName: 'mipmap-hdpi',
 					files: [
 						{
 							size: 72,
@@ -327,14 +327,14 @@ app.get('/api/data', (req, res) => {
 								'user-data/',
 								'icon-set-imagable/',
 								'android/',
-								'midmap-hdpi/',
+								'mipmap-hdpi/',
 								'72x72.png'
 							),
 						},
 					],
 				},
 				{
-					folderName: 'midmap-ldpi',
+					folderName: 'mipmap-ldpi',
 					files: [
 						{
 							size: 36,
@@ -342,14 +342,14 @@ app.get('/api/data', (req, res) => {
 								'user-data/',
 								'icon-set-imagable/',
 								'android/',
-								'midmap-ldpi/',
+								'mipmap-ldpi/',
 								'36x36.png'
 							),
 						},
 					],
 				},
 				{
-					folderName: 'midmap-mdpi',
+					folderName: 'mipmap-mdpi',
 					files: [
 						{
 							size: 48,
@@ -357,14 +357,14 @@ app.get('/api/data', (req, res) => {
 								'user-data/',
 								'icon-set-imagable/',
 								'android/',
-								'midmap-mdpi/',
+								'mipmap-mdpi/',
 								'48x48.png'
 							),
 						},
 					],
 				},
 				{
-					folderName: 'midmap-xxhdpi',
+					folderName: 'mipmap-xxhdpi',
 					files: [
 						{
 							size: 144,
@@ -372,14 +372,14 @@ app.get('/api/data', (req, res) => {
 								'user-data/',
 								'icon-set-imagable/',
 								'android/',
-								'midmap-xxhdpi/',
+								'mipmap-xxhdpi/',
 								'144x144.png'
 							),
 						},
 					],
 				},
 				{
-					folderName: 'midmap-xxxhdpi',
+					folderName: 'mipmap-xxxhdpi',
 					files: [
 						{
 							size: 192,
@@ -387,7 +387,7 @@ app.get('/api/data', (req, res) => {
 								'user-data/',
 								'icon-set-imagable/',
 								'android/',
-								'midmap-xxxhdpi/',
+								'mipmap-xxxhdpi/',
 								'192x192.png'
 							),
 						},
