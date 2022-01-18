@@ -61,11 +61,7 @@ const IconsGrid: FunctionComponent<IconsGridProps> = (props) => {
       {props.dataStrucute.map((data) =>
         data.files.map((file) =>
           file.files.map((size, index) => (
-            <IconGrid
-              target="_blank"
-              href={size.path} 
-              download
-              key={index}>
+            <IconGrid target="_blank" href={size.path} download key={index}>
               <IconGridText key={index}>
                 Icon for {data.folderName}-{file.folderName}
                 <br />
@@ -76,7 +72,6 @@ const IconsGrid: FunctionComponent<IconsGridProps> = (props) => {
                 <p>
                   {size.size}x{size.size}
                 </p>
-                {console.log(size.path)}
               </IconGridText>
             </IconGrid>
           ))
