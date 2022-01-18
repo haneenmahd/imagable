@@ -21,6 +21,7 @@ const Container = styled.div`
 
 const Header = styled.header`
   text-align: center;
+  padding: 10px;
   h1,
   p {
     margin: 4px 0;
