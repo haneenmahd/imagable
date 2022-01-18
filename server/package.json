@@ -10,13 +10,16 @@
 		"lint": "eslint .",
 		"dev:node": "nodemon",
 		"format": "prettier --write .",
-		"clean": "rm -rf dist && rm -rf user-data"
+		"clean": "rm -rf dist && rm -rf user-data",
+		"tsc": "tsc",
+		"postinstall": "npm run tsc"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
 		"@types/archiver": "^5.3.1",
+		"@types/cors": "^2.8.12",
 		"@types/express": "^4.17.13",
 		"@types/multer": "^1.4.7",
 		"@types/node": "^17.0.7",
@@ -36,6 +39,7 @@
 	},
 	"dependencies": {
 		"archiver": "^5.3.0",
+		"cors": "^2.8.5",
 		"express": "^4.17.2",
 		"image-to-icon-converter": "^1.0.1",
 		"jimp": "^0.16.1",

@@ -1,6 +1,6 @@
 // global variables that should be used under specific views or components
 
-import {css, FlattenSimpleInterpolation} from "styled-components";
+import { css, FlattenSimpleInterpolation } from "styled-components";
 
 // that re-use the same thing again and again
 const globals = {
@@ -31,5 +31,19 @@ export function applyFilter(_input: FilterInput): FlattenSimpleInterpolation {
 
   return mixUpFilter;
 }
+
+interface FilesObject {
+  folderName: string;
+  files: {
+    size: number;
+    path: string;
+  }[];
+}
+
+interface ResponseDataObject {
+  folderName: string;
+  files: FilesObject[];
+}
+export type ResponseData = ResponseDataObject[];
 
 export default globals;

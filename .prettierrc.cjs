@@ -1,7 +1,7 @@
 "use strict";
 
 module.exports = {
-  bracketSpacing: false,
+  bracketSpacing: true,
   singleQuote: false,
   trailingComma: "es5",
   printWidth: 80,

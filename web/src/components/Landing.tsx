@@ -1,18 +1,20 @@
-import React, {useState} from "react";
-import {FunctionComponent} from "react";
+import React, { useState } from "react";
+import { FunctionComponent } from "react";
 import styled from "styled-components";
-import globals from "../globals";
+import globals, { ResponseData } from "../globals";
 import AllCenter from "../styles/AllCenter";
+import IconsGrid from "./IconsGrid";
 
 const Container = styled.div`
   min-height: 100vh;
+  max-width: 100vw;
   width: 100vw;
   background-color: #fff;
   box-shadow: 20px 30px 40px 0 #000a0028;
   padding: 80px;
 
   @media screen and (max-width: 600px) {
-    padding: 30px;
+    padding: 30px 0;
   }
 `;
 
@@ -31,6 +33,11 @@ const Header = styled.header`
     h1,
     p {
       margin: 8px;
+    }
+
+    p {
+      font-size: 16px;
+      padding: 0 12px;
     }
   }
 `;
@@ -133,12 +140,25 @@ const ImageUploadPreview = styled.img`
 interface LandingProps {}
 
 const Landing: FunctionComponent<LandingProps> = () => {
-  const [imageUploadUrl, setImageUploadUrl] = useState("");
+  const [imageUploadUrl, setImageUploadUrl] = useState(
+    "https://cdn.vox-cdn.com/thumbor/DMXD2zLif49j6IP2i3Avda2Cyl0=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/22312759/rickroll_4k.jpg"
+  );
   const [uploadButtonText, setUploadButtonText] = useState("Upload Image");
+  const [dataStructue, setDataStructure] = useState<ResponseData>([]);
+
+  const handleDataStrucute = () => {
+    fetch("http://localhost:3000/api/data", {
+      method: "GET",
+    }).then((response) => {
+      response.json().then((data) => {
+        setDataStructure(data);
+      });
+    });
+  };
 
   // handleDownloads and as well
   // merge `handleUpload` and `handleDownloads` into a single function handler
-  const handleUpload = (e: {target: {files: any}}) => {
+  const handleUpload = (e: { target: { files: any } }) => {
     const files = e.target.files;
     const formData = new FormData();
     formData.append("image-file", files[0]);
@@ -188,6 +208,7 @@ const Landing: FunctionComponent<LandingProps> = () => {
         accept="image/*"
         name="image-file"
         onChange={loadFile}
+        required
       />
 
       <ImageUploadContainer>
@@ -196,7 +217,7 @@ const Landing: FunctionComponent<LandingProps> = () => {
             <label htmlFor="user-input-image-file">{uploadButtonText}</label>
           </ImageInputLabel>
 
-          <GenerateIconButton>
+          <GenerateIconButton onClick={() => handleDataStrucute()}>
             Generate Icons{" "}
             <span role="img" aria-label="working man">
               👷🏻‍♀️
@@ -208,9 +229,12 @@ const Landing: FunctionComponent<LandingProps> = () => {
           <ImageUploadPreview
             src={imageUploadUrl}
             id="user-input-image-file-preview"
+            alt="Upload your icon to start generating!"
           />
         </ImageUploadPreviewContainer>
       </ImageUploadContainer>
+
+      <IconsGrid dataStrucute={dataStructue} />
     </Container>
   );
 };

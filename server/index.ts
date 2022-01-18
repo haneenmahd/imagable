@@ -1,6 +1,7 @@
 import express from 'express';
 import multer from 'multer';
 import path from 'path';
+import cors from 'cors';
 import archiver from 'archiver';
 import resizeAll from './src/resizeForAll';
 import makeSure from './src/utils/makeSure';
@@ -9,6 +10,7 @@ import resizeForWeb from './src/api/resizeForWeb';
 import cleanUpIconData from './src/utils/cleanUpIconData';
 import resizeForApple from './src/api/resizeForApple';
 import resizeForAndroid from './src/api/resizeForAndroid';
+import generatePath from './src/utils/generatePath';
 
 const port = process.env.PORT || 3000;
 
@@ -26,6 +28,13 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
+
+const corsOptions: cors.CorsOptions = {
+	origin: '*',
+	methods: ['GET', 'POST'],
+};
+
+app.use(cors(corsOptions));
 
 app.use(express.static(path.resolve(process.cwd(), 'user-data')));
 
@@ -128,9 +137,14 @@ app.post('/api/allResize', upload.single('image-file'), (_req, res) => {
 });
 
 app.get('/api/data', (req, res) => {
+	res.setHeader('Content-Type', 'application/json');
+
 	interface FilesObject {
 		folderName: string;
-		files: string[];
+		files: {
+			size: number;
+			path: string;
+		}[];
 	}
 
 	interface ResponseDataObject {
@@ -146,23 +160,128 @@ app.get('/api/data', (req, res) => {
 			files: [
 				{
 					folderName: 'App Store',
-					files: ['1024x1024.png'],
+					files: [
+						{
+							size: 1024,
+							path: generatePath(
+								'user-data/',
+								'icon-set-imagable/',
+								'apple/',
+								'App Store/',
+								'1024x1024.png'
+							),
+						},
+					],
 				},
 				{
 					folderName: 'iPad Pro',
-					files: ['167x167.png'],
+					files: [
+						{
+							size: 167,
+							path: generatePath(
+								'user-data/',
+								'icon-set-imagable/',
+								'apple/',
+								'App Store/',
+								'167x167.png'
+							),
+						},
+					],
 				},
 				{
 					folderName: 'iPad Pro, iPad, iPad Mini',
-					files: ['40x40.png', '58x58.png', '80x80.png'],
+					files: [
+						{
+							size: 40,
+							path: generatePath(
+								'user-data/',
+								'icon-set-imagable/',
+								'apple/',
+								'App Store/',
+								'40x40.png'
+							),
+						},
+						{
+							size: 58,
+							path: generatePath(
+								'user-data/',
+								'icon-set-imagable/',
+								'apple/',
+								'App Store/',
+								'58x58.png'
+							),
+						},
+						{
+							size: 80,
+							path: generatePath(
+								'user-data/',
+								'icon-set-imagable/',
+								'apple/',
+								'App Store/',
+								'80x80.png'
+							),
+						},
+					],
 				},
 				{
 					folderName: 'iPad, iPad Mini',
-					files: ['152x152.png'],
+					files: [
+						{
+							size: 152,
+							path: generatePath(
+								'user-data/',
+								'icon-set-imagable/',
+								'apple/',
+								'App Store/',
+								'152x152.png'
+							),
+						},
+					],
 				},
 				{
 					folderName: 'iPhone',
-					files: ['40x40.png', '58x58.png', '80x80.png', '120x120.png'],
+					files: [
+						{
+							size: 40,
+							path: generatePath(
+								'user-data/',
+								'icon-set-imagable/',
+								'apple/',
+								'App Store/',
+								'40x40.png'
+							),
+						},
+						{
+							size: 58,
+							path: generatePath(
+								'user-data/',
+								'icon-set-imagable/',
+								'apple/',
+								'App Store/',
+								'58x58.png'
+							),
+						},
+						{
+							size: 80,
+							path: generatePath(
+								'user-data/',
+								'icon-set-imagable/',
+								'apple/',
+								'App Store/',
+								'80x80.png'
+							),
+						},
+						{
+							size: 120,
+							path: generatePath(
+								'user-data/',
+								'icon-set-imagable/',
+								'apple/',
+								'App Store/',
+								'120x120.png'
+							),
+						},
+					],
 				},
 			],
 		},
@@ -171,31 +290,108 @@ app.get('/api/data', (req, res) => {
 			files: [
 				{
 					folderName: 'Google Play',
-					files: ['512x512.png'],
+					files: [
+						{
+							size: 512,
+							path: generatePath(
+								'user-data/',
+								'icon-set-imagable/',
+								'android/',
+								'Google Play/',
+								'512x512.png'
+							),
+						},
+					],
 				},
 				{
 					folderName: 'midmap-xhdpi',
-					files: ['96x96.png'],
+					files: [
+						{
+							size: 96,
+							path: generatePath(
+								'user-data/',
+								'icon-set-imagable/',
+								'android/',
+								'midmap-xhdpi/',
+								'96x96.png'
+							),
+						},
+					],
 				},
 				{
-					folderName: 'mipmap-hdpi',
-					files: ['72x72.png'],
+					folderName: 'midmap-hdpi',
+					files: [
+						{
+							size: 72,
+							path: generatePath(
+								'user-data/',
+								'icon-set-imagable/',
+								'android/',
+								'midmap-hdpi/',
+								'72x72.png'
+							),
+						},
+					],
 				},
 				{
-					folderName: 'mipmap-ldpi',
-					files: ['36x36.png'],
+					folderName: 'midmap-ldpi',
+					files: [
+						{
+							size: 36,
+							path: generatePath(
+								'user-data/',
+								'icon-set-imagable/',
+								'android/',
+								'midmap-ldpi/',
+								'36x36.png'
+							),
+						},
+					],
 				},
 				{
-					folderName: 'mipmap-mdpi',
-					files: ['48x48.png'],
+					folderName: 'midmap-mdpi',
+					files: [
+						{
+							size: 48,
+							path: generatePath(
+								'user-data/',
+								'icon-set-imagable/',
+								'android/',
+								'midmap-mdpi/',
+								'48x48.png'
+							),
+						},
+					],
 				},
 				{
-					folderName: 'mipmap-xxhdpi',
-					files: ['144x144.png'],
+					folderName: 'midmap-xxhdpi',
+					files: [
+						{
+							size: 144,
+							path: generatePath(
+								'user-data/',
+								'icon-set-imagable/',
+								'android/',
+								'midmap-xxhdpi/',
+								'144x144.png'
+							),
+						},
+					],
 				},
 				{
-					folderName: 'mipmap-xxxhdpi',
-					files: ['192x192.png'],
+					folderName: 'midmap-xxxhdpi',
+					files: [
+						{
+							size: 192,
+							path: generatePath(
+								'user-data/',
+								'icon-set-imagable/',
+								'android/',
+								'midmap-xxxhdpi/',
+								'192x192.png'
+							),
+						},
+					],
 				},
 			],
 		},
@@ -204,14 +400,24 @@ app.get('/api/data', (req, res) => {
 			files: [
 				{
 					folderName: 'ico',
-					files: ['16x16.png'],
+					files: [
+						{
+							size: 16,
+							path: generatePath(
+								'user-data/',
+								'icon-set-imagable/',
+								'web/',
+								'ico/',
+								'16x16.png'
+							),
+						},
+					],
 				},
 			],
 		},
 	];
 
-	res.write(JSON.stringify(response));
-	res.end();
+	res.end(JSON.stringify(response));
 });
 
 app.listen(port, () =>

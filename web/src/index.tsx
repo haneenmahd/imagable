@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import {BrowserRouter, Routes, Route, Outlet} from "react-router-dom";
+import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import "./index.css";
 
 import App from "./App";
@@ -10,7 +10,7 @@ import App from "./App";
  */
 function RenderingApp() {
   return (
-    <div style={{maxWidth: "100vw"}}>
+    <div style={{ maxWidth: "100vw" }}>
       <Outlet />
     </div>
   );
