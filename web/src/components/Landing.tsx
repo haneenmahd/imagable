@@ -157,8 +157,6 @@ const Landing: FunctionComponent<LandingProps> = () => {
     });
   };
 
-  // handleDownloads and as well
-  // merge `handleUpload` and `handleDownloads` into a single function handler
   const handleUpload = async (e: { target: { files: any } }) => {
     const files = e.target.files;
     const formData = new FormData();
