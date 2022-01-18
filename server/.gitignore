@@ -1,2 +1,4 @@
 user-data/
 tests/
+node_modules/
+dist/
