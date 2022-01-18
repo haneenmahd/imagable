@@ -41,6 +41,7 @@ const IconGridText = styled.span`
   font-size: 14px;
   font-weight: 500;
   color: #6c6c6c;
+  margin-top: 10px;
 
   p {
     margin: 3px 0;
