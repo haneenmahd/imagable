@@ -3,6 +3,7 @@ import { FunctionComponent } from "react";
 import styled from "styled-components";
 import globals, { ResponseData } from "../globals";
 import AllCenter from "../styles/AllCenter";
+import getServerUrl from "../utils/getServerUrl";
 import IconsGrid from "./IconsGrid";
 
 const Container = styled.div`
@@ -147,7 +148,7 @@ const Landing: FunctionComponent<LandingProps> = () => {
   const [dataStructue, setDataStructure] = useState<ResponseData>([]);
 
   const handleDataStrucute = () => {
-    fetch("http://localhost:3000/api/data", {
+    fetch(`${getServerUrl()}/api/data`, {
       method: "GET",
     }).then((response) => {
       response.json().then((data) => {
@@ -163,7 +164,7 @@ const Landing: FunctionComponent<LandingProps> = () => {
     const formData = new FormData();
     formData.append("image-file", files[0]);
 
-    fetch("http://localhost:3000/api/allResize", {
+    fetch(`${getServerUrl()}/api/allResize`, {
       method: "POST",
       body: formData,
     })
