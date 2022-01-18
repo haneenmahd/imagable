@@ -28,7 +28,8 @@ const Header = styled.header`
   }
 
   @media screen and (max-width: 600px) {
-    h1, p {
+    h1,
+    p {
       margin: 8px;
     }
 
