@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { FunctionComponent } from "react";
 import styled from "styled-components";
 import globals, { ResponseData } from "../globals";
 import AllCenter from "../styles/AllCenter";
+import IconsGrid from "./IconsGrid";
 
 const Container = styled.div`
   min-height: 100vh;
   max-width: 100vw;
+  width: 100vw;
   background-color: #fff;
   box-shadow: 20px 30px 40px 0 #000a0028;
   padding: 80px;
@@ -144,7 +146,7 @@ const Landing: FunctionComponent<LandingProps> = () => {
   const [uploadButtonText, setUploadButtonText] = useState("Upload Image");
   const [dataStructue, setDataStructure] = useState<ResponseData>([]);
 
-  const handleDownloads = () => {
+  const handleDataStrucute = () => {
     fetch("http://localhost:3000/api/data", {
       method: "GET",
     }).then((response) => {
@@ -153,10 +155,6 @@ const Landing: FunctionComponent<LandingProps> = () => {
       });
     });
   };
-
-  useEffect(() => {
-    console.log(dataStructue);
-  }, [dataStructue]);
 
   // handleDownloads and as well
   // merge `handleUpload` and `handleDownloads` into a single function handler
@@ -210,6 +208,7 @@ const Landing: FunctionComponent<LandingProps> = () => {
         accept="image/*"
         name="image-file"
         onChange={loadFile}
+        required
       />
 
       <ImageUploadContainer>
@@ -218,7 +217,7 @@ const Landing: FunctionComponent<LandingProps> = () => {
             <label htmlFor="user-input-image-file">{uploadButtonText}</label>
           </ImageInputLabel>
 
-          <GenerateIconButton onClick={() => handleDownloads()}>
+          <GenerateIconButton onClick={() => handleDataStrucute()}>
             Generate Icons{" "}
             <span role="img" aria-label="working man">
               👷🏻‍♀️
@@ -230,9 +229,12 @@ const Landing: FunctionComponent<LandingProps> = () => {
           <ImageUploadPreview
             src={imageUploadUrl}
             id="user-input-image-file-preview"
+            alt="Upload your icon to start generating!"
           />
         </ImageUploadPreviewContainer>
       </ImageUploadContainer>
+
+      <IconsGrid dataStrucute={dataStructue} />
     </Container>
   );
 };
