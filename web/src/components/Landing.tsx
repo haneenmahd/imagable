@@ -181,7 +181,7 @@ const Landing: FunctionComponent<LandingProps> = () => {
       });
   };
 
-  const loadFile: (e: any) => void =  async (e) => {
+  const loadFile: (e: any) => void = async (e) => {
     const file: any = e.target.files![0];
 
     setImageUploadUrl(URL.createObjectURL(file));
