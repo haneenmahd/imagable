@@ -3,6 +3,7 @@ import multer from 'multer';
 import path from 'path';
 import cors from 'cors';
 import archiver from 'archiver';
+import expressRateLimit from 'express-rate-limit';
 import resizeAll from './src/resizeForAll';
 import makeSure from './src/utils/makeSure';
 import setHeaderAsZip from './src/utils/setHeaderAsZip';
@@ -12,9 +13,14 @@ import resizeForApple from './src/api/resizeForApple';
 import resizeForAndroid from './src/api/resizeForAndroid';
 import generatePath from './src/utils/generatePath';
 
-const port = process.env.PORT || 3000;
-
 const app = express();
+const port = process.env.PORT || 3000;
+const apiLimiter = expressRateLimit({
+	windowMs: 15 * 60 * 1000,
+	max: 100,
+	standardHeaders: true,
+	legacyHeaders: false
+});
 
 makeSure();
 
@@ -34,11 +40,9 @@ const corsOptions: cors.CorsOptions = {
 	methods: ['GET', 'POST'],
 };
 
+app.use(apiLimiter);
 app.use(cors(corsOptions));
-
 app.use(express.static(path.resolve(process.cwd(), 'user-data')));
-
-// use /user-data to server the images within the response
 app.use('/user-data', express.static('user-data'));
 
 app.get('/api/icon-size-data', (_req, res) => {
