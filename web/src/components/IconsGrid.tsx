@@ -61,7 +61,7 @@ interface IconsGridProps {
   dataStrucute: ResponseData;
 }
 
-const IconsGrid: FunctionComponent<IconsGridProps> = (props) => {  
+const IconsGrid: FunctionComponent<IconsGridProps> = (props) => {
   const handleDownload = async (path: string, filename: string) => {
     await fetch(path)
       .then((res) => res.blob())
