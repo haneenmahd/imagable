@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { FunctionComponent } from "react";
 import styled from "styled-components";
 import globals, { ResponseData } from "../globals";
@@ -151,10 +151,6 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
     useState<string>("Upload Image");
   const [dataStructue, setDataStructure] = useState<ResponseData>([]);
   const [showIconGrids, setShowIconGrids] = useState<boolean>(false);
-
-  useEffect(() => {
-    console.log(dataStructue[0]?.files[0].files[0].path);
-  }, [dataStructue]);
 
   const handleDataStrucute = async () => {
     await fetch(`${getServerUrl()}/api/data`, {
