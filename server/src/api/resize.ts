@@ -17,7 +17,7 @@ export default async function resize(
 
 	image.resize(resizeOptions.width, resizeOptions.height);
 
-	// do not lose quality
+	// retain image quality
 	image.quality(100);
 
 	await image.writeAsync(

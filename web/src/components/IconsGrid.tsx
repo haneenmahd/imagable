@@ -21,6 +21,7 @@ const IconGrid = styled.a`
   padding: 20px 0;
   margin: 30px;
   text-align: center;
+  padding: 20px;
   cursor: pointer;
   overflow: hidden;
   transition: 0.3s ${globals.styling.transition};
@@ -41,6 +42,7 @@ const IconGridText = styled.span`
   font-size: 14px;
   font-weight: 500;
   color: #6c6c6c;
+  margin-top: 10px;
 
   p {
     margin: 3px 0;
@@ -71,13 +73,12 @@ const IconsGrid: FunctionComponent<IconsGridProps> = (props) => {
               />
 
               <IconGridText key={index}>
-                Icon for {data.folderName}-{file.folderName}
+                {data.folderName}-{file.folderName}
                 <br />
                 <p>
                   {size.size}x{size.size}
                 </p>
               </IconGridText>
-              {console.log(index)}
             </IconGrid>
           ))
         )

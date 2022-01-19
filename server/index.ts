@@ -38,13 +38,6 @@ app.use(cors(corsOptions));
 
 app.use(express.static(path.resolve(process.cwd(), 'user-data')));
 
-// clean up
-app.use((req, res, next) => {
-	cleanUpIconData();
-
-	next();
-});
-
 // use /user-data to server the images within the response
 app.use('/user-data', express.static('user-data'));
 
