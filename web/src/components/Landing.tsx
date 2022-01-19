@@ -144,16 +144,17 @@ interface LandingProps {
 }
 
 const Landing: FunctionComponent<LandingProps> = (props) => {
-  const [imageUploadUrl, setImageUploadUrl] = useState(props.defaultLink);
-  const [uploadButtonText, setUploadButtonText] = useState("Upload Image");
+  const [imageUploadUrl, setImageUploadUrl] = useState<string>(
+    props.defaultLink
+  );
+  const [uploadButtonText, setUploadButtonText] =
+    useState<string>("Upload Image");
   const [dataStructue, setDataStructure] = useState<ResponseData>([]);
-  const [isUploadedEmpty, setUploadedEmpty] = useState<boolean>(true);
+  const [showIconGrids, setShowIconGrids] = useState<boolean>(false);
 
   useEffect(() => {
-    if (imageUploadUrl !== "" || imageUploadUrl !== "") {
-      setUploadedEmpty(false);
-    }
-  }, [imageUploadUrl, isUploadedEmpty]);
+    console.log(dataStructue[0]?.files[0].files[0].path);
+  }, [dataStructue]);
 
   const handleDataStrucute = async () => {
     await fetch(`${getServerUrl()}/api/data`, {
@@ -163,12 +164,18 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
       .then((data) => {
         setDataStructure(data);
       });
+
+    setShowIconGrids(true);
   };
 
   const handleUpload = async (e: { target: { files: any } }) => {
+    setShowIconGrids(false);
+
     const files = e.target.files;
     const formData = new FormData();
     formData.append("image-file", files[0]);
+
+    setUploadButtonText("Uploading...");
 
     await fetch(`${getServerUrl()}/api/allResize`, {
       method: "POST",
@@ -241,7 +248,7 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
         </ImageUploadPreviewContainer>
       </ImageUploadContainer>
 
-      <IconsGrid dataStrucute={dataStructue} />
+      {showIconGrids && <IconsGrid dataStrucute={dataStructue} />}
     </Container>
   );
 };

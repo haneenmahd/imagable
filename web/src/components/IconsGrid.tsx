@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useEffect } from "react";
 import styled from "styled-components";
 import globals, { ResponseData } from "../globals";
 import downloadFile from "js-file-download";
@@ -61,7 +61,7 @@ interface IconsGridProps {
   dataStrucute: ResponseData;
 }
 
-const IconsGrid: FunctionComponent<IconsGridProps> = (props) => {
+const IconsGrid: FunctionComponent<IconsGridProps> = (props) => {  
   const handleDownload = async (path: string, filename: string) => {
     await fetch(path)
       .then((res) => res.blob())
