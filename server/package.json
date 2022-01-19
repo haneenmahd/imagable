@@ -41,6 +41,7 @@
 		"archiver": "^5.3.0",
 		"cors": "^2.8.5",
 		"express": "^4.17.2",
+		"express-rate-limit": "^6.1.0",
 		"image-to-icon-converter": "^1.0.1",
 		"jimp": "^0.16.1",
 		"multer": "^1.4.4",
