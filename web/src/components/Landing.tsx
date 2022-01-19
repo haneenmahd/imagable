@@ -151,11 +151,11 @@ const Landing: FunctionComponent<LandingProps> = () => {
   const handleDataStrucute = async () => {
     await fetch(`${getServerUrl()}/api/data`, {
       method: "GET",
-    }).then((response) => {
-      response.json().then((data) => {
+    })
+      .then((response) => response.json())
+      .then((data) => {
         setDataStructure(data);
       });
-    });
   };
 
   const handleUpload = async (e: { target: { files: any } }) => {
