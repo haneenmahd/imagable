@@ -139,29 +139,39 @@ const ImageUploadPreview = styled.img`
   max-width: 100%;
 `;
 
-interface LandingProps {}
+interface LandingProps {
+  defaultLink: string;
+}
 
-const Landing: FunctionComponent<LandingProps> = () => {
-  const [imageUploadUrl, setImageUploadUrl] = useState(
-    "https://cdn.vox-cdn.com/thumbor/DMXD2zLif49j6IP2i3Avda2Cyl0=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/22312759/rickroll_4k.jpg"
+const Landing: FunctionComponent<LandingProps> = (props) => {
+  const [imageUploadUrl, setImageUploadUrl] = useState<string>(
+    props.defaultLink
   );
-  const [uploadButtonText, setUploadButtonText] = useState("Upload Image");
+  const [uploadButtonText, setUploadButtonText] =
+    useState<string>("Upload Image");
   const [dataStructue, setDataStructure] = useState<ResponseData>([]);
+  const [showIconGrids, setShowIconGrids] = useState<boolean>(false);
 
   const handleDataStrucute = async () => {
     await fetch(`${getServerUrl()}/api/data`, {
       method: "GET",
-    }).then((response) => {
-      response.json().then((data) => {
+    })
+      .then((response) => response.json())
+      .then((data) => {
         setDataStructure(data);
       });
-    });
+
+    setShowIconGrids(true);
   };
 
   const handleUpload = async (e: { target: { files: any } }) => {
+    setShowIconGrids(false);
+
     const files = e.target.files;
     const formData = new FormData();
     formData.append("image-file", files[0]);
+
+    setUploadButtonText("Uploading...");
 
     await fetch(`${getServerUrl()}/api/allResize`, {
       method: "POST",
@@ -234,7 +244,7 @@ const Landing: FunctionComponent<LandingProps> = () => {
         </ImageUploadPreviewContainer>
       </ImageUploadContainer>
 
-      <IconsGrid dataStrucute={dataStructue} />
+      {showIconGrids && <IconsGrid dataStrucute={dataStructue} />}
     </Container>
   );
 };
