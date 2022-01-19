@@ -166,7 +166,7 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
       });
 
     setShowIconGrids(true);
-    
+
     setLoading(false);
   };
 
