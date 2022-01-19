@@ -52,11 +52,6 @@ const IconGridText = styled.span`
   }
 `;
 
-const IconGridImage = styled.img`
-  max-height: 100%;
-  max-width: 100%;
-`;
-
 interface IconsGridProps {
   dataStrucute: ResponseData;
 }
