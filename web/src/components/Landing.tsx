@@ -6,6 +6,7 @@ import AllCenter from "../styles/AllCenter";
 import getServerUrl from "../utils/getServerUrl";
 import IconsGrid from "./IconsGrid";
 import Loading from "./Loading";
+import scrollTo from "../utils/scrollTo";
 
 const Container = styled.div`
   min-height: 100vh;
@@ -168,6 +169,8 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
     setShowIconGrids(true);
 
     setIconsLoading(false);
+
+    scrollTo(0, 450);
   };
 
   const handleUpload = async (e: { target: { files: any } }) => {
