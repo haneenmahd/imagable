@@ -152,10 +152,10 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
     useState<string>("Upload Image");
   const [dataStructue, setDataStructure] = useState<ResponseData>([]);
   const [showIconGrids, setShowIconGrids] = useState<boolean>(false);
-  const [loading, setLoading] = useState<boolean>(false);
+  const [iconsLoading, setIconsLoading] = useState<boolean>(false);
 
   const handleDataStrucute = async () => {
-    setLoading(true);
+    setIconsLoading(true);
 
     await fetch(`${getServerUrl()}/api/data`, {
       method: "GET",
@@ -167,7 +167,7 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
 
     setShowIconGrids(true);
 
-    setLoading(false);
+    setIconsLoading(false);
   };
 
   const handleUpload = async (e: { target: { files: any } }) => {
@@ -250,7 +250,7 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
         </ImageUploadPreviewContainer>
       </ImageUploadContainer>
 
-      {loading && <Loading />}
+      {iconsLoading && <Loading />}
 
       {showIconGrids && <IconsGrid dataStrucute={dataStructue} />}
     </Container>
