@@ -5,6 +5,7 @@ import globals, { ResponseData } from "../globals";
 import AllCenter from "../styles/AllCenter";
 import getServerUrl from "../utils/getServerUrl";
 import IconsGrid from "./IconsGrid";
+import Loading from "./Loading";
 
 const Container = styled.div`
   min-height: 100vh;
@@ -151,8 +152,11 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
     useState<string>("Upload Image");
   const [dataStructue, setDataStructure] = useState<ResponseData>([]);
   const [showIconGrids, setShowIconGrids] = useState<boolean>(false);
+  const [iconsLoading, setIconsLoading] = useState<boolean>(false);
 
   const handleDataStrucute = async () => {
+    setIconsLoading(true);
+
     await fetch(`${getServerUrl()}/api/data`, {
       method: "GET",
     })
@@ -162,6 +166,8 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
       });
 
     setShowIconGrids(true);
+
+    setIconsLoading(false);
   };
 
   const handleUpload = async (e: { target: { files: any } }) => {
@@ -243,6 +249,8 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
           />
         </ImageUploadPreviewContainer>
       </ImageUploadContainer>
+
+      {iconsLoading && <Loading />}
 
       {showIconGrids && <IconsGrid dataStrucute={dataStructue} />}
     </Container>
