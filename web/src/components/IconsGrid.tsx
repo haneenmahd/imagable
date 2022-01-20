@@ -16,13 +16,13 @@ const IconGrid = styled.div`
   display: flex;
   flex-direction: column;
   height: auto;
-  width: 250px;
+  width: 200px;
   border-radius: 30px;
   border: 2px solid #c4c4c430;
   padding: 20px 0;
   margin: 30px;
   text-align: center;
-  padding: 20px;
+  padding: 10px 20px;
   cursor: pointer;
   overflow: hidden;
   transition: 0.3s ${globals.styling.transition};
@@ -35,6 +35,7 @@ const IconGrid = styled.div`
     max-height: 500px;
     max-width: 500px;
     margin: 20px;
+    padding: 8px 15px;
   }
 `;
 
