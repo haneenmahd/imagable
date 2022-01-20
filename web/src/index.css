@@ -14,7 +14,8 @@
   background-color: var(--ui-text-selection-color);
 }
 
-html, body {
+html,
+body {
   scroll-behavior: smooth;
 }
 
