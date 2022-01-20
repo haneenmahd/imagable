@@ -2,15 +2,9 @@ import express from 'express';
 import multer from 'multer';
 import path from 'path';
 import cors from 'cors';
-import archiver from 'archiver';
 import expressRateLimit from 'express-rate-limit';
 import resizeAll from './src/resizeForAll';
 import makeSure from './src/utils/makeSure';
-import setHeaderAsZip from './src/utils/setHeaderAsZip';
-import resizeForWeb from './src/api/resizeForWeb';
-import cleanUpIconData from './src/utils/cleanUpIconData';
-import resizeForApple from './src/api/resizeForApple';
-import resizeForAndroid from './src/api/resizeForAndroid';
 import generatePath from './src/utils/generatePath';
 
 const app = express();
