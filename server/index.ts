@@ -18,9 +18,11 @@ const apiLimiter = expressRateLimit({
 });
 
 // creating the proxy server
-httpProxy.createServer({
-	target: `http://localhost:${port}`,
-}).listen(8083);
+httpProxy
+	.createServer({
+		target: `http://localhost:${port}`,
+	})
+	.listen(8083);
 
 makeSure();
 
