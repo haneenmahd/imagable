@@ -10,7 +10,7 @@ import toast, { Toaster } from "react-hot-toast";
 import scrollTo from "../utils/scrollTo";
 
 const Container = styled.div`
-  min-height: 90vh;
+  min-height: 80vh;
   max-width: 100vw;
   width: 100vw;
   background-color: #fff;
@@ -25,6 +25,7 @@ const Container = styled.div`
 const Header = styled.header`
   text-align: center;
   padding: 10px;
+
   h1,
   p {
     margin: 4px 0;
@@ -32,6 +33,13 @@ const Header = styled.header`
 
   p {
     font-size: 18px;
+    color: #333333;
+
+    p {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #606060;
+    }
   }
 
   @media screen and (max-width: 600px) {
@@ -222,12 +230,15 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
       <Header>
         <h1>Imagable</h1>
         <p>
-          Imagable automatically builds your icons for different platforms for
-          easily and lightning fast{" "}
+          Imagable automatically optimizes and resizes your icons for different
+          platforms for easily and super fast{" "}
           <span role="img" aria-label="lightning fast">
             ⚡️
           </span>
-          !
+          ! <br />
+          <p>
+            Optimize your icons for App Store, Play Store, Web and more ....
+          </p>
         </p>
       </Header>
       <ImageInput
