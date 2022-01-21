@@ -230,7 +230,6 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
           !
         </p>
       </Header>
-
       <ImageInput
         id="user-input-image-file"
         type="file"
@@ -239,7 +238,6 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
         onChange={loadFile}
         required
       />
-
       <ImageUploadContainer>
         <ActionsContainer>
           <ImageInputLabel>
@@ -262,11 +260,8 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
           />
         </ImageUploadPreviewContainer>
       </ImageUploadContainer>
-
       {iconsLoading && <Loading />}
-
       {showIconGrids && <IconsGrid dataStrucute={dataStructue} />}
-
       {/* Wrapper for React Hot toast */}
       <Toaster />
     </Container>
