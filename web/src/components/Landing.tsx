@@ -6,6 +6,7 @@ import AllCenter from "../styles/AllCenter";
 import getServerUrl from "../utils/getServerUrl";
 import IconsGrid from "./IconsGrid";
 import Loading from "./Loading";
+import toast, { Toaster } from "react-hot-toast";
 import scrollTo from "../utils/scrollTo";
 
 const Container = styled.div`
@@ -164,6 +165,12 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
       .then((response) => response.json())
       .then((data) => {
         setDataStructure(data);
+      })
+      .catch((error) => {
+        console.error(error);
+        // remove loading element
+        setIconsLoading(false);
+        toast.error("An error occured while fetching the server data");
       });
 
     setShowIconGrids(true);
@@ -196,6 +203,9 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
       })
       .catch((error) => {
         console.error(error);
+        // reset text to default
+        setUploadButtonText("Upload Image");
+        toast.error("An error occured while uploading the image");
       });
   };
 
@@ -256,6 +266,9 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
       {iconsLoading && <Loading />}
 
       {showIconGrids && <IconsGrid dataStrucute={dataStructue} />}
+
+      {/* Wrapper for React Hot toast */}
+      <Toaster />
     </Container>
   );
 };

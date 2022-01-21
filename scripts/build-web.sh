@@ -7,5 +7,5 @@ build_web () {
 }
 
 cd web
-install_packages
+npm install
 build_web
