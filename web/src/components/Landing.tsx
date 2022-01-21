@@ -10,7 +10,7 @@ import toast, { Toaster } from "react-hot-toast";
 import scrollTo from "../utils/scrollTo";
 
 const Container = styled.div`
-  min-height: 100vh;
+  min-height: 90vh;
   max-width: 100vw;
   width: 100vw;
   background-color: #fff;
