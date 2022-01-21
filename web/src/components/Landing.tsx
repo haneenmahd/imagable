@@ -202,9 +202,9 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
         }, 1000);
       })
       .catch((error) => {
+        console.error(error);
         // reset text to default
         setUploadButtonText("Upload Image");
-        console.error(error);
         toast.error("An error occured while uploading the image");
       });
   };
