@@ -2,6 +2,7 @@ import express from 'express';
 import multer from 'multer';
 import path from 'path';
 import cors from 'cors';
+import httpProxy from 'http-proxy';
 import expressRateLimit from 'express-rate-limit';
 import resizeAll from './src/resizeForAll';
 import makeSure from './src/utils/makeSure';
@@ -16,6 +17,13 @@ const apiLimiter = expressRateLimit({
 	standardHeaders: true,
 	legacyHeaders: false,
 });
+
+// creating the proxy server
+httpProxy
+	.createServer({
+		target: `http://localhost:${port}`,
+	})
+	.listen(8083);
 
 makeSure();
 
