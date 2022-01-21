@@ -236,7 +236,9 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
             ⚡️
           </span>
           ! <br />
-          <p>Optimize your icons for App Store, Play Store, Web and more ....</p>
+          <p>
+            Optimize your icons for App Store, Play Store, Web and more ....
+          </p>
         </p>
       </Header>
       <ImageInput
