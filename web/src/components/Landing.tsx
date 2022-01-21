@@ -168,6 +168,8 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
       })
       .catch((error) => {
         console.error(error);
+        // remove loading element
+        setIconsLoading(false);
         toast.error("An error occured while fetching the server data");
       });
 
@@ -200,6 +202,8 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
         }, 1000);
       })
       .catch((error) => {
+        // reset text to default
+        setUploadButtonText("Upload Image");
         console.error(error);
         toast.error("An error occured while uploading the image");
       });
