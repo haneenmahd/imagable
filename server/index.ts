@@ -53,11 +53,6 @@ app.use(
 
 		await resizeAll(filePath);
 
-		// clean after every successful request
-		res.on('finish', () => {
-			cleanUpIconData();
-		});
-
 		// continue request
 		next();
 	}
