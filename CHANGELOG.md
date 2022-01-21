@@ -1,4 +1,5 @@
 # v1.0.0 🚀
+
 Experience the production taste of Imagable
 
 - [#58](https://github.com/imagable/imagable/issues/58) Optimize Seo
