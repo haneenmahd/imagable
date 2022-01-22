@@ -19,7 +19,7 @@ const Container = styled.div`
   text-align: center;
 
   a {
-    display: none;
+    display: inline;
     margin: 10px;
     border-bottom: 0.5px solid #0a0a0a60;
     transition: 0.2s ${globals.styling.transition};
@@ -27,11 +27,6 @@ const Container = styled.div`
     :hover {
       opacity: 0.5;
       border-width: 2px;
-    }
-
-    // show only on mobiles
-    @media screen and (max-width: 600px) {
-      display: inline;
     }
   }
 
@@ -46,12 +41,13 @@ const Header = styled.header`
 
   h1,
   p {
-    margin: 4px 0;
+    margin: 8px 0;
   }
 
   p {
     font-size: 18px;
     color: #333333;
+    line-height: 1.5rem;
   }
 
   p.description {
@@ -322,7 +318,8 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
       </ImageUploadContainer>
       {iconsLoading && <Loading />}
       {showIconGrids && <IconsGrid dataStrucute={dataStructue} />}
-      {/* Wrapper for React Hot toast */}
+
+      {/* Wrapper for React Hot toast Component */}
       <Toaster />
     </Container>
   );
