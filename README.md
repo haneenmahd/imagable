@@ -6,7 +6,7 @@
     <img src="https://github.com/imagable/imagable/actions/workflows/lint-server.yml/badge.svg" alt="Lint Server" />
     <img src="https://www.codefactor.io/repository/github/imagable/imagable/badge" alt="Imagable's code quality badge" />
     <p>Imagable lets you generate icons automatically for different platforms.</p>
-    <i>Try it out Right now!</i> <br /> <br />
+    <i>Try it out Right now!</i>
 </div>
 
 ## Getting Started 🤘
