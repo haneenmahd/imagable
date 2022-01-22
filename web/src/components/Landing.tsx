@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FunctionComponent } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import Logo from "../assets/png/logo.png";
 import globals, { ResponseData } from "../globals";
 import AllCenter from "../styles/AllCenter";
 import getServerUrl from "../utils/getServerUrl";
@@ -16,9 +17,22 @@ const Container = styled.div`
   background-color: #fff;
   box-shadow: 20px 30px 40px 0 #000a0028;
   padding: 80px;
+  text-align: center;
 
   @media screen and (max-width: 600px) {
     padding: 30px 0;
+  }
+
+  a {
+    display: inline;
+    margin: 10px;
+    border-bottom: 0.5px solid #0a0a0a60;
+    transition: 0.2s ${globals.styling.transition};
+
+    :hover {
+      opacity: 0.5;
+      border-width: 2px;
+    }
   }
 `;
 
@@ -26,20 +40,31 @@ const Header = styled.header`
   text-align: center;
   padding: 10px;
 
+  h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      height: 100px;
+    }
+  }
+
   h1,
   p {
-    margin: 4px 0;
+    margin: 8px 0;
   }
 
   p {
     font-size: 18px;
     color: #333333;
+    line-height: 1.5rem;
+  }
 
-    p {
-      margin-top: 10px;
-      font-size: 14px;
-      color: #606060;
-    }
+  p.description {
+    margin: 10px 5px;
+    font-size: 14px;
+    color: #606060;
   }
 
   @media screen and (max-width: 600px) {
@@ -86,7 +111,7 @@ const ActionsContainer = styled.div`
   }
 `;
 
-const ImageInputLabel = styled.div`
+const ImageInputLabel = styled.button`
   height: 50px;
   max-width: 350px;
   flex-direction: column;
@@ -125,13 +150,24 @@ const GenerateIconButton = styled(ImageInputLabel)`
   flex-direction: row;
   margin: 0 8px;
   font-weight: 600;
-  background-color: #77ea7e;
-  color: #27522a;
+  background-color: #0a0a0a;
+  color: #fafafa;
+  border: 2px solid #0a0a0a20;
   cursor: pointer;
 
   &:hover {
-    border-color: #27522a;
+    border-color: #c4c4c4;
   }
+
+  ${(p) =>
+    p.disabled &&
+    css`
+      * {
+        cursor: not-allowed;
+      }
+
+      background: #938f8f;
+    `}
 `;
 
 const ImageUploadPreviewContainer = styled.div`
@@ -161,6 +197,7 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
   const [uploadButtonText, setUploadButtonText] =
     useState<string>("Upload Image");
   const [dataStructue, setDataStructure] = useState<ResponseData>([]);
+  const [isUploaded, setUploaded] = useState<boolean>(false);
   const [showIconGrids, setShowIconGrids] = useState<boolean>(false);
   const [iconsLoading, setIconsLoading] = useState<boolean>(false);
 
@@ -186,6 +223,11 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
     setIconsLoading(false);
 
     scrollTo(0, 450);
+
+    // inform how to download the generated icon
+    toast.success(
+      "Click on any of these buttons to download the generated image"
+    );
   };
 
   const handleUpload = async (e: { target: { files: any } }) => {
@@ -208,12 +250,16 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
         setTimeout(() => {
           setUploadButtonText("Upload Image");
         }, 1000);
+
+        setUploaded(true);
       })
       .catch((error) => {
         console.error(error);
         // reset text to default
         setUploadButtonText("Upload Image");
         toast.error("An error occured while uploading the image");
+
+        setUploaded(false);
       });
   };
 
@@ -228,7 +274,9 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
   return (
     <Container>
       <Header>
-        <h1>Imagable</h1>
+        <h1>
+          Imagable <img src={Logo} alt="Imagable's Logo" />
+        </h1>
         <p>
           Imagable automatically optimizes and resizes your icons for different
           platforms for easily and super fast{" "}
@@ -236,11 +284,18 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
             ⚡️
           </span>
           ! <br />
-          <p>
-            Optimize your icons for App Store, Play Store, Web and more ....
-          </p>
+        </p>
+        <p className="description">
+          Imagable is a micro-service that automatically optimizes and resizes
+          your icons and logos for different platforms including iOS, Android
+          and Web and for devices with different display depths. It also
+          generates for App Store, Play Store and icons that can used in
+          differnet scenarios like Settings, Notification bars.
         </p>
       </Header>
+
+      <a href="#upload-container">Get started by uploading a image</a>
+
       <ImageInput
         id="user-input-image-file"
         type="file"
@@ -249,14 +304,17 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
         onChange={loadFile}
         required
       />
-      <ImageUploadContainer>
+      <ImageUploadContainer id="upload-container">
         <ActionsContainer>
           <ImageInputLabel>
             <label htmlFor="user-input-image-file">{uploadButtonText}</label>
           </ImageInputLabel>
 
-          <GenerateIconButton onClick={async () => await handleDataStrucute()}>
-            Generate Icons{" "}
+          <GenerateIconButton
+            disabled={!isUploaded}
+            onClick={async () => await handleDataStrucute()}
+          >
+            <label>Generate Icons</label>{" "}
             <span role="img" aria-label="working man">
               👷🏻‍♀️
             </span>
@@ -273,7 +331,8 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
       </ImageUploadContainer>
       {iconsLoading && <Loading />}
       {showIconGrids && <IconsGrid dataStrucute={dataStructue} />}
-      {/* Wrapper for React Hot toast */}
+
+      {/* Wrapper for React Hot toast Component */}
       <Toaster />
     </Container>
   );

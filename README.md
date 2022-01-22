@@ -1,5 +1,5 @@
 <div align="center">
-    <img height="100px" src="https://github.com/imagable/imagable/blob/master/resources/logo.png" alt="Imagable's logo" />
+    <img height="100px" src="https://github.com/imagable/imagable/blob/main/resources/logo.png" alt="Imagable's logo" />
     <h1>Imagable</h1>
     <p>Imagable lets you generate icons automatically for different platforms.</p>
     <i>Try it out Right now!</i> <br /> <br />

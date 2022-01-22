@@ -1,3 +1,20 @@
+# v1.0.1 🐞
+
+## What's Changed
+
+- Fix some UX issues by @haneenmahd in https://github.com/imagable/imagable/pull/60
+
+**Full Changelog**: https://github.com/imagable/imagable/compare/v1.0.0...v1.0.1
+
+# v1.0.0 🚀
+
+Experience the production taste of Imagable
+
+- [#58](https://github.com/imagable/imagable/issues/58) Optimize Seo
+- [#54](https://github.com/imagable/imagable/issues/54) fix build issues
+- [#50](https://github.com/imagable/imagable/issues/50) fix perfomance
+- (9fa0f68984fa2b365e92777bd52a9d4b6ab52292) added Footer Component
+
 # beta-v1.0.0 🧨
 
 ### What's Changed
