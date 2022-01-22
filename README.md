@@ -8,19 +8,20 @@
     <img src="https://github.com/imagable/imagable/actions/workflows/lint-server.yml/badge.svg" alt="Lint Server" />
     <img src="https://www.codefactor.io/repository/github/imagable/imagable/badge" alt="Imagable's code quality badge" />
 </div>
+<br />
 
-## Getting Started
+## Getting Started 🤘
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Prerequisites
+### Prerequisites 👀
 
 You would need 
 - [Node.js](https://nodejs.org) version that has Long Term Support (LTS) or v14+.
 - [Git](https://git-scm.org)
 - [Typescript](https://typescript.org) We use typescript to scale our applications with type safety.
 
-### Installing
+### Installing 🚀
 
 You would need [npm](https://npmjs.org) to install our packages.
 
@@ -41,7 +42,7 @@ This message will get your installation finished
 Installation Success ✅
 ```
 
-## Running the tests
+## Running the tests ✅
 
 For testing the server, you would need to build it first into Javascript. You can test the our `Website` by running `npm start` inside `web` directory.
 
@@ -58,7 +59,7 @@ and to get the server up and running at the `port 3000 `or a specific port choos
 npm run test
 ```
 
-### Linting the code
+### Linting the code 
 
 We have configured `husky` so that everytime, you commit, it lints and formats the code.
 
@@ -74,36 +75,35 @@ cd server
 npm run lint
 ```
 
-## Deployment
+## Deployment 🔨
 
 The branch forked by [haneenmahd](https://github.com/haneenmahd/imagable/tree/master) is used to deploy this project to production. See discussion for your questions [discussion#59](https://github.com/imagable/imagable/discussions/59) 💬.
 
-## Built With
+## Built With 🛠
 
 * [React](https://reactjs.org) - The web framework used
 * [NPM](https://npmjs.org) - Dependency Management
 * [Typescript](https://typescript.org) - Language used
 * [Express](https://expressjs.org) - The Server framework used
 
-## Contributing
+## Contributing 👋
 
 Please read [CONTRIBUTING.md](https://github.com/imagable/imagable/blob/main/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
-## Versioning
+## Versioning 📦
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
-## Authors
+## Authors 🧑‍💻👩‍💻
 
 * **Haneen Mahdin** - *Creator* - [haneenmahd](https://github.com/haneenmahd)
 
 See also the list of [contributors](https://github.com/imagable/imagable/blob/main/AUTHORS) who participated in this project.
 
-## License
+## License ©
 
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/imagable/imagable/blob/main/LICENSE) file for details
 
-## Acknowledgments
+## Acknowledgments 🔖
 
 We were inspired by the fact that it was somewhat hard to create icons for different platforms and we needed to make it as simple with one click!
-
