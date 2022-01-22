@@ -136,12 +136,13 @@ const GenerateIconButton = styled(ImageInputLabel)`
   flex-direction: row;
   margin: 0 8px;
   font-weight: 600;
-  background-color: #77ea7e;
-  color: #27522a;
+  background-color: #0a0a0a;
+  color: #fafafa;
+  border: 2px solid #0a0a0a20;
   cursor: pointer;
 
   &:hover {
-    border-color: #27522a;
+    border-color: #c4c4c4;
   }
 `;
 
