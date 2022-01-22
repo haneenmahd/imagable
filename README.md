@@ -27,12 +27,12 @@ You would need [npm](https://npmjs.org) to install our packages.
 We have a simple shell script to install all packages to get you started.
 
 Just run `scripts/install.sh` if you are on a UNIX/LINUX machine.
-```
+```sh
 sh scripts/install.sh
 ```
 
 Run `scripts/install-win.ps1` if you are on windows.
-```
+```ps1
 .\scripts\install-win.ps1
 ```
 
@@ -50,11 +50,11 @@ For testing the server, you would need to build it first into Javascript. You ca
 There are some few scripts inside the `package.json` in the `server` directory.
 
 First you would need to run
-```
+```sh
 npm run build
 ```
 and to get the server up and running at the `port 3000 `or a specific port choosed by the system.
-```
+```sh
 npm run test
 ```
 
@@ -65,11 +65,11 @@ We have configured `husky` so that everytime, you commit, it lints and formats t
 > We have configured eslint for our `server` codebase, but not for the `web`. This was a mistake while creating the software. We will fix it soon.
 
 Run this to manually lint the code
-```
+```sh
 sh scripts/lint-server.sh
 ```
 or
-```
+```sh
 cd server
 npm run lint
 ```
@@ -105,8 +105,5 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 
 ## Acknowledgments
 
-<!--
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc-->
+We were inspired by the fact that it was somewhat hard to create icons for different platforms and we needed to make it as simple with one click!
 
