@@ -44,7 +44,7 @@ const Header = styled.header`
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
     img {
       height: 100px;
     }
@@ -274,7 +274,9 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
   return (
     <Container>
       <Header>
-        <h1>Imagable <img src={Logo} alt="Imagable's Logo" /></h1>
+        <h1>
+          Imagable <img src={Logo} alt="Imagable's Logo" />
+        </h1>
         <p>
           Imagable automatically optimizes and resizes your icons for different
           platforms for easily and super fast{" "}
