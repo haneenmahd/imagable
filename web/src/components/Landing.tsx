@@ -16,6 +16,17 @@ const Container = styled.div`
   background-color: #fff;
   box-shadow: 20px 30px 40px 0 #000a0028;
   padding: 80px;
+  text-align: center;
+
+  a {
+    margin: 10px;
+    border-bottom: 0.5px solid #0a0a0a60;
+    transition: 0.2s ${globals.styling.transition};
+
+    :hover {
+      opacity: 0.8;
+    }
+  }
 
   @media screen and (max-width: 600px) {
     padding: 30px 0;
@@ -34,12 +45,12 @@ const Header = styled.header`
   p {
     font-size: 18px;
     color: #333333;
+  }
 
-    p {
-      margin-top: 10px;
-      font-size: 14px;
-      color: #606060;
-    }
+  span {
+    margin: 10px;
+    font-size: 14px;
+    color: #606060;
   }
 
   @media screen and (max-width: 600px) {
@@ -241,11 +252,18 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
             ⚡️
           </span>
           ! <br />
-          <p>
-            Optimize your icons for App Store, Play Store, Web and more ....
-          </p>
         </p>
+        <span>
+          Imagable is a micro-service that automatically optimizes and resizes
+          your icons and logos for different platforms including iOS, Android
+          and Web and for devices with different display depths. It also
+          generates for App Store, Play Store and icons that can used in
+          differnet scenarios like Settings, Notification bars.
+        </span>
       </Header>
+
+      <a href="#upload-container">Get started by uploading a image</a>
+
       <ImageInput
         id="user-input-image-file"
         type="file"
@@ -254,7 +272,7 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
         onChange={loadFile}
         required
       />
-      <ImageUploadContainer>
+      <ImageUploadContainer id="upload-container">
         <ActionsContainer>
           <ImageInputLabel>
             <label htmlFor="user-input-image-file">{uploadButtonText}</label>
