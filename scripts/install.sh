@@ -6,3 +6,5 @@ cd ..
 cd server
 npm install
 npm ci
+
+echo "Installed successfully ✅"
