@@ -1,7 +1,8 @@
 # v1.0.1 🐞
-## What's Changed
-* Fix some UX issues by @haneenmahd in https://github.com/imagable/imagable/pull/60
 
+## What's Changed
+
+- Fix some UX issues by @haneenmahd in https://github.com/imagable/imagable/pull/60
 
 **Full Changelog**: https://github.com/imagable/imagable/compare/v1.0.0...v1.0.1
 
