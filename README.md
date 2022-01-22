@@ -8,7 +8,6 @@
     <p>Imagable lets you generate icons automatically for different platforms.</p>
     <i>Try it out Right now!</i> <br /> <br />
 </div>
-<br />
 
 ## Getting Started 🤘
 
