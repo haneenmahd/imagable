@@ -186,9 +186,11 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
     setIconsLoading(false);
 
     scrollTo(0, 450);
-    
+
     // inform how to download the generated icon
-    toast.success("Click on any of these buttons to download the generated image");
+    toast.success(
+      "Click on any of these buttons to download the generated image"
+    );
   };
 
   const handleUpload = async (e: { target: { files: any } }) => {
