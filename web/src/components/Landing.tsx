@@ -19,12 +19,19 @@ const Container = styled.div`
   text-align: center;
 
   a {
+    display: none;
     margin: 10px;
     border-bottom: 0.5px solid #0a0a0a60;
     transition: 0.2s ${globals.styling.transition};
 
     :hover {
-      opacity: 0.8;
+      opacity: 0.5;
+      border-width: 2px;
+    }
+
+    // show only on mobiles
+    @media screen and (max-width: 600px) {
+      display: inline;
     }
   }
 
