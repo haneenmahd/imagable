@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FunctionComponent } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import globals, { ResponseData } from "../globals";
 import AllCenter from "../styles/AllCenter";
 import getServerUrl from "../utils/getServerUrl";
@@ -104,7 +104,7 @@ const ActionsContainer = styled.div`
   }
 `;
 
-const ImageInputLabel = styled.div`
+const ImageInputLabel = styled.button`
   height: 50px;
   max-width: 350px;
   flex-direction: column;
@@ -151,6 +151,16 @@ const GenerateIconButton = styled(ImageInputLabel)`
   &:hover {
     border-color: #c4c4c4;
   }
+
+  ${(p) =>
+    p.disabled &&
+    css`
+      * {
+        cursor: not-allowed;
+      }
+
+      background: #938f8f;
+    `}
 `;
 
 const ImageUploadPreviewContainer = styled.div`
@@ -180,6 +190,7 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
   const [uploadButtonText, setUploadButtonText] =
     useState<string>("Upload Image");
   const [dataStructue, setDataStructure] = useState<ResponseData>([]);
+  const [isUploaded, setUploaded] = useState<boolean>(false);
   const [showIconGrids, setShowIconGrids] = useState<boolean>(false);
   const [iconsLoading, setIconsLoading] = useState<boolean>(false);
 
@@ -232,12 +243,16 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
         setTimeout(() => {
           setUploadButtonText("Upload Image");
         }, 1000);
+
+        setUploaded(true);
       })
       .catch((error) => {
         console.error(error);
         // reset text to default
         setUploadButtonText("Upload Image");
         toast.error("An error occured while uploading the image");
+
+        setUploaded(false);
       });
   };
 
@@ -286,8 +301,11 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
             <label htmlFor="user-input-image-file">{uploadButtonText}</label>
           </ImageInputLabel>
 
-          <GenerateIconButton onClick={async () => await handleDataStrucute()}>
-            Generate Icons{" "}
+          <GenerateIconButton
+            disabled={!isUploaded}
+            onClick={async () => await handleDataStrucute()}
+          >
+            <label>Generate Icons</label>{" "}
             <span role="img" aria-label="working man">
               👷🏻‍♀️
             </span>
