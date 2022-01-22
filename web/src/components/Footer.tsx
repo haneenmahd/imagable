@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import styled from "styled-components";
+import { Info } from "react-feather";
 import globals from "../globals";
 
 const FooterStyle = styled.footer`
@@ -29,6 +30,23 @@ const FooterStyle = styled.footer`
 
   h5 {
     color: #e3e3e3;
+  }
+
+  p {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+
+    svg {
+      margin: 0 4px;
+      height: 12px; width: 12px;
+
+      @media screen and (min-width: 700px) {
+        height: 18px; width: 18px;
+      }
+    }
   }
 `;
 
@@ -64,6 +82,8 @@ export default class Footer extends PureComponent {
             ⭐️
           </span>
         </h5>
+
+        <p><Info /> Your Images will be removed after a few hours</p>
       </FooterStyle>
     );
   }
