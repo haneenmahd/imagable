@@ -57,9 +57,9 @@ const Header = styled.header`
 
   p {
     font-size: 18px;
-    color: #333333;
+    color: #4b4b4b;
     line-height: 1.5rem;
-    font-weight: 500;
+    font-weight: 600;
   }
 
   p.description {
