@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FunctionComponent } from "react";
 import styled, { css } from "styled-components";
+import Logo from "../assets/png/logo.png";
 import globals, { ResponseData } from "../globals";
 import AllCenter from "../styles/AllCenter";
 import getServerUrl from "../utils/getServerUrl";
@@ -18,6 +19,10 @@ const Container = styled.div`
   padding: 80px;
   text-align: center;
 
+  @media screen and (max-width: 600px) {
+    padding: 30px 0;
+  }
+
   a {
     display: inline;
     margin: 10px;
@@ -29,15 +34,21 @@ const Container = styled.div`
       border-width: 2px;
     }
   }
-
-  @media screen and (max-width: 600px) {
-    padding: 30px 0;
-  }
 `;
 
 const Header = styled.header`
   text-align: center;
   padding: 10px;
+
+  h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    img {
+      height: 100px;
+    }
+  }
 
   h1,
   p {
@@ -263,7 +274,7 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
   return (
     <Container>
       <Header>
-        <h1>Imagable</h1>
+        <h1>Imagable <img src={Logo} alt="Imagable's Logo" /></h1>
         <p>
           Imagable automatically optimizes and resizes your icons for different
           platforms for easily and super fast{" "}
