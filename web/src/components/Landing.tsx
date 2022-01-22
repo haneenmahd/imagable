@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FunctionComponent } from "react";
 import styled, { css } from "styled-components";
-import Logo from "../assets/png/logo.png";
+import Logo from "../assets/svg/logo.svg";
 import globals, { ResponseData } from "../globals";
 import AllCenter from "../styles/AllCenter";
 import getServerUrl from "../utils/getServerUrl";
