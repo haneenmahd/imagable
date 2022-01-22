@@ -59,9 +59,11 @@ const Header = styled.header`
     font-size: 18px;
     color: #333333;
     line-height: 1.5rem;
+    font-weight: 500;
   }
 
   p.description {
+    font-weight: normal;
     margin: 10px 5px;
     font-size: 14px;
     color: #606060;
