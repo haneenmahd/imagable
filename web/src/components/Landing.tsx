@@ -47,8 +47,8 @@ const Header = styled.header`
     color: #333333;
   }
 
-  span {
-    margin: 10px;
+  p.description {
+    margin: 10px 5px;
     font-size: 14px;
     color: #606060;
   }
@@ -254,13 +254,13 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
           </span>
           ! <br />
         </p>
-        <span>
+        <p className="description">
           Imagable is a micro-service that automatically optimizes and resizes
           your icons and logos for different platforms including iOS, Android
           and Web and for devices with different display depths. It also
           generates for App Store, Play Store and icons that can used in
           differnet scenarios like Settings, Notification bars.
-        </span>
+        </p>
       </Header>
 
       <a href="#upload-container">Get started by uploading a image</a>
