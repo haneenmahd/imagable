@@ -96,5 +96,3 @@ export default class Footer extends PureComponent {
     );
   }
 }
-
-// only allow generating after upload
