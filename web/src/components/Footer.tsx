@@ -2,6 +2,7 @@ import React, { PureComponent } from "react";
 import styled from "styled-components";
 import { Info } from "react-feather";
 import globals from "../globals";
+import Seperator from "./Seperator";
 
 const FooterStyle = styled.footer`
   display: flex;
@@ -41,10 +42,12 @@ const FooterStyle = styled.footer`
 
     svg {
       margin: 0 4px;
-      height: 12px; width: 12px;
+      height: 12px;
+      width: 12px;
 
       @media screen and (min-width: 700px) {
-        height: 18px; width: 18px;
+        height: 18px;
+        width: 18px;
       }
     }
   }
@@ -83,8 +86,15 @@ export default class Footer extends PureComponent {
           </span>
         </h5>
 
-        <p><Info /> Your Images will be removed after a few hours</p>
+        <br />
+        <Seperator />
+
+        <p>
+          <Info /> Your Images will be removed after a few hours
+        </p>
       </FooterStyle>
     );
   }
 }
+
+// only allow generating after upload
