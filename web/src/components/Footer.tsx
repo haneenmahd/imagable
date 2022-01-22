@@ -50,6 +50,11 @@ const FooterStyle = styled.footer`
         width: 18px;
       }
     }
+
+    @media screen and (max-width: 600px) {
+      padding: 5px;
+      font-size: 13px;
+    }
   }
 `;
 
@@ -90,7 +95,7 @@ export default class Footer extends PureComponent {
         <Seperator />
 
         <p>
-          <Info /> Your Images will be removed after a few hours
+          <Info /> Your Uploaded Images will be removed after a few hours
         </p>
       </FooterStyle>
     );
