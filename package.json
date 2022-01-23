@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install",
     "format": "npx prettier --write .",
-    "push": "git push origin master"
+    "push": "git push origin main"
   },
   "keywords": [],
   "author": "",
