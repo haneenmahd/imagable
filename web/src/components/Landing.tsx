@@ -241,7 +241,9 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
 
     toast.success("Successfully Generated Icons");
     // inform how to download the generated icon
-    toast("Click on any of these buttons to download the generated image");
+    toast("Click on any of these buttons to download the generated image", {
+      duration: 4000
+    });
   };
 
   const handleUpload = async (e: { target: { files: any } }) => {
