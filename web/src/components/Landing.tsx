@@ -206,7 +206,7 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
     props.defaultLink
   );
   const [uploadButtonText, setUploadButtonText] =
-    useState<string>("Upload Image");
+    useState<string>("Upload");
   const [dataStructue, setDataStructure] = useState<ResponseData>([]);
   const [isUploaded, setUploaded] = useState<boolean>(false);
   const [showIconGrids, setShowIconGrids] = useState<boolean>(false);
@@ -326,7 +326,7 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
               disabled={!isUploaded}
               onClick={async () => await handleDataStrucute()}
             >
-              <label>Generate Icons</label>{" "}
+              <label>Generate</label>{" "}
               <span role="img" aria-label="working man">
                 👷🏻‍♀️
               </span>
