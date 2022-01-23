@@ -278,7 +278,8 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
     <Container>
       <Header>
         <h1>
-          Imagable <img src={Logo} alt="Imagable's Logo" />
+          Imagable{" "}
+          <img height={100} width={100} src={Logo} alt="Imagable's Logo" />
         </h1>
         <p>
           Imagable automatically optimizes and resizes your icons for different
