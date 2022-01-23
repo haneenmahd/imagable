@@ -260,12 +260,7 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
       .then((response) => response.json())
       .then((data) => {
         setUploaded(true);
-
-        setUploadButtonText("Uploaded ✅");
-
-        setTimeout(() => {
-          setUploadButtonText("Upload Image");
-        }, 1000);
+        setUploadButtonText("Upload");
       })
       .catch((error) => {
         setUploaded(false);
