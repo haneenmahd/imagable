@@ -6,7 +6,6 @@ import httpProxy from 'http-proxy';
 import expressRateLimit from 'express-rate-limit';
 import resizeAll from './src/resizeForAll';
 import makeSure from './src/utils/makeSure';
-import cleanUpIconData from './src/utils/cleanUpIconData';
 import response from './src/Response';
 
 const app = express();

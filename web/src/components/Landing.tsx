@@ -9,8 +9,12 @@ import IconsGrid from "./IconsGrid";
 import Loading from "./Loading";
 import toast, { Toaster } from "react-hot-toast";
 import scrollTo from "../utils/scrollTo";
+import { PlusCircle, Aperture } from "react-feather";
 
 const Container = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   min-height: 80vh;
   max-width: 100vw;
   width: 100vw;
@@ -21,6 +25,10 @@ const Container = styled.div`
 
   @media screen and (max-width: 600px) {
     padding: 30px 0;
+  }
+
+  @media screen and (max-width: 850px) {
+    flex-direction: column;
   }
 
   a {
@@ -133,6 +141,10 @@ const ImageInputLabel = styled.button`
   label {
     font-size: 15px;
     font-weight: 600;
+
+    svg {
+      margin: 0 5px;
+    }
   }
 
   &:hover {
@@ -198,8 +210,7 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
   const [imageUploadUrl, setImageUploadUrl] = useState<string>(
     props.defaultLink
   );
-  const [uploadButtonText, setUploadButtonText] =
-    useState<string>("Upload Image");
+  const [uploadButtonText, setUploadButtonText] = useState<string>("Upload");
   const [dataStructue, setDataStructure] = useState<ResponseData>([]);
   const [isUploaded, setUploaded] = useState<boolean>(false);
   const [showIconGrids, setShowIconGrids] = useState<boolean>(false);
@@ -248,21 +259,16 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        setUploadButtonText("Uploaded ✅");
-
-        setTimeout(() => {
-          setUploadButtonText("Upload Image");
-        }, 1000);
-
         setUploaded(true);
+        setUploadButtonText("Upload");
       })
       .catch((error) => {
+        setUploaded(false);
+
+        setUploadButtonText("Upload Image");
         console.error(error);
         // reset text to default
-        setUploadButtonText("Upload Image");
         toast.error("An error occured while uploading the image");
-
-        setUploaded(false);
       });
   };
 
@@ -275,70 +281,71 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
   };
 
   return (
-    <Container>
-      <Header>
-        <h1>
-          Imagable{" "}
-          <img height={100} width={100} src={Logo} alt="Imagable's Logo" />
-        </h1>
-        <p>
-          Imagable automatically optimizes and resizes your icons for different
-          platforms for easily and super fast{" "}
-          <span role="img" aria-label="lightning fast">
-            ⚡️
-          </span>
-          ! <br />
-        </p>
-        <p className="description">
-          Imagable is a micro-service that automatically optimizes and resizes
-          your icons and logos for different platforms including iOS, Android
-          and Web and for devices with different display depths. It also
-          generates for App Store, Play Store and icons that can used in
-          differnet scenarios like Settings, Notification bars.
-        </p>
-      </Header>
-
-      <a href="#upload-container">Get started by uploading a image</a>
-
-      <ImageInput
-        id="user-input-image-file"
-        type="file"
-        accept="image/*"
-        name="image-file"
-        onChange={loadFile}
-        required
-      />
-      <ImageUploadContainer id="upload-container">
-        <ActionsContainer>
-          <ImageInputLabel>
-            <label htmlFor="user-input-image-file">{uploadButtonText}</label>
-          </ImageInputLabel>
-
-          <GenerateIconButton
-            disabled={!isUploaded}
-            onClick={async () => await handleDataStrucute()}
-          >
-            <label>Generate Icons</label>{" "}
-            <span role="img" aria-label="working man">
-              👷🏻‍♀️
+    <>
+      <Container>
+        <Header>
+          <h1>
+            Imagable{" "}
+            <img height={100} width={100} src={Logo} alt="Imagable's Logo" />
+          </h1>
+          <p>
+            Imagable automatically optimizes and resizes your icons for
+            different platforms for easily and super fast{" "}
+            <span role="img" aria-label="lightning fast">
+              ⚡️
             </span>
-          </GenerateIconButton>
-        </ActionsContainer>
+            ! <br />
+          </p>
+          <p className="description">
+            Imagable is a micro-service that automatically optimizes and resizes
+            your icons and logos for different platforms including iOS, Android
+            and Web and for devices with different display depths. It also
+            generates for App Store, Play Store and icons that can used in
+            differnet scenarios like Settings, Notification bars.
+          </p>
 
-        <ImageUploadPreviewContainer>
-          <ImageUploadPreview
-            src={imageUploadUrl}
-            id="user-input-image-file-preview"
-            alt="Upload your icon to start generating!"
-          />
-        </ImageUploadPreviewContainer>
-      </ImageUploadContainer>
-      {iconsLoading && <Loading />}
+          <a href="#upload-container">Get started by uploading a image</a>
+        </Header>
+
+        <ImageInput
+          id="user-input-image-file"
+          type="file"
+          accept="image/*"
+          name="image-file"
+          onChange={loadFile}
+          required
+        />
+        <ImageUploadContainer id="upload-container">
+          <ActionsContainer>
+            <ImageInputLabel>
+              <label htmlFor="user-input-image-file">
+                {uploadButtonText} <PlusCircle />
+              </label>
+            </ImageInputLabel>
+
+            <GenerateIconButton
+              disabled={!isUploaded}
+              onClick={async () => await handleDataStrucute()}
+            >
+              <label>Generate</label> <Aperture />
+            </GenerateIconButton>
+          </ActionsContainer>
+
+          <ImageUploadPreviewContainer>
+            <ImageUploadPreview
+              src={imageUploadUrl}
+              id="user-input-image-file-preview"
+              alt="Upload your icon to start generating!"
+            />
+          </ImageUploadPreviewContainer>
+        </ImageUploadContainer>
+        {iconsLoading && <Loading />}
+
+        {/* Wrapper for React Hot toast Component */}
+        <Toaster reverseOrder />
+      </Container>
       {showIconGrids && <IconsGrid dataStrucute={dataStructue} />}
-
-      {/* Wrapper for React Hot toast Component */}
-      <Toaster reverseOrder />
-    </Container>
+    </>
   );
 };
 
