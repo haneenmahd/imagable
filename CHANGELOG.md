@@ -34,7 +34,7 @@ Experience the production taste of Imagable
 
 # beta-v1.0.0 🧨
 
-### What's Changed
+## What's Changed
 
 - Develop by @haneenmahd in https://github.com/imagable/imagable/pull/1
 - Develop by @haneenmahd in https://github.com/imagable/imagable/pull/2
