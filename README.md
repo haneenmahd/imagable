@@ -15,7 +15,8 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites 👀
 
-You would need 
+You would need
+
 - [Node.js](https://nodejs.org) version that has Long Term Support (LTS) or v14+.
 - [Git](https://git-scm.org)
 - [Typescript](https://typescript.org) We use typescript to scale our applications with type safety.
@@ -27,16 +28,19 @@ You would need [npm](https://npmjs.org) to install our packages.
 We have a simple shell script to install all packages to get you started.
 
 Just run `scripts/install.sh` if you are on a UNIX/LINUX machine.
+
 ```sh
 sh scripts/install.sh
 ```
 
 Run `scripts/install-win.ps1` if you are on windows.
+
 ```ps1
 .\scripts\install-win.ps1
 ```
 
 This message will get your installation finished
+
 ```
 Installation Success ✅
 ```
@@ -50,25 +54,31 @@ For testing the server, you would need to build it first into Javascript. You ca
 There are some few scripts inside the `package.json` in the `server` directory.
 
 First you would need to run
+
 ```sh
 npm run build
 ```
+
 and to get the server up and running at the `port 3000 `or a specific port choosed by the system.
+
 ```sh
 npm run test
 ```
 
-### Linting the code 
+### Linting the code
 
 We have configured `husky` so that everytime, you commit, it lints and formats the code.
 
 > We have configured eslint for our `server` codebase, but not for the `web`. This was a mistake while creating the software. We will fix it soon.
 
 Run this to manually lint the code
+
 ```sh
 sh scripts/lint-server.sh
 ```
+
 or
+
 ```sh
 cd server
 npm run lint
@@ -80,10 +90,10 @@ The branch forked by [haneenmahd](https://github.com/haneenmahd/imagable/tree/ma
 
 ## Built With 🛠
 
-* [React](https://reactjs.org) - The web framework used
-* [NPM](https://npmjs.org) - Dependency Management
-* [Typescript](https://typescript.org) - Language used
-* [Express](https://expressjs.org) - The Server framework used
+- [React](https://reactjs.org) - The web framework used
+- [NPM](https://npmjs.org) - Dependency Management
+- [Typescript](https://typescript.org) - Language used
+- [Express](https://expressjs.org) - The Server framework used
 
 ## Contributing 👋
 
@@ -91,11 +101,11 @@ Please read [CONTRIBUTING.md](https://github.com/imagable/imagable/blob/main/CON
 
 ## Versioning 📦
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
 
 ## Authors 🧑‍💻👩‍💻
 
-* **Haneen Mahdin** - *Creator* - [haneenmahd](https://github.com/haneenmahd)
+- **Haneen Mahdin** - _Creator_ - [haneenmahd](https://github.com/haneenmahd)
 
 See also the list of [contributors](https://github.com/imagable/imagable/blob/main/AUTHORS) who participated in this project.
 
