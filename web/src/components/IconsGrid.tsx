@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
 import styled from "styled-components";
+import toast, { Toaster } from "react-hot-toast";
 import globals, { ResponseData } from "../globals";
 import downloadFile from "js-file-download";
 
@@ -79,9 +80,16 @@ const IconsGrid: FunctionComponent<IconsGridProps> = (props) => {
             <IconGrid
               key={index}
               onClick={async () =>
-                await handleDownload(
-                  size.path,
-                  `${data.folderName}-${file.folderName}-${size.size}x${size.size}.png`
+                toast.promise(
+                  handleDownload(
+                    size.path,
+                    `${data.folderName}-${file.folderName}-${size.size}x${size.size}.png`
+                  ),
+                  {
+                    loading: "Downloading...",
+                    success: <b>Downloaded!</b>,
+                    error: <b>Failed to download.</b>,
+                  }
                 )
               }
             >
@@ -96,6 +104,8 @@ const IconsGrid: FunctionComponent<IconsGridProps> = (props) => {
           ))
         )
       )}
+
+      <Toaster reverseOrder />
     </IconsGridStyle>
   );
 };

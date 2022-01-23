@@ -1,4 +1,12 @@
-# v1.0.2
+# v1.0.3 🤘
+
+## What's Changed
+
+- add toast helper for download status (#64) by @haneenmahd in https://github.com/imagable/imagable/pull/65
+
+**Full Changelog**: https://github.com/imagable/imagable/compare/v1.0.2...v1.0.3
+
+# v1.0.2 👾
 
 ## What's Changed
 
@@ -26,7 +34,7 @@ Experience the production taste of Imagable
 
 # beta-v1.0.0 🧨
 
-### What's Changed
+## What's Changed
 
 - Develop by @haneenmahd in https://github.com/imagable/imagable/pull/1
 - Develop by @haneenmahd in https://github.com/imagable/imagable/pull/2
