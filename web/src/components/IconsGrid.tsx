@@ -10,6 +10,7 @@ const IconsGridStyle = styled.div`
   align-items: center;
   justify-content: center;
   padding: 50px 10px;
+  background-color: #fcfcfc;
 `;
 
 const IconGrid = styled.div`
@@ -18,6 +19,7 @@ const IconGrid = styled.div`
   height: auto;
   width: 200px;
   border-radius: 30px;
+  background-color: #fff;
   border: 2px solid #c4c4c430;
   padding: 20px 0;
   margin: 30px;
