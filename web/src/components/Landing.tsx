@@ -9,6 +9,7 @@ import IconsGrid from "./IconsGrid";
 import Loading from "./Loading";
 import toast, { Toaster } from "react-hot-toast";
 import scrollTo from "../utils/scrollTo";
+import { PlusCircle, Aperture } from "react-feather";
 
 const Container = styled.div`
   display: flex;
@@ -140,6 +141,10 @@ const ImageInputLabel = styled.button`
   label {
     font-size: 15px;
     font-weight: 600;
+
+    svg {
+      margin: 0 5px;
+    }
   }
 
   &:hover {
@@ -205,8 +210,7 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
   const [imageUploadUrl, setImageUploadUrl] = useState<string>(
     props.defaultLink
   );
-  const [uploadButtonText, setUploadButtonText] =
-    useState<string>("Upload");
+  const [uploadButtonText, setUploadButtonText] = useState<string>("Upload");
   const [dataStructue, setDataStructure] = useState<ResponseData>([]);
   const [isUploaded, setUploaded] = useState<boolean>(false);
   const [showIconGrids, setShowIconGrids] = useState<boolean>(false);
@@ -255,21 +259,21 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
     })
       .then((response) => response.json())
       .then((data) => {
+        setUploaded(true);
+
         setUploadButtonText("Uploaded ✅");
 
         setTimeout(() => {
           setUploadButtonText("Upload Image");
         }, 1000);
-
-        setUploaded(true);
       })
       .catch((error) => {
+        setUploaded(false);
+
+        setUploadButtonText("Upload Image");
         console.error(error);
         // reset text to default
-        setUploadButtonText("Upload Image");
         toast.error("An error occured while uploading the image");
-
-        setUploaded(false);
       });
   };
 
@@ -319,17 +323,16 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
         <ImageUploadContainer id="upload-container">
           <ActionsContainer>
             <ImageInputLabel>
-              <label htmlFor="user-input-image-file">{uploadButtonText}</label>
+              <label htmlFor="user-input-image-file">
+                {uploadButtonText} <PlusCircle />
+              </label>
             </ImageInputLabel>
 
             <GenerateIconButton
               disabled={!isUploaded}
               onClick={async () => await handleDataStrucute()}
             >
-              <label>Generate</label>{" "}
-              <span role="img" aria-label="working man">
-                👷🏻‍♀️
-              </span>
+              <label>Generate</label> <Aperture />
             </GenerateIconButton>
           </ActionsContainer>
 
