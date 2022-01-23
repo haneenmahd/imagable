@@ -1,3 +1,11 @@
+# v1.0.4 😇
+
+## What's Changed
+
+- Increase timeout for download info toast duration to 4 seconds
+
+**Full Changelog**: https://github.com/imagable/imagable/compare/v1.0.3...v1.0.4
+
 # v1.0.3 🤘
 
 ## What's Changed
