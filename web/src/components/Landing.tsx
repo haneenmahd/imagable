@@ -168,6 +168,8 @@ const GenerateIconButton = styled(ImageInputLabel)`
         cursor: not-allowed;
       }
 
+      cursor: not-allowed;
+
       background: #938f8f;
     `}
 `;
