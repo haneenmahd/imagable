@@ -1,8 +1,9 @@
 # v1.0.2
-## What's Changed
-* merge by @haneenmahd in https://github.com/imagable/imagable/pull/61
-* Update layout by @haneenmahd in https://github.com/imagable/imagable/pull/63
 
+## What's Changed
+
+- merge by @haneenmahd in https://github.com/imagable/imagable/pull/61
+- Update layout by @haneenmahd in https://github.com/imagable/imagable/pull/63
 
 **Full Changelog**: https://github.com/imagable/imagable/compare/v1.0.1...v1.0.2
 
