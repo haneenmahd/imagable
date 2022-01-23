@@ -11,6 +11,9 @@ import toast, { Toaster } from "react-hot-toast";
 import scrollTo from "../utils/scrollTo";
 
 const Container = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   min-height: 80vh;
   max-width: 100vw;
   width: 100vw;
@@ -21,6 +24,10 @@ const Container = styled.div`
 
   @media screen and (max-width: 600px) {
     padding: 30px 0;
+  }
+
+  @media screen and (max-width: 850px) {
+    flex-direction: column;
   }
 
   a {
