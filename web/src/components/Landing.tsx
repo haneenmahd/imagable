@@ -303,9 +303,9 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
           generates for App Store, Play Store and icons that can used in
           differnet scenarios like Settings, Notification bars.
         </p>
-      </Header>
 
-      <a href="#upload-container">Get started by uploading a image</a>
+        <a href="#upload-container">Get started by uploading a image</a>
+      </Header>
 
       <ImageInput
         id="user-input-image-file"
