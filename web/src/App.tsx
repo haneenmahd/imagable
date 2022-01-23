@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import Landing from "./components/Landing";
-import ImagableLogo from "./assets/svg/logo.svg";
+import SampleImage from "./assets/png/adaptive-icon.png";
 import Footer from "./components/Footer";
 
 /**
@@ -11,7 +11,7 @@ import Footer from "./components/Footer";
 function App(): JSX.Element {
   return (
     <div className="App">
-      <Landing defaultLink={ImagableLogo} />
+      <Landing defaultLink={SampleImage} />
       <Footer />
     </div>
   );

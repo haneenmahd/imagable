@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FunctionComponent } from "react";
 import styled, { css } from "styled-components";
-import Logo from "../assets/png/logo.png";
+import Logo from "../assets/svg/logo.svg";
 import globals, { ResponseData } from "../globals";
 import AllCenter from "../styles/AllCenter";
 import getServerUrl from "../utils/getServerUrl";
@@ -57,11 +57,13 @@ const Header = styled.header`
 
   p {
     font-size: 18px;
-    color: #333333;
+    color: #4b4b4b;
     line-height: 1.5rem;
+    font-weight: 600;
   }
 
   p.description {
+    font-weight: normal;
     margin: 10px 5px;
     font-size: 14px;
     color: #606060;
@@ -224,10 +226,9 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
 
     scrollTo(0, 450);
 
+    toast.success("Successfully Generated Icons");
     // inform how to download the generated icon
-    toast.success(
-      "Click on any of these buttons to download the generated image"
-    );
+    toast("Click on any of these buttons to download the generated image");
   };
 
   const handleUpload = async (e: { target: { files: any } }) => {
@@ -333,7 +334,7 @@ const Landing: FunctionComponent<LandingProps> = (props) => {
       {showIconGrids && <IconsGrid dataStrucute={dataStructue} />}
 
       {/* Wrapper for React Hot toast Component */}
-      <Toaster />
+      <Toaster reverseOrder />
     </Container>
   );
 };
