@@ -1,3 +1,10 @@
+# v1.0.5
+## What's changed
+
+- Fix some Adsense issues
+
+**Full Changelog**: https://github.com/imagable/imagable/compare/v1.0.4...v1.0.5
+
 # v1.0.4 😇
 
 ## What's Changed
