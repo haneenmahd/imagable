@@ -1,4 +1,13 @@
+# v1.1.0 😳
+
+## What's changed
+
+- Add more proxy servers. (#66)(https://github.com/imagable/imagable/pull/66)
+
+**Full Changelog**: https://github.com/imagable/imagable/compare/v1.0.5...v1.1.0
+
 # v1.0.5
+
 ## What's changed
 
 - Fix some Adsense issues
