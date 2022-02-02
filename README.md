@@ -86,7 +86,7 @@ npm run lint
 
 ## Deployment 🔨
 
-The branch forked by [haneenmahd](https://github.com/haneenmahd/imagable/tree/master) is used to deploy this project to production. See discussion for your questions [discussion#59](https://github.com/imagable/imagable/discussions/59) 💬.
+The branch forked by [haneenmahd](https://github.com/haneenmahd/imagable/tree/master) is used to deploy this project to production. See discussion for your questions [discussion#42](https://github.com/imagable/imagable/discussions/42) 💬.
 
 ## Built With 🛠
 
