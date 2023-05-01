@@ -1,21 +1,27 @@
 {
   "name": "imagable",
   "version": "1.0.0",
-  "description": "",
-  "type": "module",
+  "description": "<div align=\"center\">     <img height=\"100px\" src=\"https://github.com/imagable/imagable/blob/main/resources/logo.png\" alt=\"Imagable's logo\" />     <h1>Imagable</h1>     <img src=\"https://github.com/imagable/imagable/actions/workflows/build-web.yml/badge.svg\" alt=\"Build Web\" />     <img src=\"https://github.com/imagable/imagable/actions/workflows/build-server.yml/badge.svg\" alt=\"Build Server\" />     <img src=\"https://github.com/imagable/imagable/actions/workflows/lint-server.yml/badge.svg\" alt=\"Lint Server\" />     <img src=\"https://www.codefactor.io/repository/github/imagable/imagable/badge\" alt=\"Imagable's code quality badge\" />     <p>Imagable lets you generate icons automatically for different platforms.</p>     <i>Try it out Right now!</i> </div>",
   "main": "index.js",
+  "dependencies": {
+    "typeinstall": "^1.0.3",
+    "prettier": "^2.5.1",
+    "colorette": "^2.0.16",
+    "husky": "^7.0.4"
+  },
+  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "husky install",
-    "format": "npx prettier --write .",
-    "push": "git push origin main"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haneenmahd/imagable.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "husky": "^7.0.0",
-    "prettier": "^2.5.1",
-    "typeinstall": "^1.0.3"
-  }
+  "bugs": {
+    "url": "https://github.com/haneenmahd/imagable/issues"
+  },
+  "homepage": "https://github.com/haneenmahd/imagable#readme"
 }
