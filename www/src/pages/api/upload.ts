@@ -1,52 +1,39 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
-import sharp from 'sharp';
-import multer from 'multer';
+import type { NextApiRequest, NextApiResponse } from "next";
+import formidable, { File, IncomingForm } from 'formidable'
+// you might want to use regular 'fs' and not a promise one
+import { promises as fs } from 'fs'
+import packageImage from "@/lib/packageImage";
+import devices from "@/data/devices.json";
 
-const upload = multer({
-  storage: multer.memoryStorage(),
-  limits: {
-    fileSize: 5 * 1024 * 1024, // 5 MB
-  },
-  fileFilter: (req, file, cb) => {
-    const allowedMimes = ['image/jpeg', 'image/png', 'image/jpg'];
-    if (allowedMimes.includes(file.mimetype)) {
-      cb(null, true);
-    } else {
-      cb(new Error('Unsupported file type'));
-    }
-  },
-});
-
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
-  try {
-    const buffer = await handleFileUpload(req);
-    const resizedImage = await resizeImage(buffer);
-
-    // Do something with the resized image, such as save it to disk or upload it to a cloud storage service
-
-    res.status(200).json({ success: true });
-  } catch (error) {
-    res.status(500).json({ error: error.message, message: 'Failed to process image' });
+// first we need to disable the default body parser
+export const config = {
+  api: {
+    bodyParser: false,
   }
-}
+};
 
-function handleFileUpload(req: NextApiRequest): Promise<Buffer> {
-  return new Promise((resolve, reject) => {
-    upload.single('image')(req, {} as NextApiResponse, (err: any) => {
-      if (err) {
-        reject(err);
-      } else {
-        const buffer = req.file.buffer;
-        resolve(buffer);
-      }
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  // parse form with a Promise wrapper
+  const data = await new Promise((resolve, reject) => {
+    const form = formidable({
+      multiples: false,
+      keepExtensions: true
     });
-  });
-}
 
-async function resizeImage(buffer: Buffer): Promise<Buffer> {
-  const resizedImage = await sharp(buffer).resize(400, 400).toBuffer();
-  return resizedImage;
+    form.parse(req, (err, fields, files) => {
+      if (err) reject(err);
+
+      resolve({ fields, files });
+    })
+  });
+
+  const { files } = data as { files: Record<string, File> };
+
+  const contents = await fs.readFile(files.file.filepath);
+
+  const zipFileName = await packageImage(contents, devices as any);
+
+  res.status(200).send({
+    filePath: zipFileName
+  })
 }

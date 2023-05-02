@@ -4,14 +4,18 @@ import sharp from 'sharp';
 import fs from 'fs';
 import { ImageBuffer, PlatformIcon } from '@/types';
 import resize from './resize';
+import formZipFilePath from './util/formZipFilePath';
 
 export default async function packageImage(buffer: ImageBuffer, platformIcons: PlatformIcon[]) {
     const uuid = uuidv4();
     const zipFileName = `${uuid}.zip`;
+    const zipFilePath = formZipFilePath(zipFileName);
     const archive = archiver('zip', {
-        zlib: { level: 9 }
+        zlib: { level: 9 },
     });
-    const output = fs.createWriteStream(zipFileName);
+    const output = fs.createWriteStream(
+        zipFilePath
+    );
 
     for (const platformIcon of platformIcons) {
         const iconSizes = [...platformIcon.iconSizes];
